@@ -11,6 +11,15 @@ public class User {
 	@Column(name = "u_id", nullable = false)
 	private Integer userid;
 	
+	public Role getUser_role() {
+		return user_role;
+	}
+	public void setUser_role(Role user_role) {
+		this.user_role = user_role;
+	}
+	public void setUser_status(Status user_status) {
+		this.user_status = user_status;
+	}
 	@Column(name = "u_name", nullable = false, length = 150)
 	private String user_name;
 	
@@ -24,10 +33,21 @@ public class User {
 	private String user_password;
 	
 	@Column(name = "u_role")
-	private String user_role;
-	private String user_status;
+	@Enumerated(EnumType.STRING)
+	private Role user_role;
+	
+	@Column(name = "u_status")
+	@Enumerated(EnumType.STRING)
+	private Status user_status;
+	
+	@Column(name = "u_created")
 	private LocalDate user_created;
+	
+	@Column(name = "u_modified")
 	private LocalDate user_modified;
+	
+	public User() {
+	}
 	
 	public Integer getUserid() {
 		return userid;
@@ -59,18 +79,6 @@ public class User {
 	public void setUser_password(String user_password) {
 		this.user_password = user_password;
 	}
-	public String getUser_role() {
-		return user_role;
-	}
-	public void setUser_role(String user_role) {
-		this.user_role = user_role;
-	}
-	public String getUser_status() {
-		return user_status;
-	}
-	public void setUser_status(String user_status) {
-		this.user_status = user_status;
-	}
 	public LocalDate getUser_created() {
 		return user_created;
 	}
@@ -83,5 +91,4 @@ public class User {
 	public void setUser_modified(LocalDate user_modified) {
 		this.user_modified = user_modified;
 	}
-
 }
