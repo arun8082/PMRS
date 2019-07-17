@@ -1,5 +1,5 @@
 package com.pmrs.pojos;
 
-public enum Role {
+public enum ERole {
 	ADMIN, MENTOR, STUDENT
 }

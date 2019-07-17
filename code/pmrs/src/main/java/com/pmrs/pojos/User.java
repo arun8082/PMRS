@@ -1,96 +1,116 @@
 package com.pmrs.pojos;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "u_id", nullable = false)
-	private Integer userid;
-	
-	public Role getUser_role() {
-		return user_role;
-	}
-	public void setUser_role(Role user_role) {
-		this.user_role = user_role;
-	}
-	public void setUser_status(EntityStatus user_status) {
-		this.user_status = user_status;
-	}
+	private Integer userId;
+
 	@Column(name = "u_name", nullable = false, length = 150)
-	private String user_name;
-	
+	private String userName;
+
 	@Column(name = "u_email", nullable = false, length = 100)
-	private String user_email;
-	
+	private String userEmail;
+
 	@Column(name = "u_contact", nullable = false, length = 12)
-	private String user_contact;
-	
+	private String userContact;
+
 	@Column(name = "u_password", nullable = false, length = 60)
-	private String user_password;
-	
+	private String userPassword;
+
 	@Column(name = "u_role")
 	@Enumerated(EnumType.STRING)
-	private Role user_role;
-	
+	private ERole userRole;
+
 	@Column(name = "u_status")
 	@Enumerated(EnumType.STRING)
-	private EntityStatus user_status;
-	
+	private EEntityStatus userStatus;
+
 	@Column(name = "u_created")
-	private LocalDateTime user_created;
-	
+	private LocalDateTime userCreated;
+
 	@Column(name = "u_modified")
-	private LocalDateTime user_modified;
-	
+	private LocalDateTime userModified;
+
 	public User() {
 	}
-	
-	public Integer getUserid() {
-		return userid;
+
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUserid(Integer userid) {
-		this.userid = userid;
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	public String getUser_name() {
-		return user_name;
+
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getUser_email() {
-		return user_email;
+
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public String getUser_contact() {
-		return user_contact;
+
+	public String getUserContact() {
+		return userContact;
 	}
-	public void setUser_contact(String user_contact) {
-		this.user_contact = user_contact;
+
+	public void setUserContact(String userContact) {
+		this.userContact = userContact;
 	}
-	public String getUser_password() {
-		return user_password;
+
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public LocalDateTime getUser_created() {
-		return user_created;
+
+	public ERole getUserRole() {
+		return userRole;
 	}
-	public void setUser_created(LocalDateTime user_created) {
-		this.user_created = user_created;
+
+	public void setUserRole(ERole userRole) {
+		this.userRole = userRole;
 	}
-	public LocalDateTime getUser_modified() {
-		return user_modified;
+
+	public EEntityStatus getUserStatus() {
+		return userStatus;
 	}
-	public void setUser_modified(LocalDateTime user_modified) {
-		this.user_modified = user_modified;
+
+	public void setUserStatus(EEntityStatus userStatus) {
+		this.userStatus = userStatus;
 	}
+
+	public LocalDateTime getUserCreated() {
+		return userCreated;
+	}
+
+	public void setUserCreated(LocalDateTime userCreated) {
+		this.userCreated = userCreated;
+	}
+
+	public LocalDateTime getUserModified() {
+		return userModified;
+	}
+
+	public void setUserModified(LocalDateTime userModified) {
+		this.userModified = userModified;
+	}
+
 }

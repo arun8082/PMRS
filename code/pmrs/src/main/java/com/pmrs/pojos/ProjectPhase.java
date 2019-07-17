@@ -3,12 +3,14 @@ package com.pmrs.pojos;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 
+@Entity
+@Table(name = "project_phases")
 public class ProjectPhase {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ph_id")
-	private int phaseId;
+	private Integer phaseId;
 	
 	@Column(name = "ph_name", nullable = false, length = 100, unique = true)
 	private String phaseName;
@@ -17,14 +19,14 @@ public class ProjectPhase {
 	private LocalDateTime phaseCreated;
 
 	public ProjectPhase() {
-		
+		System.out.println("default constr of Project Phase table");
 	}
-	
-	public int getPhaseId() {
+
+	public Integer getPhaseId() {
 		return phaseId;
 	}
 
-	public void setPhaseId(int phaseId) {
+	public void setPhaseId(Integer phaseId) {
 		this.phaseId = phaseId;
 	}
 
@@ -42,5 +44,6 @@ public class ProjectPhase {
 
 	public void setPhaseCreated(LocalDateTime phaseCreated) {
 		this.phaseCreated = phaseCreated;
-	}
+	}	
+	
 }

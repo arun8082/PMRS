@@ -23,6 +23,31 @@ public class Group {
 	public Group() {
 		super();
 		System.out.println("default constr of Group table");
+	}
+
+	public Integer getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
+	}
+
+	public int getGroupLeaderId() {
+		return groupLeaderId;
+	}
+
+	public void setGroupLeaderId(int groupLeaderId) {
+		this.groupLeaderId = groupLeaderId;
+	}
+
+	public LocalDateTime getGroupCreated() {
+		return groupCreated;
+	}
+
+	public void setGroupCreated(LocalDateTime groupCreated) {
+		this.groupCreated = groupCreated;
 	}	
+	
 	
 }
