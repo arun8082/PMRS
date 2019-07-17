@@ -1,5 +1,5 @@
 package com.pmrs.pojos;
 
-public enum Status {
+public enum EntityStatus {
 	INACTIVE, ACTIVE
 }
