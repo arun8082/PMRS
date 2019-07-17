@@ -32,7 +32,13 @@ public class Project {
 	@Column(name="p_platform",nullable = false)
     private String projectPlatform;
 	
+	//owning
+	@ManyToOne
+	@JoinColumn(name = "project_mentor")
 	private int mentorId; //users foreign key
+	
+	@OneToOne
+	@JoinColumn(name = "project_group")
 	private int groupId; // groups foreign key
 	
 	@Column(name="p_created")
