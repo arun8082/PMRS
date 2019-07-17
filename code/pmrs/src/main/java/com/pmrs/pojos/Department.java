@@ -11,7 +11,7 @@ public class Department {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer departmentId;
 	
-	@Column(name="d_name", unique=true)
+	@Column(name="d_name", unique=true, length=150)
 	private String departmentName;
 	
 	@Column(name="d_created")
@@ -19,4 +19,16 @@ public class Department {
 	
 	@Column(name="d_status")
 	private Status departmentStatus;
+
+	//Default CTOR
+	public Department() {
+		System.out.println("In Department Pojo CTOR");
+	}
+
+	@Override
+	public String toString() {
+		return "Department [departmentId=" + departmentId + ", departmentName=" + departmentName
+				+ ", departmentCreated=" + departmentCreated + ", departmentStatus=" + departmentStatus + "]";
+	}
+
 }
