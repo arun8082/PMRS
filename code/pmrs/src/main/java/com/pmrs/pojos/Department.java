@@ -19,7 +19,7 @@ public class Department {
 	private LocalDateTime departmentCreated;
 
 	@Column(name = "d_status")
-	private EntityStatus departmentStatus;
+	private EEntityStatus departmentStatus;
 
 	// Default CTOR
 	public Department() {
@@ -56,11 +56,11 @@ public class Department {
 		this.departmentCreated = departmentCreated;
 	}
 
-	public EntityStatus getDepartmentStatus() {
+	public EEntityStatus getDepartmentStatus() {
 		return departmentStatus;
 	}
 
-	public void setDepartmentStatus(EntityStatus departmentStatus) {
+	public void setDepartmentStatus(EEntityStatus departmentStatus) {
 		this.departmentStatus = departmentStatus;
 	}
 
