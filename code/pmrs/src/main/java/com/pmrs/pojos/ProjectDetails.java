@@ -31,8 +31,13 @@ public class ProjectDetails {
 	
 	private Integer mentor_id; //users foreign key
 	private Integer group_id; // groups foreign key
+	
+	@Column(name="p_created")
 	private LocalDate project_created;
+	
+	@Column(name="p_duration")
 	private LocalDate project_duration;
+	
 	public Integer getProject_id() {
 		return project_id;
 	}
