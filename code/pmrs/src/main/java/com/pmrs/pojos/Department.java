@@ -18,7 +18,7 @@ public class Department {
 	private LocalDateTime departmentCreated;
 	
 	@Column(name="d_status")
-	private Status departmentStatus;
+	private EntityStatus departmentStatus;
 
 	//Default CTOR
 	public Department() {
