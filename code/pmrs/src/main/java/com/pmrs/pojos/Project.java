@@ -3,12 +3,7 @@ package com.pmrs.pojos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "projects")
@@ -19,16 +14,19 @@ public class Project {
 	@Column(name = "p_id", nullable = false)
 	private Integer projectId;
 	
-	@Column(name = "p_title", nullable = false )
+	@Column(name = "p_title", nullable = false)
     private String  projectTitle;
 	
-	@Column(name="p_desc",nullable = false)
+	@Column(name="p_description",nullable = false)
 	private String  projectDescription;
 	
-	@Column(name="p_hwreq",nullable = false)
+	@Column(name="p_technology",nullable = false)
+	private String projectTechnology;
+	
+	@Column(name="p_hwrequirement",nullable = false)
 	private String  projectHWRequire;
 	
-	@Column(name="p_swreq",nullable = false)
+	@Column(name="p_swrequirement",nullable = false)
 	private String projectSWRequire;
 	
 	@Column(name="p_platform",nullable = false)
@@ -45,9 +43,10 @@ public class Project {
 
 	public Project() {
 		super();
-		System.out.println("default constr of Projects table");
+		System.out.println("Default CTOR of Projects POJO");
 	}
 
+	//Getters and Setters
 	public Integer getProjectId() {
 		return projectId;
 	}
@@ -126,6 +125,14 @@ public class Project {
 
 	public void setProjectDuration(LocalDateTime projectDuration) {
 		this.projectDuration = projectDuration;
+	}
+
+	public String getProjectTechnology() {
+		return projectTechnology;
+	}
+
+	public void setProjectTechnology(String projectTechnology) {
+		this.projectTechnology = projectTechnology;
 	}
 	
 	
