@@ -14,8 +14,15 @@ public class Group {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer groupId;//g_id;
 	
-	@Column
+	@Column(name ="g_leader_id" )
 	private int groupLeaderId;//g_lid(leader);
+	
 	@Column(name = "g_created")
 	private LocalDateTime groupCreated;//g_created;
+
+	public Group() {
+		super();
+		System.out.println("default constr of Group table");
+	}	
+	
 }
