@@ -8,12 +8,11 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pmrs</groupId>
-	<artifactId>PMRS</artifactId>
-	<version>0.1</version>
-	<packaging>war</packaging>
-	<name>pmrs</name>
-	<description>Project Management And Repository System</description>
+	<groupId>com.example</groupId>
+	<artifactId>spring_boot_demo-2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring_boot_demo-2</name>
+	<description>Demo project for Spring Boot n Spring Data JPA</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -26,22 +25,19 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

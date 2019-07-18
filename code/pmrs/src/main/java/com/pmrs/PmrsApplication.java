@@ -1,4 +1,4 @@
-package com.pmrs.main;
+package com.pmrs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PmrsApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(PmrsApplication.class, args);
+		//System.out.println("\n\nmain file ");
 	}
 
 }

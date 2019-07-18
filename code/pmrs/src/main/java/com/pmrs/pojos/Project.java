@@ -34,12 +34,14 @@ public class Project {
 	
 	//owning
 	@ManyToOne
-	@JoinColumn(name = "project_mentor")
-	private int mentorId; //users foreign key
+	//@JoinColumn(name = "project_mentor")
+	//private int mentorId; //users foreign key
+	private User mentorId;
 	
 	@OneToOne
-	@JoinColumn(name = "project_group")
-	private int groupId; // groups foreign key
+	//@JoinColumn(name = "project_group")
+	//private int groupId; // groups foreign key
+	private Group groupId;
 	
 	@Column(name="p_created")
 	private LocalDateTime projectCreated;
@@ -101,22 +103,7 @@ public class Project {
 		this.projectPlatform = projectPlatform;
 	}
 
-	public int getMentorId() {
-		return mentorId;
-	}
-
-	public void setMentorId(int mentorId) {
-		this.mentorId = mentorId;
-	}
-
-	public int getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(int groupId) {
-		this.groupId = groupId;
-	}
-
+	
 	public LocalDateTime getProjectCreated() {
 		return projectCreated;
 	}

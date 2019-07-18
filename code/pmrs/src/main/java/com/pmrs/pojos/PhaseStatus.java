@@ -1,5 +1,8 @@
 package com.pmrs.pojos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -14,13 +17,17 @@ public class PhaseStatus {
 	//owning
 	
 	//project id
-	@ManyToOne
-	@JoinColumn(name = "phasestatus_project")
-	private int projectId;//ps_pid
+	@ManyToOne(cascade=CascadeType.ALL)
+	//@JoinColumn(name = "phasestatus_project")
+	//private int projectId;//ps_pid
+	private Project projectId;
 	
+	
+	@OneToOne
 	//phase id
-	private int phaseId;//ps_phid
-
+	//private int phaseId;//ps_phid
+	private ProjectPhase phaseId;
+	
 	//status
 	@Column(name = "ps_status", nullable = false)
 	private EProjectStatus phaseStatus;//ps_status	
@@ -31,22 +38,6 @@ public class PhaseStatus {
 
 	public void setPhaseStatusId(Integer phaseStatusId) {
 		this.phaseStatusId = phaseStatusId;
-	}
-
-	public int getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
-
-	public int getPhaseId() {
-		return phaseId;
-	}
-
-	public void setPhaseId(int phaseId) {
-		this.phaseId = phaseId;
 	}
 	
 	public EProjectStatus getPhaseStatus() {

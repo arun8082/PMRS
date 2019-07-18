@@ -10,12 +10,18 @@ import org.springframework.lang.NonNull;
 @Table(name = "groups")
 public class Group {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
 	@Column(name = "g_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer groupId;//g_id;
 	
-	@Column(name ="g_leader_id" )
-	private int groupLeaderId;//g_lid(leader);
+	@OneToOne
+	//@Column(name ="g_leader_id" )
+	//private int groupLeaderId;//g_lid(leader);
+	private User groupLeaderId;
 	
 	@Column(name = "g_created")
 	private LocalDateTime groupCreated;//g_created;
@@ -31,14 +37,6 @@ public class Group {
 
 	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
-	}
-
-	public int getGroupLeaderId() {
-		return groupLeaderId;
-	}
-
-	public void setGroupLeaderId(int groupLeaderId) {
-		this.groupLeaderId = groupLeaderId;
 	}
 
 	public LocalDateTime getGroupCreated() {
