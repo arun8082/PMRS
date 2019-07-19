@@ -14,9 +14,9 @@ public class Group {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "g_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer groupId;//g_id;
+	//@Column(name = "g_id")
+	@OneToOne
+	private GroupStudent groupId;//g_id;
 	
 	@OneToOne
 	//@Column(name ="g_leader_id" )
@@ -29,14 +29,6 @@ public class Group {
 	public Group() {
 		super();
 		System.out.println("default constr of Group table");
-	}
-
-	public Integer getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(Integer groupId) {
-		this.groupId = groupId;
 	}
 
 	public LocalDateTime getGroupCreated() {
