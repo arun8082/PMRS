@@ -1,0 +1,35 @@
+//mentor//
+User login(int id,string password)
+List<Group> getStudentGroups(mentorid)
+List<Student> getStudentList(int groupid)
+void viewDocuments(groupid)
+bool evaluateProject(projectid)
+bool reportResultToAdmin()
+
+
+//Project Repository//
+list<Project> getProjectList()
+
+
+
+//superadmin//
+User login(int id,string password)
+int addDepartment(Department)
+int addDepartmentAdmin(deptId,User)
+bool updateProfile(User)//name,contact,passwword
+bool updateAdminstatus(adminId)//updating department admin status
+
+
+
+//Department Admin//
+User login(int id,string password)
+int addMentor(User)
+bool updateProfile(User)//name,contact,passwword//own profile
+bool updateMentorDepartment(mentorId,deptid)//changed 1.3 
+bool updateMentorstatus(mentorId)//updating mentor status
+bool assignMentorToStudentGroup(groupId,mentorId)
+
+
+
+
+
