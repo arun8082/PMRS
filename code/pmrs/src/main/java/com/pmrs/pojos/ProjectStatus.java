@@ -38,6 +38,7 @@ public class ProjectStatus {
 	
 	//status
 	@Column(name = "ps_status", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private EProjectStatus phaseStatus;//ps_status	
 	
 	public Integer getPhaseStatusId() {

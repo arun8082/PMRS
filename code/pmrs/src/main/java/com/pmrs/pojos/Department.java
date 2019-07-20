@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import net.bytebuddy.description.modifier.EnumerationState;
+
 /**
  * 
  * @author dac
@@ -33,6 +35,7 @@ public class Department {
 	private LocalDateTime departmentCreated;
 
 	@Column(name = "d_status")
+	@Enumerated(EnumType.STRING)
 	private EEntityStatus departmentStatus;
 	
 	@OneToMany
