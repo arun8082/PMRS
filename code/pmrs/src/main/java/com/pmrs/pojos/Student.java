@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +29,9 @@ public class Student {
 	@Column(name = "s_contact", nullable = false,length=12)
 	private String studentContact;
 	
-	@Column(name = "s_deptid")
-	private Integer studentDepartmentid;
+	@ManyToOne
+	//@Column(name = "s_deptid")
+	private Department studentDepartmentid;
 	
 	@Column(name = "s_created")
 	private LocalDateTime studentCreated;
@@ -67,15 +72,7 @@ public class Student {
 	public void setStudentContact(String studentContact) {
 		this.studentContact = studentContact;
 	}
-
-	public Integer getStudentDepartmentid() {
-		return studentDepartmentid;
-	}
-
-	public void setStudentDepartmentid(Integer studentDepartmentid) {
-		this.studentDepartmentid = studentDepartmentid;
-	}
-
+	
 	public LocalDateTime getStudentCreated() {
 		return studentCreated;
 	}

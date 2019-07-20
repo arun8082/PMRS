@@ -1,6 +1,11 @@
 package com.pmrs.pojos;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +25,10 @@ public class Department {
 
 	@Column(name = "d_status")
 	private EEntityStatus departmentStatus;
+	
+	@OneToMany
+	@JoinColumn(name = "student_dept_id")
+	private List<Student> studentId=new ArrayList<Student>();
 
 	// Default CTOR
 	public Department() {
