@@ -1,4 +1,4 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.util.ArrayList;
 import java.util.List;
