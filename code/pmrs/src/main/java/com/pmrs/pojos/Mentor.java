@@ -72,11 +72,11 @@ public class Mentor {
 		this.lastName = lastName;
 	}
 
-	public Integer getCourseId() {
+	public Course getCourseId() {
 		return courseId;
 	}
 
-	public void setCourseId(Integer courseId) {
+	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
 	}
 
@@ -111,9 +111,4 @@ public class Mentor {
 	public void setStatus(EEntityStatus status) {
 		this.status = status;
 	}
-
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
-	}
-
 }
