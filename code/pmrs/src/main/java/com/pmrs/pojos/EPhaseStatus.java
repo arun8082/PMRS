@@ -1,0 +1,6 @@
+package com.pmrs.pojos;
+
+public enum EPhaseStatus {
+	REQUIREMENT,DOCUMENTATION,DESIGN,CODING,TESTING,IMPLEMENTATION
+
+}
