@@ -1,5 +1,4 @@
 
-
 package com.pmrs.pojos;
 
 import java.time.LocalDate;
@@ -9,84 +8,81 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.pmrs.pojos.Student;
+
 /**
  * 
- * Project entity defining Project Details.
- *  * @author Shipra
+ * Project entity defining Project Details. * @author Shipra
  *
  */
 @Entity
 @Table(name = "projects")
 public class Project {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "p_id")
 	private Integer projectId;
-	
+
 	@Column(name = "p_title", nullable = false)
-    private String  projectTitle;
-	
-	@Column(name="p_description",nullable = false)
-	private String  projectDescription;
-	
-	@Column(name="p_technology",nullable = false)
+	private String projectTitle;
+
+	@Column(name = "p_description", nullable = false)
+	private String projectDescription;
+
+	@Column(name = "p_technology", nullable = false)
 	private String projectTechnology;
-	
-	@Column(name="p_hwrequirement",nullable = false)
-	private String  projectHWRequire;
-	
-	@Column(name="p_swrequirement",nullable = false)
+
+	@Column(name = "p_hwrequirement", nullable = false)
+	private String projectHWRequire;
+
+	@Column(name = "p_swrequirement", nullable = false)
 	private String projectSWRequire;
-	
-	@Column(name="p_platform",nullable = false)
-    private String projectPlatform;
-	
-	//owning	-- Foreign Key
+
+	@Column(name = "p_platform", nullable = false)
+	private String projectPlatform;
+
+	// owning -- Foreign Key
 	@ManyToOne
 	@JoinColumn(name = "p_mentor")
 	private Mentor mentorId;
-	
-	@Column(name="p_created")
+
+	@Column(name = "p_created")
 	private LocalDate projectCreated;
-	
-	@Column(name="p_duration")
+
+	@Column(name = "p_duration")
 	private LocalDate projectDuration;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="student_id")
-	private List<Student> studentId=new ArrayList<>();
-	
-	
-	//added attribute of join table --raman
-	@OneToMany(mappedBy = "Project")
-	private List<ProjectPhases> projectphase=new ArrayList<ProjectPhases>();
-	
-	//convenience method to add join table(Project phases)
-		public void addProjectPhases(ProjectPhases ph)
-		{
-			this.projectphase.add(ph);
-		}
-	
-	//Convenience Method
-	public void addStudent(Student s)
-	{
-		studentId.add(s);					//Project --->Student
-		s.setStudentProjectId(this);		//Student --->Project
+	@JoinColumn(name = "student_id")
+	private List<Student> studentId = new ArrayList<>();
+
+	@OneToMany
+	@JoinColumn(name = "project_projectphaseId")
+	private List<ProjectPhase> projectphaseId = new ArrayList<ProjectPhase>();
+
+	// convenience method to add join table(Project phases)
+	public void addProjectPhases(ProjectPhase ph) {
+		this.projectphaseId.add(ph);
 	}
-	public void removeStudent(Student s)
-	{
-		studentId.remove(s);				//Project -X--Student
+
+	// Convenience Method
+	public void addStudent(Student s) {
+		studentId.add(s); // Project --->Student
+		s.setStudentProjectId(this); // Student --->Project
+	}
+
+	public void removeStudent(Student s) {
+		studentId.remove(s); // Project -X--Student
 		s.setStudentProjectId(null);
 	}
 
-	//Default CTOR
+	// Default CTOR
 	public Project() {
 		super();
 		System.out.println("Default CTOR of Projects POJO");
 	}
 
-	//Getters and Setters
+	// Getters and Setters
 	public Integer getProjectId() {
 		return projectId;
 	}
@@ -175,6 +171,4 @@ public class Project {
 		this.studentId = studentId;
 	}
 
-	
-	
 }

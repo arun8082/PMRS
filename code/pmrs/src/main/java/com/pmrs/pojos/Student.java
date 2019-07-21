@@ -6,6 +6,9 @@
 
 package com.pmrs.pojos;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,10 +23,10 @@ public class Student {
 	@Column(name = "s_prn",unique = true)
 	private String prn;
     
-	@Column(name = "s_name", nullable = false,length=150)
+	@Column(name = "s_first_name", nullable = false,length=150)
 	private String studentFirstName;
 	
-	@Column(name = "s_name", nullable = false,length=150)
+	@Column(name = "s_last_name", nullable = false,length=150)
 	private String studentLastName;
 
 	@Column(name = "s_email",nullable = false,length=100,unique = true)
@@ -34,15 +37,19 @@ public class Student {
 	
 	@Column(name = "s_status", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private String studentStatus;
+	private EEntityStatus studentStatus;
 	
 	@ManyToOne
 	@JoinColumn(name = "s_projectid")
 	private Project studentProjectId;
 	
-	@ManyToOne
-	@JoinColumn(name = "s_courseid")
-	private Course studentCourseID;
+	//@JoinColumn(name = "s_courseid")
+	@ManyToMany
+	@JoinTable(name = "courses_students_map",
+		joinColumns = {@JoinColumn(name="courseId")},
+		inverseJoinColumns = {@JoinColumn(name="studentId")}
+			)
+	private List<Course> studentCourseID = new ArrayList<Course>();
 	
 	@Column(name = "s_added")
 	private LocalDate added;
@@ -101,11 +108,11 @@ public class Student {
 		this.studentContact = studentContact;
 	}
 
-	public String getStudentStatus() {
+	public EEntityStatus getStudentStatus() {
 		return studentStatus;
 	}
 
-	public void setStudentStatus(String studentStatus) {
+	public void setStudentStatus(EEntityStatus studentStatus) {
 		this.studentStatus = studentStatus;
 	}
 
@@ -125,15 +132,13 @@ public class Student {
 		this.added = added;
 	}
 
-	public Course getStudentCourseID() {
+	public List<Course> getStudentCourseID() {
 		return studentCourseID;
 	}
 
-	public void setStudentCourseID(Course studentCourseID) {
+	public void setStudentCourseID(List<Course> studentCourseID) {
 		this.studentCourseID = studentCourseID;
 	}	
-	
-	
 		
 }
 

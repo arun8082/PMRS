@@ -4,19 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-
+import javax.persistence.*;
 
 /**
  * 
@@ -44,10 +32,21 @@ public class Course {
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus courseStatus;
 
-	@OneToMany
-	@JoinColumn(name = "student_id")
+	//@JoinColumn(name = "student_id")
+	@ManyToMany
+	@JoinTable(name = "courses_students_map",
+		joinColumns = {@JoinColumn(name="studentId")},
+		inverseJoinColumns = {@JoinColumn(name="courseId")}
+		)
 	private List<Student> studentId = new ArrayList<Student>();
 
+	@ManyToMany
+	@JoinTable(name = "courseAdmins_courses_map",
+				joinColumns = {@JoinColumn(name="courseAdminId")},
+				inverseJoinColumns = {@JoinColumn(name="courseId")}
+			)
+	private List<CourseAdmin> courseAdminId = new ArrayList<CourseAdmin>();
+	
 	public Course() {
 
 		System.out.println("Course Default Constuctor");
@@ -90,19 +89,17 @@ public class Course {
 	}
 
 	public void setStudentId(List<Student> studentId) {
-		studentId = studentId;
+		this.studentId = studentId;
 	}
 
-	// convenience methods
-
-	public void addStudent(Student s) {
-		studentId.add(s);// course --->student
-		s.setStudentCourseID(this);// student --->course
+	public List<CourseAdmin> getCourseAdmin() {
+		return courseAdminId;
 	}
 
-	public void removeStudent(Student s) {
-		studentId.remove(s);// course -X--student
-		s.setStudentCourseID(null);
+	public void setCourseAdmin(List<CourseAdmin> courseAdminId) {
+		this.courseAdminId = courseAdminId;
 	}
+
+	
 
 }

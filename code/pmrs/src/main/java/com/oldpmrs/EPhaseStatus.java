@@ -1,4 +1,4 @@
-package com.pmrs.pojos;
+package com.oldpmrs;
 
 public enum EPhaseStatus {
 	REQUIREMENT,DOCUMENTATION,DESIGN,CODING,TESTING,IMPLEMENTATION

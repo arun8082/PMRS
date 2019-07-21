@@ -9,7 +9,8 @@ import javax.persistence.*;
 /**
  * This pojo contins project pahse names and status(active/inactive)
  * i.e. current phase is enabled to use or not 
- * 
+ * project phases like
+ * REQUIREMENT,DOCUMENTATION,DESIGN,CODING,TESTING,IMPLEMENTATION
  * @author arun
  *
  */
@@ -33,72 +34,41 @@ public class Phase {
 	@Column(name = "ph_added")
 	private LocalDate added;
 	
-	//added join table list-project phases //raman
-	@OneToMany(mappedBy = "Phase")
-	private List<ProjectPhases> projectphase=new ArrayList<ProjectPhases>();
-	
-	
-	
-	
 	public Phase() {
 		super();
 		System.out.println("Def constr of Pahse pojo");
-	}
-	
-	//convenience method to add join table(Project phases)
-	public void addProjectPhases(ProjectPhases ph)
-	{
-		this.projectphase.add(ph);
 	}
 
 	public Integer getPhaseId() {
 		return phaseId;
 	}
-
-
-
+	
 	public void setPhaseId(Integer phaseId) {
 		this.phaseId = phaseId;
 	}
 
-
-
 	public String getPhaseName() {
 		return phaseName;
 	}
-
-
-
+	
 	public void setPhaseName(String phaseName) {
 		this.phaseName = phaseName;
 	}
-
-
 
 	public EEntityStatus getStatus() {
 		return status;
 	}
 
-
-
 	public void setStatus(EEntityStatus status) {
 		this.status = status;
 	}
 
-
-
 	public LocalDate getAdded() {
 		return added;
 	}
-
-
-
+	
 	public void setAdded(LocalDate added) {
 		this.added = added;
 	}
-
-
-
-
 	
 }

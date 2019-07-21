@@ -1,4 +1,4 @@
-package com.pmrs.pojosold;
+package com.oldpmrs;
 
 import java.time.LocalDateTime;
 

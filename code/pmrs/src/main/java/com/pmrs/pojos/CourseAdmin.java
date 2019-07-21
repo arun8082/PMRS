@@ -24,7 +24,7 @@ public class CourseAdmin {
 	@Id
 	@Column(name = "ca_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer courseAdminId;
 	
 	@Column(name = "ca_first_name")
 	private String firstName;
@@ -39,7 +39,10 @@ public class CourseAdmin {
 	private String contact;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@Column(name = "ca_course_id")
+	@JoinTable(name = "courseAdmins_courses_map",
+			joinColumns = {@JoinColumn(name="courseId")},
+			inverseJoinColumns = {@JoinColumn(name="courseAdminId")}
+			)
 	private List<Course> courseId= new ArrayList<Course>();
 	
 	@Column(name = "ca_status")
@@ -55,11 +58,11 @@ public class CourseAdmin {
 	}
 
 	public Integer getId() {
-		return id;
+		return courseAdminId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer courseAdminId) {
+		this.courseAdminId = courseAdminId;
 	}
 
 	public String getFirstName() {
