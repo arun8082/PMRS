@@ -1,4 +1,4 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
