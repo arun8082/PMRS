@@ -1,6 +1,6 @@
 /**
  * 
- * @author dac
+ * @author Shipra
  * Project entity defining Project Details.
  *
  */
@@ -8,13 +8,12 @@
 package com.pmrs.pojos;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.pmrs.pojosold.Student;
+import com.pmrs.pojos.Student;
 
 
 @Entity
@@ -50,14 +49,26 @@ public class Project {
 	private Mentor mentorId;
 	
 	@Column(name="p_created")
-	private LocalDateTime projectCreated;
+	private LocalDate projectCreated;
 	
 	@Column(name="p_duration")
-	private LocalDateTime projectDuration;
+	private LocalDate projectDuration;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="student_id")
 	private List<Student> studentId=new ArrayList<>();
+	
+	//Convenience Method
+	public void addStudent(Student s)
+	{
+		studentId.add(s);					//Project --->Student
+		s.setStudentProjectId(this);		//Student --->Project
+	}
+	public void removeStudent(Student s)
+	{
+		studentId.remove(s);				//Project -X--Student
+		s.setStudentProjectId(null);
+	}
 
 	//Default CTOR
 	public Project() {
@@ -130,19 +141,19 @@ public class Project {
 		this.mentorId = mentorId;
 	}
 
-	public LocalDateTime getProjectCreated() {
+	public LocalDate getProjectCreated() {
 		return projectCreated;
 	}
 
-	public void setProjectCreated(LocalDateTime projectCreated) {
+	public void setProjectCreated(LocalDate projectCreated) {
 		this.projectCreated = projectCreated;
 	}
 
-	public LocalDateTime getProjectDuration() {
+	public LocalDate getProjectDuration() {
 		return projectDuration;
 	}
 
-	public void setProjectDuration(LocalDateTime projectDuration) {
+	public void setProjectDuration(LocalDate projectDuration) {
 		this.projectDuration = projectDuration;
 	}
 
