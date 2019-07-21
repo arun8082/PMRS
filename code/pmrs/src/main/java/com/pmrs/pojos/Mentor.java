@@ -27,7 +27,7 @@ public class Mentor {
 	private String lastName;
 
 	// Many mentors are related to one course
-	@Column(name = "c_id")
+	//@Column(name = "c_id")
 	@ManyToOne
 	private Course courseId;
 
