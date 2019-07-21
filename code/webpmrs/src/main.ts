@@ -6,6 +6,7 @@ import { NavModule } from './appnav/nav.module';
 import { AppModule } from './app/app.module';
 import { FooterModule } from './appfooter/footer.module';
 import { environment } from './environments/environment';
+import 'hammerjs';
 
 if (environment.production) {
   enableProdMode();
