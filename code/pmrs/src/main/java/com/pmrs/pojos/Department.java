@@ -2,11 +2,22 @@ package com.pmrs.pojos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import javax.persistence.*;
+
+import net.bytebuddy.description.modifier.EnumerationState;
+
+/**
+ * 
+ * @author dac
+ * Department entity defines different departments(DAC,DITISS,IOT)
+ * when it is created and its status(active/inactive)
+ * one department can have multiple students
+ *
+ */
 
 @Entity
 @Table(name = "departments")
@@ -24,6 +35,7 @@ public class Department {
 	private LocalDateTime departmentCreated;
 
 	@Column(name = "d_status")
+	@Enumerated(EnumType.STRING)
 	private EEntityStatus departmentStatus;
 	
 	@OneToMany
@@ -72,5 +84,19 @@ public class Department {
 	public void setDepartmentStatus(EEntityStatus departmentStatus) {
 		this.departmentStatus = departmentStatus;
 	}
+	
+	//convenience methods
+	
+	public void addStudent(Student s)
+	{
+		studentId.add(s);//department --->student
+		s.setStudentDepartmentid(this);//student --->department
+	}
+	public void removeStudent(Student s)
+	{
+		studentId.remove(s);//department -X--student
+		s.setStudentDepartmentid(null);
+	}
+
 
 }

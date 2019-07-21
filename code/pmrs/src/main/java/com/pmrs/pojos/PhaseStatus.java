@@ -1,55 +1,58 @@
 package com.pmrs.pojos;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.time.LocalDateTime;
 import javax.persistence.*;
+/**
+ * 
+ * @author dac
+ * this entity defines the name of the phase(SRS,Design,Coding,Deployment) at which project is
+ * and when it is created.
+ * 
+ *
+ */
 
-
+//ProjectPhase changed to PhaseStatus
 @Entity
-@Table(name = "phase_status")
+@Table(name = "phases")
 public class PhaseStatus {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ps_id", nullable = false)
-	private Integer phaseStatusId;// ps_id
+	@Column(name = "ph_id")
+	private Integer phaseId;
 	
-	//owning
+	@Column(name = "ph_name", nullable = false, length = 100, unique = true)
+	private String phaseName;
 	
-	//project id
-	@ManyToOne(cascade=CascadeType.ALL)
-	//@JoinColumn(name = "phasestatus_project")
-	//private int projectId;//ps_pid
-	private Project projectId;
-	
-	
-	@OneToOne
-	//phase id
-	//private int phaseId;//ps_phid
-	private ProjectPhase phaseId;
-	
-	//status
-	@Column(name = "ps_status", nullable = false)
-	private EProjectStatus phaseStatus;//ps_status	
-	
-	public Integer getPhaseStatusId() {
-		return phaseStatusId;
+	@Column(name = "ph_created")
+	private LocalDateTime phaseCreated;
+
+	public PhaseStatus() {
+		System.out.println("default constr of Project Phase table");
 	}
 
-	public void setPhaseStatusId(Integer phaseStatusId) {
-		this.phaseStatusId = phaseStatusId;
+	public Integer getPhaseId() {
+		return phaseId;
 	}
+
+	public void setPhaseId(Integer phaseId) {
+		this.phaseId = phaseId;
+	}
+
+	public String getPhaseName() {
+		return phaseName;
+	}
+
+	public void setPhaseName(String phaseName) {
+		this.phaseName = phaseName;
+	}
+
+	public LocalDateTime getPhaseCreated() {
+		return phaseCreated;
+	}
+
+	public void setPhaseCreated(LocalDateTime phaseCreated) {
+		this.phaseCreated = phaseCreated;
+	}	
 	
-	public EProjectStatus getPhaseStatus() {
-		return phaseStatus;
-	}
-
-	public void setPhaseStatus(EProjectStatus phaseStatus) {
-		this.phaseStatus = phaseStatus;
-	}
-
-	public PhaseStatus()
-	{
-		System.out.println("In default phase status constructor");
-	}
 }
