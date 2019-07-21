@@ -57,6 +57,17 @@ public class Project {
 	@JoinColumn(name="student_id")
 	private List<Student> studentId=new ArrayList<>();
 	
+	
+	//added attribute of join table --raman
+	@OneToMany(mappedBy = "Project")
+	private List<ProjectPhases> projectphase=new ArrayList<ProjectPhases>();
+	
+	//convenience method to add join table(Project phases)
+		public void addProjectPhases(ProjectPhases ph)
+		{
+			this.projectphase.add(ph);
+		}
+	
 	//Convenience Method
 	public void addStudent(Student s)
 	{
