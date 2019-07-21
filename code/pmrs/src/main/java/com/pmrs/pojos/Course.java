@@ -2,6 +2,7 @@ package com.pmrs.pojos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -85,23 +86,23 @@ public class Course {
 	}
 
 	public List<Student> getStudentId() {
-		return StudentId;
+		return studentId;
 	}
 
 	public void setStudentId(List<Student> studentId) {
-		StudentId = studentId;
+		studentId = studentId;
 	}
 
 	// convenience methods
 
 	public void addStudent(Student s) {
 		studentId.add(s);// course --->student
-		s.setStudentCourseId(this);// student --->course
+		s.setStudentCourseID(this);// student --->course
 	}
 
 	public void removeStudent(Student s) {
 		studentId.remove(s);// course -X--student
-		s.setStudentCourseId(null);
+		s.setStudentCourseID(null);
 	}
 
 }
