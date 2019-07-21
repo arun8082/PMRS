@@ -1,7 +1,16 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.time.LocalDateTime;
 import javax.persistence.*;
+/**
+ * 
+ * @author dac
+ *defines the type of user(mentor,admin,groupleader)
+ *
+ *
+ */
+
+
 
 @Entity
 @Table(name = "users")

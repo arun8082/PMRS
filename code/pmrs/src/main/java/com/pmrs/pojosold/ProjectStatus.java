@@ -1,43 +1,52 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+/**
+ * 
+ * @author dac
+ * mentor will update the projectstatus(hold,verified)
+ *
+ *
+ */
 
-
+//phaseStatus to projectStatus entity name change
+//primary key column phaseStatusId ->projectstatusId
 @Entity
-@Table(name = "phase_status")
-public class PhaseStatus {
+@Table(name = "project_status")
+public class ProjectStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ps_id", nullable = false)
-	private Integer phaseStatusId;// ps_id
+	private Integer projectStatusId;// ps_id
 	
 	//owning
 	
 	//project id
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	//@JoinColumn(name = "phasestatus_project")
 	//private int projectId;//ps_pid
 	private Project projectId;
 	
 	
-	@OneToOne
+	@ManyToOne
 	//phase id
 	//private int phaseId;//ps_phid
-	private ProjectPhase phaseId;
+	private PhaseStatus phaseId;
 	
 	//status
 	@Column(name = "ps_status", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private EProjectStatus phaseStatus;//ps_status	
 	
 	public Integer getPhaseStatusId() {
-		return phaseStatusId;
+		return projectStatusId;
 	}
 
 	public void setPhaseStatusId(Integer phaseStatusId) {
-		this.phaseStatusId = phaseStatusId;
+		this.projectStatusId = phaseStatusId;
 	}
 	
 	public EProjectStatus getPhaseStatus() {
@@ -48,7 +57,7 @@ public class PhaseStatus {
 		this.phaseStatus = phaseStatus;
 	}
 
-	public PhaseStatus()
+	public ProjectStatus()
 	{
 		System.out.println("In default phase status constructor");
 	}

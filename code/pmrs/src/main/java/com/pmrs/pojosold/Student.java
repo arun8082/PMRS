@@ -1,4 +1,4 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+/**
+ * 
+ * @author dac
+ *Student details
+ */
+
 
 @Entity
 @Table(name = "students")
@@ -39,6 +45,14 @@ public class Student {
 	public Student() {
 		super();
 		System.out.println("Default constr of Student");
+	}
+
+	public Department getStudentDepartmentid() {
+		return studentDepartmentid;
+	}
+
+	public void setStudentDepartmentid(Department studentDepartmentid) {
+		this.studentDepartmentid = studentDepartmentid;
 	}
 
 	public Integer getStudentId() {

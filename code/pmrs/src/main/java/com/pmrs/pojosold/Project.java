@@ -1,9 +1,16 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+/**
+ * 
+ * @author dac
+ *Project entity defines Project Details.
+ *
+ */
+
 
 @Entity
 @Table(name = "projects")

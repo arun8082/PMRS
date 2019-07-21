@@ -1,11 +1,16 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
 import org.springframework.lang.NonNull;
-
+/**
+ * 
+ * @author dac
+ * Group entity defines all the Project groups. 
+ *
+ */
 @Entity
 @Table(name = "groups")
 public class Group {

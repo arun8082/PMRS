@@ -1,4 +1,4 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ * @author dac
+ *mapping of students with Project groups
+ */
 @Entity
 @Table(name = "group_students")
 public class GroupStudent {
@@ -48,7 +54,10 @@ public class GroupStudent {
 	public void setStudentRole(int studentRole) {
 		this.studentRole = studentRole;
 	}
+	
 
+    
+     
 
 	public GroupStudent()
 	{

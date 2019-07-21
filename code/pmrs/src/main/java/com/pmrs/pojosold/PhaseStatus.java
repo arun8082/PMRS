@@ -1,11 +1,20 @@
-package com.pmrs.pojos;
+package com.pmrs.pojosold;
 
 import java.time.LocalDateTime;
 import javax.persistence.*;
+/**
+ * 
+ * @author dac
+ * this entity defines the name of the phase(SRS,Design,Coding,Deployment) at which project is
+ * and when it is created.
+ * 
+ *
+ */
 
+//ProjectPhase changed to PhaseStatus
 @Entity
-@Table(name = "project_phases")
-public class ProjectPhase {
+@Table(name = "phases")
+public class PhaseStatus {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +27,7 @@ public class ProjectPhase {
 	@Column(name = "ph_created")
 	private LocalDateTime phaseCreated;
 
-	public ProjectPhase() {
+	public PhaseStatus() {
 		System.out.println("default constr of Project Phase table");
 	}
 
