@@ -5,7 +5,8 @@ import javax.persistence.*;
 
 /**
  * 
- * @author PMRS This is Mentor POJO Class. It's properties are ID, First Name,
+ * @author ashu
+ * 		   This is Mentor POJO Class. It's properties are ID, First Name,
  *         Last Name, Course ID (Foreign Key), Email, Contact, Status
  *         (Active/Inactive), Date Added Along with getters and setters
  */
