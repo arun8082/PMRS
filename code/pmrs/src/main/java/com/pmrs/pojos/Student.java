@@ -6,7 +6,6 @@
 
 package com.pmrs.pojos;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import javax.persistence.*;
 
 @Entity
@@ -38,8 +37,12 @@ public class Student {
 	private String studentStatus;
 	
 	@ManyToOne
-	//@Column(name = "s_projectid")
-	private Project studentProjectid;
+	@JoinColumn(name = "s_projectid")
+	private Project studentProjectId;
+	
+	@ManyToOne
+	@JoinColumn(name = "s_courseid")
+	private Course studentCourseID;
 	
 	@Column(name = "s_added")
 	private LocalDate added;
@@ -48,6 +51,89 @@ public class Student {
 		super();
 		System.out.println("Default constr of Student");
 	}
+
+	//Getters and Setters
+	public Integer getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getPrn() {
+		return prn;
+	}
+
+	public void setPrn(String prn) {
+		this.prn = prn;
+	}
+
+	public String getStudentFirstName() {
+		return studentFirstName;
+	}
+
+	public void setStudentFirstName(String studentFirstName) {
+		this.studentFirstName = studentFirstName;
+	}
+
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+
+	public String getStudentEmail() {
+		return studentEmail;
+	}
+
+	public void setStudentEmail(String studentEmail) {
+		this.studentEmail = studentEmail;
+	}
+
+	public String getStudentContact() {
+		return studentContact;
+	}
+
+	public void setStudentContact(String studentContact) {
+		this.studentContact = studentContact;
+	}
+
+	public String getStudentStatus() {
+		return studentStatus;
+	}
+
+	public void setStudentStatus(String studentStatus) {
+		this.studentStatus = studentStatus;
+	}
+
+	public Project getStudentProjectId() {
+		return studentProjectId;
+	}
+
+	public void setStudentProjectId(Project studentProjectid) {
+		this.studentProjectId = studentProjectid;
+	}
+
+	public LocalDate getAdded() {
+		return added;
+	}
+
+	public void setAdded(LocalDate added) {
+		this.added = added;
+	}
+
+	public Course getStudentCourseID() {
+		return studentCourseID;
+	}
+
+	public void setStudentCourseID(Course studentCourseID) {
+		this.studentCourseID = studentCourseID;
+	}	
+	
+	
 		
 }
 
