@@ -1,9 +1,4 @@
-/**
- * 
- * @author Shipra
- * Project entity defining Project Details.
- *
- */
+
 
 package com.pmrs.pojos;
 
@@ -14,15 +9,19 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.pmrs.pojos.Student;
-
-
+/**
+ * 
+ * Project entity defining Project Details.
+ *  * @author Shipra
+ *
+ */
 @Entity
 @Table(name = "projects")
 public class Project {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "p_id", nullable = false)
+	@Column(name = "p_id")
 	private Integer projectId;
 	
 	@Column(name = "p_title", nullable = false)
