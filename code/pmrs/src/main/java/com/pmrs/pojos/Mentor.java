@@ -21,31 +21,31 @@ public class Mentor {
 	private Integer id;
 
 	@Column(name = "m_first_name")
-	private String firstName;
+	private String mentorFirstName;
 
 	@Column(name = "m_last_name")
-	private String lastName;
+	private String mentorLastName;
 
 	// Many mentors are related to one course
 	//@Column(name = "c_id")
 	@ManyToOne
 	private Course courseId;
 
-	@Column(name = "email")
-	private String email;
+	@Column(name = "m_email")
+	private String mentorEmail;
 
-	@Column(name = "contact")
-	private String contact;
+	@Column(name = "m_contact")
+	private String mentorContact;
 
-	@Column(name = "status")
+	@Column(name = "m_status")
 	@Enumerated(EnumType.STRING)
-	private EEntityStatus status;
+	private EEntityStatus mentorStatus;
 
-	@Column(name = "added")
-	private LocalDate added;
-
+	@Column(name = "m_added")
+	private LocalDate mentorAdded;
+	
 	public Mentor() {
-
+		System.out.println("This is mentor's constructor");
 	}
 
 	public Integer getId() {
@@ -56,20 +56,20 @@ public class Mentor {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getMentorFirstName() {
+		return mentorFirstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setMentorFirstName(String mentorFirstName) {
+		this.mentorFirstName = mentorFirstName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getMentorLastName() {
+		return mentorLastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setMentorLastName(String mentorLastName) {
+		this.mentorLastName = mentorLastName;
 	}
 
 	public Course getCourseId() {
@@ -80,35 +80,37 @@ public class Mentor {
 		this.courseId = courseId;
 	}
 
-	public LocalDate getAdded() {
-		return added;
+	public String getMentorEmail() {
+		return mentorEmail;
 	}
 
-	public void setAdded(LocalDate added) {
-		this.added = added;
+	public void setMentorEmail(String mentorEmail) {
+		this.mentorEmail = mentorEmail;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMentorContact() {
+		return mentorContact;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMentorContact(String mentorContact) {
+		this.mentorContact = mentorContact;
 	}
 
-	public String getContact() {
-		return contact;
+	public EEntityStatus getMentorStatus() {
+		return mentorStatus;
 	}
 
-	public void setContact(String contact) {
-		this.contact = contact;
+	public void setMentorStatus(EEntityStatus mentorStatus) {
+		this.mentorStatus = mentorStatus;
 	}
 
-	public EEntityStatus getStatus() {
-		return status;
+	public LocalDate getMentorAdded() {
+		return mentorAdded;
 	}
 
-	public void setStatus(EEntityStatus status) {
-		this.status = status;
+	public void setMentorAdded(LocalDate mentorAdded) {
+		this.mentorAdded = mentorAdded;
 	}
-}
+	
+	
+	}
