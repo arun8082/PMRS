@@ -21,5 +21,4 @@ public interface ICourseDAO {
 	
 	public boolean removeCourse(Course course);
 	
-	public boolean removeCourse(Course course, boolean force);
 }

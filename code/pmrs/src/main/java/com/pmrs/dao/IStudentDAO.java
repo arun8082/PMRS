@@ -21,5 +21,4 @@ public interface IStudentDAO extends IProjectDAO {
 	
 	public boolean removeStudent(Student student);
 	
-	public boolean removeStudent(Student student, boolean force);
 }

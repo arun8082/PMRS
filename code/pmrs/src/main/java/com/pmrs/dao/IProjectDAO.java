@@ -21,5 +21,4 @@ public interface IProjectDAO {
 	
 	public boolean removeProject(Project project);
 	
-	public boolean removeProject(Project project, boolean force);
 }

@@ -21,5 +21,4 @@ public interface IPhaseDAO {
 	
 	public boolean removePhase(Phase phase);
 	
-	public boolean removePhase(Phase phase, boolean force);
 }

@@ -21,7 +21,5 @@ public interface IMentorDAO {
 	public List<Mentor> listAllMentors();
 	
 	public boolean remove(Mentor mentor);
-	
-	public boolean remove(Mentor mentor, boolean force);
 
 }

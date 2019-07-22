@@ -18,7 +18,7 @@ public class Mentor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "m_id")
-	private Integer id;
+	private Integer mentorId;
 
 	@Column(name = "m_first_name")
 	private String mentorFirstName;
@@ -48,12 +48,12 @@ public class Mentor {
 		System.out.println("This is mentor's constructor");
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getMentorId() {
+		return mentorId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setMentorId(Integer mentorId) {
+		this.mentorId = mentorId;
 	}
 
 	public String getMentorFirstName() {
