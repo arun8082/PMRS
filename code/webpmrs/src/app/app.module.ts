@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MyMaterialModule } from './header/material.module';
 import { LoginComponent } from './header/Login/Login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HeaderComponent,
     NavComponent,
     FooterComponent,
-    LoginComponent
-    
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
