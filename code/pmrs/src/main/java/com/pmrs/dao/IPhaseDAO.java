@@ -1,6 +1,5 @@
 package com.pmrs.dao;
 
-import java.util.List;
 import com.pmrs.pojos.Phase;
 
 /**
@@ -9,16 +8,6 @@ import com.pmrs.pojos.Phase;
  *
  */
 
-public interface IPhaseDAO {
-
-	public Phase addPhase(Phase phase);
-
-	public boolean updatePhase(Phase phase);
-
-	public Phase getPhase(Phase phase);
-
-	public List<Phase> listAllPhase();
-	
-	public boolean removePhase(Phase phase);
+public interface IPhaseDAO extends IGenericDAO<Phase, Integer>{
 	
 }

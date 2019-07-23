@@ -1,6 +1,5 @@
 package com.pmrs.dao;
 
-import java.util.List;
 import com.pmrs.pojos.Project;
 
 /**
@@ -9,16 +8,6 @@ import com.pmrs.pojos.Project;
  *
  */
 
-public interface IProjectDAO {
+public interface IProjectDAO extends IGenericDAO<Project, Integer> {
 
-	public Project addProject(Project project);
-
-	public boolean updateProject(Project project);
-
-	public Project getProject(Project project);
-
-	public List<Project> listAllProject();
-	
-	public boolean removeProject(Project project);
-	
 }

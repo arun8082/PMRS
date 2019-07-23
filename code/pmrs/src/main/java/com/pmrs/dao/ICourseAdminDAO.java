@@ -8,8 +8,6 @@ import com.pmrs.pojos.CourseAdmin;
  *
  */
 
-public interface ICourseAdminDAO extends ICourseDAO, IStudentDAO, IMentorDAO{
-	
-	public boolean updateCourseAdmin(CourseAdmin courseAdmin);
+public interface ICourseAdminDAO extends IGenericDAO< CourseAdmin, Integer >{
 	
 }

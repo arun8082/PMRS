@@ -1,6 +1,5 @@
 package com.pmrs.dao;
 
-import java.util.List;
 import com.pmrs.pojos.Mentor;
 
 /**
@@ -10,16 +9,6 @@ import com.pmrs.pojos.Mentor;
  *
  */
 
-public interface IMentorDAO {
-
-	public Mentor addMentor(Mentor mentor);
-
-	public boolean updateMentor(Mentor mentor);
-
-	public Mentor getMentor(Mentor mentor);
-
-	public List<Mentor> listAllMentors();
-	
-	public boolean remove(Mentor mentor);
+public interface IMentorDAO extends IGenericDAO<Mentor, Integer> {
 
 }

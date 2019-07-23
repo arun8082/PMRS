@@ -1,6 +1,5 @@
 package com.pmrs.dao;
 
-import java.util.List;
 import com.pmrs.pojos.Student;
 
 /**
@@ -9,16 +8,6 @@ import com.pmrs.pojos.Student;
  *
  */
 
-public interface IStudentDAO extends IProjectDAO {
+public interface IStudentDAO extends IGenericDAO<Student, Integer> {
 
-	public Student addStudent(Student student);
-
-	public boolean updateStudent(Student student);
-
-	public Student getStudent(Student student);
-
-	public List<Student> listAllStudent();
-	
-	public boolean removeStudent(Student student);
-	
 }

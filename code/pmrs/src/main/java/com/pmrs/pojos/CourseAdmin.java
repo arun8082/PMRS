@@ -1,25 +1,27 @@
 package com.pmrs.pojos;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
 /**
- * Course admin is a super user who can access evething
- * Course Admin can create new course and manage the courses
+ * Course Administrator is a super user who can access everything
+ * Course Administrator can create new course and manage the courses
  * 
  * Foreign Keys
  * courseAdmin<-->Course(M:M)
  * 
- * @author Aurn
+ * @author Arun
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "course_admins")
-public class CourseAdmin {
+public class CourseAdmin implements Serializable{
 	
 	@Id
 	@Column(name = "ca_id")
@@ -38,7 +40,7 @@ public class CourseAdmin {
 	@Column(name = "ca_contact")
 	private String contact;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "courseAdmins_courses_map",
 			joinColumns = {@JoinColumn(name="courseId")},
 			inverseJoinColumns = {@JoinColumn(name="courseAdminId")}
@@ -99,6 +101,13 @@ public class CourseAdmin {
 
 	public List<Course> getCourseId() {
 		return courseId;
+	}
+
+	@Override
+	public String toString() {
+		return "CourseAdmin [courseAdminId=" + courseAdminId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", contact=" + contact + ", courseId=" + courseId + ", status=" + status
+				+ ", added=" + added + "]";
 	}
 
 	public void setCourseId(List<Course> courseId) {
