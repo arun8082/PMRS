@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-
-
-
-
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'webpmrs';
+
 }

@@ -6,13 +6,18 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { MyMaterialModule } from './header/material.module';
+import {MyMaterialModule} from './Material/material.module';
 import { LoginComponent } from './header/Login/Login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { HttpModule } from '@angular/http';
 import { RegisterService } from './services/register.service';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ProjectlistComponent } from './projectlist/projectlist.component';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,16 +25,22 @@ import { RegisterService } from './services/register.service';
     HeaderComponent,
     NavComponent,
     FooterComponent,
+    AboutusComponent,
+    ProjectlistComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent
+    TestComponent,
+    RegisterComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MyMaterialModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent]
