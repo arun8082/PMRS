@@ -10,6 +10,9 @@ import { MyMaterialModule } from './header/material.module';
 import { LoginComponent } from './header/Login/Login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
+import { TestComponent } from './test/test.component';
+import { HttpModule } from '@angular/http';
+import { RegisterService } from './services/register.service';
 
 @NgModule({
   declarations: [
@@ -18,15 +21,17 @@ import { RegisterComponent } from './register/register.component';
     NavComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MyMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
