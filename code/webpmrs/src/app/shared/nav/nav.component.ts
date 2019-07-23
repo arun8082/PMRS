@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-nav',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 
 export class NavComponent {
   title = 'webpmrs';
+  opened = false;
 }

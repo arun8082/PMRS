@@ -5,63 +5,64 @@
  */
 
 package com.pmrs.pojos;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "students")
 public class Student implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "s_id")
 	private Integer studentId;
-	
-	@Column(name = "s_prn",unique = true)
+
+	@Column(name = "s_prn", unique = true)
 	private String prn;
-    
-	@Column(name = "s_first_name", nullable = false,length=150)
+
+	@Column(name = "s_first_name", nullable = false, length = 150)
 	private String studentFirstName;
-	
-	@Column(name = "s_last_name", nullable = false,length=150)
+
+	@Column(name = "s_last_name", nullable = false, length = 150)
 	private String studentLastName;
 
-	@Column(name = "s_email",nullable = false,length=100,unique = true)
+	@Column(name = "s_email", nullable = false, length = 100, unique = true)
 	private String studentEmail;
-	
-	@Column(name = "s_contact", nullable = false,length=12,unique = true)
+
+	@Column(name = "s_contact", nullable = false, length = 12, unique = true)
 	private String studentContact;
-	
+
+	@Column(name = "s_password")
+	private String studentpassword;
+
 	@Column(name = "s_status", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus studentStatus;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "s_projectid")
 	private Project studentProjectId;
-	
-	//@JoinColumn(name = "s_courseid")
+
+	// @JoinColumn(name = "s_courseid")
 	@ManyToMany
-	@JoinTable(name = "courses_students_map",
-		joinColumns = {@JoinColumn(name="courseId")},
-		inverseJoinColumns = {@JoinColumn(name="studentId")}
-			)
+	@JoinTable(name = "courses_students_map", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = {
+			@JoinColumn(name = "studentId") })
 	private List<Course> studentCourseID = new ArrayList<Course>();
-	
+
 	@Column(name = "s_added")
 	private LocalDate added;
-	
+
 	public Student() {
 		super();
 		System.out.println("Default constr of Student");
 	}
 
-	//Getters and Setters
+	// Getters and Setters
 	public Integer getStudentId() {
 		return studentId;
 	}
@@ -110,6 +111,14 @@ public class Student implements Serializable {
 		this.studentContact = studentContact;
 	}
 
+	public String getStudentpassword() {
+		return studentpassword;
+	}
+
+	public void setStudentpassword(String studentpassword) {
+		this.studentpassword = studentpassword;
+	}
+
 	public EEntityStatus getStudentStatus() {
 		return studentStatus;
 	}
@@ -140,7 +149,6 @@ public class Student implements Serializable {
 
 	public void setStudentCourseID(List<Course> studentCourseID) {
 		this.studentCourseID = studentCourseID;
-	}	
-		
-}
+	}
 
+}
