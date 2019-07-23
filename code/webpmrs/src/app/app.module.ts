@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { MyMaterialModule } from './header/material.module';
+import {MyMaterialModule} from './Material/material.module';
 import { LoginComponent } from './header/Login/Login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ProjectlistComponent } from './projectlist/projectlist.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     NavComponent,
     FooterComponent,
+    AboutusComponent,
+    ProjectlistComponent,
     LoginComponent
     
   ],
@@ -25,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     MyMaterialModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
