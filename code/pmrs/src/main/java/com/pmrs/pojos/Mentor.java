@@ -5,8 +5,7 @@ import javax.persistence.*;
 
 /**
  * 
- * @author ash
- * 		   This is Mentor POJO Class. It's properties are ID, First Name,
+ * @author ash This is Mentor POJO Class. It's properties are ID, First Name,
  *         Last Name, Course ID (Foreign Key), Email, Contact, Status
  *         (Active/Inactive), Date Added Along with getters and setters
  */
@@ -27,7 +26,7 @@ public class Mentor {
 	private String mentorLastName;
 
 	// Many mentors are related to one course
-	//@Column(name = "c_id")
+	// @Column(name = "c_id")
 	@ManyToOne
 	private Course courseId;
 
@@ -37,13 +36,16 @@ public class Mentor {
 	@Column(name = "m_contact")
 	private String mentorContact;
 
+	@Column(name = "m_password")
+	private String mentorpassword;
+
 	@Column(name = "m_status")
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus mentorStatus;
 
 	@Column(name = "m_added")
 	private LocalDate mentorAdded;
-	
+
 	public Mentor() {
 		System.out.println("This is mentor's constructor");
 	}
@@ -96,6 +98,14 @@ public class Mentor {
 		this.mentorContact = mentorContact;
 	}
 
+	public String getMentorpassword() {
+		return mentorpassword;
+	}
+
+	public void setMentorpassword(String mentorpassword) {
+		this.mentorpassword = mentorpassword;
+	}
+
 	public EEntityStatus getMentorStatus() {
 		return mentorStatus;
 	}
@@ -111,6 +121,5 @@ public class Mentor {
 	public void setMentorAdded(LocalDate mentorAdded) {
 		this.mentorAdded = mentorAdded;
 	}
-	
-	
-	}
+
+}

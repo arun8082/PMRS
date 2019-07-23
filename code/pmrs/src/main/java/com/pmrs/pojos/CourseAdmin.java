@@ -7,11 +7,10 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Course admin is a super user who can access evething
- * Course Admin can create new course and manage the courses
+ * Course admin is a super user who can access evething Course Admin can create
+ * new course and manage the courses
  * 
- * Foreign Keys
- * courseAdmin<-->Course(M:M)
+ * Foreign Keys courseAdmin<-->Course(M:M)
  * 
  * @author Aurn
  *
@@ -20,34 +19,36 @@ import javax.persistence.*;
 @Entity
 @Table(name = "course_admins")
 public class CourseAdmin {
-	
+
 	@Id
 	@Column(name = "ca_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer courseAdminId;
-	
+
 	@Column(name = "ca_first_name")
 	private String firstName;
-	
+
 	@Column(name = "ca_last_name")
 	private String lastName;
-	
+
 	@Column(name = "ca_email")
 	private String email;
-	
+
 	@Column(name = "ca_contact")
 	private String contact;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "courseAdmins_courses_map",
-			joinColumns = {@JoinColumn(name="courseId")},
-			inverseJoinColumns = {@JoinColumn(name="courseAdminId")}
-			)
-	private List<Course> courseId= new ArrayList<Course>();
+	@Column(name="ca_password")
+	private String  coursepassword;
 	
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "courseAdmins_courses_map", joinColumns = {
+			@JoinColumn(name = "courseId") }, inverseJoinColumns = { @JoinColumn(name = "courseAdminId") })
+	private List<Course> courseId = new ArrayList<Course>();
+
 	@Column(name = "ca_status")
 	@Enumerated(EnumType.STRING)
-	private EEntityStatus status; 
+	private EEntityStatus status;
 
 	@Column(name = "ca_added")
 	private LocalDate added;
@@ -57,11 +58,11 @@ public class CourseAdmin {
 		System.out.println("Def constr of Course Admin");
 	}
 
-	public Integer getId() {
+	public Integer getCourseAdminId() {
 		return courseAdminId;
 	}
 
-	public void setId(Integer courseAdminId) {
+	public void setCourseAdminId(Integer courseAdminId) {
 		this.courseAdminId = courseAdminId;
 	}
 
@@ -101,6 +102,14 @@ public class CourseAdmin {
 		return courseId;
 	}
 
+	public String getCoursepassword() {
+		return coursepassword;
+	}
+
+	public void setCoursepassword(String coursepassword) {
+		this.coursepassword = coursepassword;
+	}
+
 	public void setCourseId(List<Course> courseId) {
 		this.courseId = courseId;
 	}
@@ -120,5 +129,5 @@ public class CourseAdmin {
 	public void setAdded(LocalDate added) {
 		this.added = added;
 	}
-		
+
 }

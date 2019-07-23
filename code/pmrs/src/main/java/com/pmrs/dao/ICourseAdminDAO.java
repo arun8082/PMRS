@@ -10,6 +10,10 @@ import com.pmrs.pojos.CourseAdmin;
 
 public interface ICourseAdminDAO extends ICourseDAO, IStudentDAO, IMentorDAO{
 	
-	public boolean updateCourseAdmin(CourseAdmin courseAdmin);
+	CourseAdmin getCourseAdmin(CourseAdmin courseAdmin);
+	
+	CourseAdmin addCourseAdmin(CourseAdmin courseAdmin);
+	
+	boolean updateCourseAdmin(CourseAdmin courseAdmin);
 	
 }
