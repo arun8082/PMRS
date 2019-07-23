@@ -22,7 +22,7 @@
                 <mat-card-content>
                         <mat-form-field>
                                 <input matInput type="text" placeholder="Owner's name" formControlName="name" id="name">
-                                <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                                <mat-hint >Not more then 60 characters long.</mat-hint>
                                 <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
                                 <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
                               </mat-form-field>

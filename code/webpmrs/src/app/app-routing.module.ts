@@ -4,7 +4,8 @@ import { LoginComponent } from './header/Login/Login.component';
 
 
 const routes: Routes = [
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"aboutus",component:AboutusComponent}
 ];
 
 @NgModule({

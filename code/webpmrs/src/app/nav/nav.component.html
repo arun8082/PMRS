@@ -1,1 +1,15 @@
-nav
+<div>
+        <mat-icon style="padding-right: 40px" (click)="opened=!opened">menu</mat-icon>
+</div>
+<mat-sidenav-container style="height: 200px">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <mat-list>
+            <mat-list-item><a mat-button routerLink="/aboutus" style="position: absolute; right: 0;padding-right: 180px;font-size:15px">About Us</a></mat-list-item>
+            <mat-list-item>Contact Us</mat-list-item>
+            <mat-list-item>Item 3</mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
