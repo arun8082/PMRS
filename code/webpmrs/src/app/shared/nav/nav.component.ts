@@ -10,6 +10,5 @@ import { MatSidenav } from '@angular/material';
 
 export class NavComponent {
   title = 'webpmrs';
-
   opened = false;
 }

@@ -3,21 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './header/header.component';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
-import {MyMaterialModule} from './Material/material.module';
-import { LoginComponent } from './header/Login/Login.component';
+import { NavComponent } from './shared/nav/nav.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import {MyMaterialModule} from './shared/Material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { RegisterComponent } from './register/register.component';
-import { TestComponent } from './test/test.component';
+import { RegisterComponent } from './modules/register/register.component';
 import { HttpModule } from '@angular/http';
-import { RegisterService } from './services/register.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ProjectlistComponent } from './projectlist/projectlist.component';
+import { AboutusComponent } from './modules/aboutus/aboutus.component';
+import { ProjectlistComponent } from './modules/Projectlist/projectlist.component';
 import { registerLocaleData } from '@angular/common';
+import { RegisterService } from './core/services/register.service';
+import { TestComponent } from './modules/test/test.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { LoginComponent } from './modules/Login/Login.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { registerLocaleData } from '@angular/common';
     ProjectlistComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestComponent
     
   ],
   imports: [
