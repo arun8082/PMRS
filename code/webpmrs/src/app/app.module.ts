@@ -11,6 +11,7 @@ import { LoginComponent } from './header/Login/Login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     NavComponent,
     FooterComponent,
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MyMaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
