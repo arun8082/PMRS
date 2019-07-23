@@ -6,7 +6,8 @@ import { LoginFields } from './LoginInterface';
 
 @Component({
     selector:"logintab",
-    templateUrl:"./Login.component.html"
+    templateUrl:"./Login.component.html",
+    styleUrls: ['./Login.component.css']
     
     })
     export class LoginComponent 

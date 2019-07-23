@@ -1,19 +1,19 @@
-<form [formGroup]="LoginForm" autocomplete="off" novalidate (ngSubmit)="createLogin(LoginForm.value)"
+<form class="loginform" [formGroup]="LoginForm" autocomplete="off" novalidate (ngSubmit)="createLogin(LoginForm.value)"
         fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
 
-        <mat-card class="loginform">
+        <mat-card >
                 <mat-card-header>
-                        <mat-card-title>Login</mat-card-title>
+                        <mat-card-title style="margin-left: 420px" ><b>Login</b></mat-card-title>
                 </mat-card-header>
 
                 <mat-card-content>
-                        
-                                <mat-radio-group>
-                                        <mat-radio-button style=padding-right:10px; value="m">Admin</mat-radio-button>
-                                        <mat-radio-button style=padding-right:10px; value="f">Mentor</mat-radio-button>
-                                        <mat-radio-button value="s">Student</mat-radio-button>
-                                </mat-radio-group>
-                        
+
+                        <mat-radio-group>
+                                <mat-radio-button style=padding-right:10px; value="m">Admin</mat-radio-button>
+                                <mat-radio-button style=padding-right:10px; value="f">Mentor</mat-radio-button>
+                                <mat-radio-button value="s">Student</mat-radio-button>
+                        </mat-radio-group>
+
                 </mat-card-content>
                 <mat-card-content>
                         <mat-form-field>
