@@ -1,5 +1,6 @@
 package com.pmrs.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,44 +8,47 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.oldpmrs.EPhaseStatus;
+
 /**
- * In this pojos we are managing projects(w.r.t. projectId) phases status
- * e.g Student uploaded a document(let srs) and this project wil be in onHold state 
+ * In this pojos we are managing projects(w.r.t. projectId) phases status e.g
+ * Student uploaded a document(let srs) and this project wil be in onHold state
  * till mentor not verify that document.
+ * 
  * @author Raman Chopra
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "project_phases")
-public class ProjectPhase {
-	
+public class ProjectPhase implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pph_id", nullable = false)
 	private Integer projectPhaseId;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "projectId")
 	private Project projectId;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "phaseId")
 	private Phase phaseId;
-	
+
 	@Column(name = "pph_status", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus status;
-	
+
 	@Column(name = "pph_start")
 	private LocalDateTime startDate;
-	
+
 	@Column(name = "pph_end")
-	private LocalDateTime endDate;	
+	private LocalDateTime endDate;
 
 	@Column(name = "pph_document_path")
 	private String documentPath;
-	
+
 	public ProjectPhase() {
 		super();
 		System.out.println("def contr of Project phase");
@@ -96,7 +100,6 @@ public class ProjectPhase {
 
 	public void setDocumentPath(String documentPath) {
 		this.documentPath = documentPath;
-	}	
-	
-	
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.pmrs.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
 
@@ -10,9 +11,10 @@ import javax.persistence.*;
  *         (Active/Inactive), Date Added Along with getters and setters
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "mentors")
-public class Mentor {
+public class Mentor implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

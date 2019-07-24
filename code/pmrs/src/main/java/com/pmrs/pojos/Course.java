@@ -1,5 +1,6 @@
 package com.pmrs.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,10 @@ import javax.persistence.*;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "courses")
-public class Course {
+public class Course implements Serializable {
 
 	@Id
 	@Column(name = "c_id")
@@ -32,21 +34,17 @@ public class Course {
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus courseStatus;
 
-	//@JoinColumn(name = "student_id")
+	// @JoinColumn(name = "student_id")
 	@ManyToMany
-	@JoinTable(name = "courses_students_map",
-		joinColumns = {@JoinColumn(name="studentId")},
-		inverseJoinColumns = {@JoinColumn(name="courseId")}
-		)
+	@JoinTable(name = "courses_students_map", joinColumns = { @JoinColumn(name = "studentId") }, inverseJoinColumns = {
+			@JoinColumn(name = "courseId") })
 	private List<Student> studentId = new ArrayList<Student>();
 
 	@ManyToMany
-	@JoinTable(name = "courseAdmins_courses_map",
-				joinColumns = {@JoinColumn(name="courseAdminId")},
-				inverseJoinColumns = {@JoinColumn(name="courseId")}
-			)
+	@JoinTable(name = "courseAdmins_courses_map", joinColumns = {
+			@JoinColumn(name = "courseAdminId") }, inverseJoinColumns = { @JoinColumn(name = "courseId") })
 	private List<CourseAdmin> courseAdminId = new ArrayList<CourseAdmin>();
-	
+
 	public Course() {
 
 		System.out.println("Course Default Constuctor");
@@ -99,7 +97,5 @@ public class Course {
 	public void setCourseAdmin(List<CourseAdmin> courseAdminId) {
 		this.courseAdminId = courseAdminId;
 	}
-
-	
 
 }

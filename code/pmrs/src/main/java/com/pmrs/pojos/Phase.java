@@ -1,5 +1,6 @@
 package com.pmrs.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,10 @@ import javax.persistence.*;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "phases")
-public class Phase {
+public class Phase implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

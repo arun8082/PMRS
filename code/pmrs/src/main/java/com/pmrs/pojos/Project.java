@@ -1,6 +1,7 @@
 
 package com.pmrs.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,10 @@ import com.pmrs.pojos.Student;
  * Project entity defining Project Details. * @author Shipra
  *
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "projects")
-public class Project {
+public class Project implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
