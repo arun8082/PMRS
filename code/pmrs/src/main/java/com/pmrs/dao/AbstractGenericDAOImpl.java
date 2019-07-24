@@ -1,35 +1,35 @@
 package com.pmrs.dao;
 
+/**
+ * @author ash
+ * This is an abstract generic class that implements IGenericDAO interface.
+ * This class is made to implement redundant CRUD functions of this project.
+ * By defining this class as abstract, we prevent Spring from creating instance
+ * of this class If not defined as abstract, getClass().getGenericSuperClass()
+ * would return Object. There would be exception because Object class does not
+ * have a constructor with parameters.
+ */
+
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
 @Repository
 @Transactional
-public abstract class AbstractGenericDaoImpl<E, K extends Serializable> implements IGenericDAO<E, K> {
+public abstract class AbstractGenericDAOImpl<E, K extends Serializable> implements IGenericDAO<E, K> {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	protected Class<? extends E> daoType;
 
-	/**
-	 * By defining this class as abstract, we prevent Spring from creating instance
-	 * of this class If not defined as abstract, getClass().getGenericSuperClass()
-	 * would return Object. There would be exception because Object class does not
-	 * have a constructor with parameters.
-	 */
-
-	public AbstractGenericDaoImpl() {
+	public AbstractGenericDAOImpl() {
 		Type t = getClass().getGenericSuperclass();
 		ParameterizedType pt = (ParameterizedType) t;
 		daoType = (Class<? extends E>) pt.getActualTypeArguments()[0];

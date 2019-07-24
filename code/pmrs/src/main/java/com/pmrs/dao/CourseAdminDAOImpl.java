@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.pmrs.pojos.CourseAdmin;
 
 @Repository
-public class CourseAdminDAOImpl extends AbstractGenericDaoImpl<CourseAdmin, Integer> implements ICourseAdminDAO{
+public class CourseAdminDAOImpl extends AbstractGenericDAOImpl<CourseAdmin, Integer> implements ICourseAdminDAO{
 
 }
