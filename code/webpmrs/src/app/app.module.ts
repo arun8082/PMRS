@@ -21,8 +21,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
-import { StudentListComponent } from './student-list/student-list.component';
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
+import { StudentListComponent } from './modules/student-list/student-list.component';
 
 
 @NgModule({
