@@ -2,16 +2,11 @@ package com.pmrs.pojos;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
 
-import com.oldpmrs.EPhaseStatus;
-
 /**
- * In this pojos we are managing projects(w.r.t. projectId) phases status e.g
- * Student uploaded a document(let srs) and this project wil be in onHold state
+ * In this POJO we are managing projects(w.r.t. projectId) phases status e.g
+ * Student uploaded a document(let SRS) and this project will be in onHold state
  * till mentor not verify that document.
  * 
  * @author Raman Chopra
