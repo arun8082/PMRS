@@ -22,6 +22,7 @@ import { LoginComponent } from './modules/Login/Login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
+import { StudentListComponent } from './modules/student-list/student-list.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MentordashboardComponent } from './modules/mentordashboard/mentordashbo
     StudentComponent,
     TestComponent,
     AdmindashboardComponent,
-    MentordashboardComponent
+    MentordashboardComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
