@@ -1,3 +1,4 @@
+import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'admindashboard', component: AdmindashboardComponent},
-  {path: 'admin', component: AdmindashboardComponent}
+  {path: 'admin', component: AdmindashboardComponent},
+  {path: 'mentor', component: MentordashboardComponent}
 ];
 
 @NgModule({
