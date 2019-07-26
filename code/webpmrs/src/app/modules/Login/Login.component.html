@@ -8,10 +8,10 @@
 
                 <mat-card-content>
 
-                        <mat-radio-group>
-                                <mat-radio-button style=padding-right:10px; value="m">Admin</mat-radio-button>
-                                <mat-radio-button style=padding-right:10px; value="f">Mentor</mat-radio-button>
-                                <mat-radio-button value="s">Student</mat-radio-button>
+                        <mat-radio-group (change)="onChange($event)" name="role">
+                                <mat-radio-button style=padding-right:10px; value="admin">Admin</mat-radio-button>
+                                <mat-radio-button style=padding-right:10px; value="mentor">Mentor</mat-radio-button>
+                                <mat-radio-button value="student">Student</mat-radio-button>
                         </mat-radio-group>
 
                 </mat-card-content>
@@ -37,9 +37,7 @@
                 <mat-card-actions>
                         <button mat-raised-button (click)="login()" color="primary">Login</button>
                 </mat-card-actions>
-                <mat-card-actions>
-                        <a mat-button routerLink="/register" style="color:blue">Register</a>
-                </mat-card-actions>
+             
 
-        </mat-card>
+        </mat-card>x
 </form>
