@@ -17,11 +17,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
 @Repository
-@Transactional
 public abstract class AbstractGenericDAOImpl<E, K extends Serializable> implements IGenericDAO<E, K> {
 
 	@PersistenceContext
@@ -52,17 +50,17 @@ public abstract class AbstractGenericDAOImpl<E, K extends Serializable> implemen
 
 	}
 
-	public E getEntity(K key) {
+	public E get(K key) {
 		return entityManager.find(daoType, key);
 	}
 
 	public List<E> listAll() {
-		return entityManager.createQuery("from" + daoType).getResultList();
+		return entityManager.createQuery("from " + daoType.getName()).getResultList();
 	}
 
-	public boolean remove(E entity) {
+	public boolean remove(K key) {
 		try {
-			entityManager.remove(entity);
+			entityManager.remove(get(key));
 			return true;
 		} catch (Exception e) {
 			return false;
