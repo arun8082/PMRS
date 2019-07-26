@@ -19,8 +19,7 @@ import { LoginFields } from './LoginInterface';
            this.LoginForm = new FormGroup(
                {
                 username: new FormControl('',[Validators.required,Validators.maxLength(100)]),
-                password: new FormControl('',[Validators.maxLength(6),
-                    Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])
+                password: new FormControl('',[ Validators.required,Validators.minLength(6),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])
                
                 });
        }
