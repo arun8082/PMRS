@@ -9,3 +9,7 @@ mat-form-field {
 {
     text-align: center;
 }
+
+mat-card {
+  min-height: 600px;
+}

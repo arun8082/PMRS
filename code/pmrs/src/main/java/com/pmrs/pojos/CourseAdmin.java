@@ -59,11 +59,11 @@ public class CourseAdmin implements Serializable{
 		System.out.println("Def constr of Course Admin");
 	}
 
-	public Integer getId() {
+	public Integer getCourseAdminId() {
 		return courseAdminId;
 	}
 
-	public void setId(Integer courseAdminId) {
+	public void setCourseAdminId(Integer courseAdminId) {
 		this.courseAdminId = courseAdminId;
 	}
 
