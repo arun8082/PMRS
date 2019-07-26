@@ -20,6 +20,7 @@ import { TestComponent } from './modules/test/test.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AdmindashboardComponent } from './modules/admindashboard/admindashboard
     StudentComponent,
     TestComponent,
     AdmindashboardComponent,
-    MentordashboardComponent
+    MentordashboardComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
