@@ -18,6 +18,7 @@ import { RegisterService } from './core/services/register.service';
 import { TestComponent } from './modules/test/test.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
+import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,8 @@ import { LoginComponent } from './modules/Login/Login.component';
     LoginComponent,
     RegisterComponent,
     RegisterComponent,
-    TestComponent
-    
+    TestComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,

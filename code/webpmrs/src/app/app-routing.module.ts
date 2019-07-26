@@ -1,3 +1,4 @@
+import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TestComponent } from './modules/test/test.component';
@@ -6,10 +7,12 @@ import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { LoginComponent } from './modules/Login/Login.component';
 
 const routes: Routes = [
-  {path:"login",component:LoginComponent},
-  {path:"test",component:TestComponent},
-  {path: "register",component:RegisterComponent},
-  {path:"aboutus",component:AboutusComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'test', component: TestComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'aboutus', component: AboutusComponent},
+  {path: 'admindashboard', component: AdmindashboardComponent},
+  {path: 'admin', component: AdmindashboardComponent}
 ];
 
 @NgModule({
