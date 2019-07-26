@@ -1,4 +1,4 @@
-package com.pmrs.service;
+package com.pmrs.iservice;
 
 import com.pmrs.pojos.Mentor;
 
