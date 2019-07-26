@@ -7,7 +7,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {MyMaterialModule} from './shared/Material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { RegisterComponent } from './modules/register/register.component';
+import { StudentComponent } from './modules/student/student.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,8 +28,7 @@ import { LoginComponent } from './modules/Login/Login.component';
     AboutusComponent,
     ProjectlistComponent,
     LoginComponent,
-    RegisterComponent,
-    RegisterComponent,
+    StudentComponent,
     TestComponent
     
   ],
