@@ -18,6 +18,8 @@ import { RegisterService } from './core/services/register.service';
 import { TestComponent } from './modules/test/test.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { LoginComponent } from './modules/Login/Login.component';
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent]
