@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginFields } from './LoginInterface';
-
+import { MatRadioChange, MatRadioButton } from '@angular/material';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,12 @@ import { LoginFields } from './LoginInterface';
     export class LoginComponent 
     {
     public LoginForm: FormGroup;
+    public role:string;
+  
+    public change: EventEmitter<MatRadioChange>;
+    
+constructor(private router: Router){
+}
 
        ngOnInit()
        {
@@ -42,6 +49,34 @@ import { LoginFields } from './LoginInterface';
           }
         }
          
+
+        onChange(rolechanged:MatRadioChange){
+
+          console.log(rolechanged.value);
+          let rButton: MatRadioButton = rolechanged.source;
+          this.role=rButton.value;
+         
+        }
+
+        login()
+        {
+          if(this.role=="admin")
+          {
+           // console.log("hi");
+            this.router.navigateByUrl('/admin');
+          }
+          if(this.role=="mentor")
+          {
+           // console.log("hello");
+            this.router.navigateByUrl("/");
+          }
+          if(this.role=="student")
+          {
+           // console.log("hey");
+            this.router.navigateByUrl("/");
+          }
+              
+        }
 
     }
     
