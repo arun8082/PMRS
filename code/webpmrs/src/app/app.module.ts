@@ -1,3 +1,4 @@
+import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -18,6 +19,8 @@ import { RegisterService } from './core/services/register.service';
 import { TestComponent } from './modules/test/test.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
+import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
+import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,9 @@ import { LoginComponent } from './modules/Login/Login.component';
     ProjectlistComponent,
     LoginComponent,
     StudentComponent,
-    TestComponent
-    
+    TestComponent,
+    AdmindashboardComponent,
+    MentordashboardComponent
   ],
   imports: [
     BrowserModule,
