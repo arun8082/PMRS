@@ -8,7 +8,6 @@ import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {MyMaterialModule} from './shared/Material/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { StudentComponent } from './modules/student/student.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { StudentListComponent } from './modules/student-list/student-list.component';
+import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
+
 
 
 @NgModule({
@@ -34,11 +35,11 @@ import { StudentListComponent } from './modules/student-list/student-list.compon
     AboutusComponent,
     ProjectlistComponent,
     LoginComponent,
-    StudentComponent,
     TestComponent,
     AdmindashboardComponent,
     MentordashboardComponent,
-    StudentListComponent
+    StudentListComponent,
+    MentorlistComponent
   ],
   imports: [
     BrowserModule,
