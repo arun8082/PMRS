@@ -1,4 +1,4 @@
-package com.pmrs.controller;
+package com.pmrs.testcontroller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
