@@ -15,21 +15,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.pmrs.idao.ICourseAdminDAO;
+import com.pmrs.idao.ICourseDAO;
 import com.pmrs.idao.IGenericDAO;
-import com.pmrs.iservice.ICourseAdminService;
-import com.pmrs.pojos.CourseAdmin;
+import com.pmrs.iservice.ICourseService;
+import com.pmrs.pojos.Course;
 
 @Service
 @Transactional
-public class CourseAdminServiceImpl extends GenericServiceImpl<CourseAdmin, Integer> implements ICourseAdminService {
+public class CourseServiceImpl extends GenericServiceImpl<Course, Integer> implements ICourseService {
 
-	private ICourseAdminDAO courseAdminDAO;
+	private ICourseDAO courseDAO;
 
 	@Autowired
-	public CourseAdminServiceImpl(@Qualifier("courseAdminDAOImpl") IGenericDAO<CourseAdmin, Integer> genericDAO) {
+	public CourseServiceImpl(@Qualifier("courseDAOImpl") IGenericDAO<Course, Integer> genericDAO) {
 		super(genericDAO);
-		this.courseAdminDAO = (ICourseAdminDAO) genericDAO;
+		this.courseDAO = (ICourseDAO) genericDAO;
 	}
 
 }

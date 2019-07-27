@@ -1,0 +1,32 @@
+<p>MentorList</p>
+<!-----Creating Mentor list table----->
+<div *ngIf="flagTable">
+    <table class="table">
+            <tr>
+                    <th>FirstName
+                    </th>
+                    <th>LastName
+                    </th>
+                    <th>Email
+                    </th>
+                    <th>Contact
+                    </th>
+                    <th>MentorStatus
+                    </th>
+            </tr>
+            <tr *ngFor="let s of list">
+                    <td>{{s.FirstName}}</td>
+                    <td>{{s.LastName}}</td>
+                    <td>{{s.Email}}</td>
+                    <td>{{s.Contact}}</td>
+                    <td>{{s.Status}}</td>
+                    <td><a style="color:dodgerblue"><span (click)="onUpdate(s)">Edit</span></a></td>
+            </tr>
+
+    </table>
+</div>
+
+
+<!--link to add new mentor-->
+
+<a (click)="AddStudent()" style="color:dodgerblue">Add new Mentor</a>
