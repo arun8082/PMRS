@@ -30,9 +30,14 @@ public abstract class AbstractGenericDAOImpl<E, K extends Serializable> implemen
 	protected Class<? extends E> daoType;
 
 	public AbstractGenericDAOImpl() {
+		System.out.println("1. Runtime Class"+getClass());
+		System.out.println("2. Type representing the direct superclass of entity "+getClass().getGenericSuperclass());
 		Type t = getClass().getGenericSuperclass();
+		System.out.println("3. Type "+t);
 		ParameterizedType pt = (ParameterizedType) t;
+		System.out.println("4. Param type "+pt);
 		daoType = (Class<? extends E>) pt.getActualTypeArguments()[0];
+		System.out.println("5. Dao type "+ daoType);
 	}
 
 	@Override
