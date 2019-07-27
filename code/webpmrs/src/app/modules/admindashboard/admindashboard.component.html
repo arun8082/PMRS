@@ -1,15 +1,64 @@
 <ul class="list-group">
-  <li class="list-group-item"><a mat-button routerLink="/" class="list-group-item">Project List</a></li>
-  <li class="list-group-item"><a mat-button routerLink="/mentorlist" class="list-group-item ">View Mentor List</a> </li>
-  <li class="list-group-item"><a mat-button routerLink="/student-list" class="list-group-item">View Student List</a> </li>
+ 
+  <a routerLink="/projectlist" style="color:dodgerblue">View Project List</a>
+  <a routerLink="/mentorlist" style="color:dodgerblue">View Mentor List</a>
+  <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
 </ul>
 
 
-<div class="col-md-6 col-lg-3">
-  <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
-    <div class="info">
-      <h4>Likes</h4>
-      <p><b>25</b></p>
-    </div>
-  </div>
-</div>
+
+
+
+<section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+
+    <div class="row d-flex justify-content-center">
+
+      <!--Grid column-->
+        <div class="col-xl-2 col-lg-6 mb-4" routerLink="/student-list">
+          <a  role="button" >      
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="mt-0 mb-1 mb-2">Project List</h4>
+
+              <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+              <mat-icon>list</mat-icon>
+              <br>
+              <small>View Projects</small>
+            </div>
+          </div>
+          </a>
+        </div>
+      <!--Grid column-->
+        <div class="col-xl-2 col-lg-6 mb-4" routerLink="/student-list">
+          <a  role="button" >      
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="mt-0 mb-1 mb-2">Mentor List</h4>
+
+              <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+              <mat-icon>list</mat-icon>
+              <br>
+              <small>View/Add Mentors</small>
+            </div>
+          </div>
+          </a>
+        </div>
+
+      <!--Grid column-->
+      <div class="col-xl-2 col-lg-6 mb-4" routerLink="/student-list">
+        <a  role="button" >      
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="mt-0 mb-1 mb-2">Student List</h4>
+
+            <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+            <mat-icon>list</mat-icon>
+            <br>
+            <small>View/Add Students</small>
+          </div>
+        </div>
+        </a>
+      </div>
+          </div>
+
+  </section>
