@@ -34,7 +34,7 @@ public class LoginController {
 
 	@PostMapping("/CourseAdmin/get")
 	public CourseAdmin getCourseAdmin(@RequestBody CourseAdmin courseAdmin) {
-		courseAdmin.setCourseId(courseAdmin.getCourseId());
+		//courseAdmin.setCourseId(courseAdmin.getCourseId());
 		System.out.println(courseAdmin);
 		return courseAdminService.get(courseAdmin.getCourseAdminId());
 	}
