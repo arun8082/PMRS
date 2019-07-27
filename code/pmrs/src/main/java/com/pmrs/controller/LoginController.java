@@ -22,6 +22,10 @@ import com.pmrs.dao.IStudentDAO;
 import com.pmrs.pojos.Course;
 import com.pmrs.pojos.CourseAdmin;
 import com.pmrs.pojos.FileUpload;
+import com.pmrs.pojos.Mentor;
+import com.pmrs.pojos.Phase;
+import com.pmrs.pojos.Project;
+import com.pmrs.pojos.ProjectPhase;
 import com.pmrs.pojos.Student;
 
 import com.pmrs.pojos.Course;
@@ -42,7 +46,7 @@ public class LoginController {
 	//@Autowired
 	//private IStudentDAO studentDao;
 	
-	@GetMapping("/login")
+	
 	private ICourseService courseService;
 
 	@GetMapping("/home")
