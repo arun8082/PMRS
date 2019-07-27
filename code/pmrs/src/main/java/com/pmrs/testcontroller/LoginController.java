@@ -11,10 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pmrs.idao.ICourseDAO;
+import com.pmrs.idao.IStudentDAO;
 import com.pmrs.iservice.ICourseAdminService;
 import com.pmrs.iservice.ICourseService;
 import com.pmrs.pojos.Course;
 import com.pmrs.pojos.CourseAdmin;
+import com.pmrs.pojos.Mentor;
+import com.pmrs.pojos.Phase;
+import com.pmrs.pojos.Project;
+import com.pmrs.pojos.ProjectPhase;
 import com.pmrs.pojos.Student;
 
 @RestController
@@ -24,6 +29,12 @@ public class LoginController {
 
 	@Autowired
 	private ICourseAdminService courseAdminService;
+
+	//@Autowired
+	//private ICourseDAO courseDAO;
+	@Autowired
+	//private IStudentDAO studentDao;
+	
 	
 	private ICourseService courseService;
 
