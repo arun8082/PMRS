@@ -37,7 +37,8 @@ public class StudentController  {
 	public Student loginStudent(@RequestBody Student student)
 	{
 		System.out.println("In login student controller");
-		return studentService.loginStudent(student);
+		//return studentService.loginStudent(student);
+		return null;
 	}
 	
 

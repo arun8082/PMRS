@@ -1,5 +1,4 @@
 package com.pmrs.service;
-
 /**
  * @author ash
  * Every method is annotated as @Transactional.
@@ -11,11 +10,16 @@ package com.pmrs.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.pmrs.idao.IGenericDAO;
 import com.pmrs.idao.IStudentDAO;
 import com.pmrs.iservice.IStudentService;
 import com.pmrs.pojos.Student;
 
+@Service
+@Transactional
 public class StudentServiceImpl extends GenericServiceImpl<Student, Integer> implements IStudentService {
 
 	private IStudentDAO studentDAO;
