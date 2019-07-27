@@ -6,6 +6,8 @@ import { TestComponent } from './modules/test/test.component';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { LoginComponent } from './modules/Login/Login.component';
 import { StudentComponent } from './modules/student/student.component';
+import { ProjectlistComponent } from './modules/Projectlist/projectlist.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path:"student",component:StudentComponent},
   {path: 'admindashboard', component: AdmindashboardComponent},
   {path: 'admin', component: AdmindashboardComponent},
-  {path: 'mentor', component: MentordashboardComponent}
+  {path: 'mentor', component: MentordashboardComponent},
+  {path: 'projectlist', component: ProjectlistComponent},
+  {path: 'navigation', component: LoginComponent}
 ];
 
 @NgModule({
