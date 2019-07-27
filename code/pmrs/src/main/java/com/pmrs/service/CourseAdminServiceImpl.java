@@ -1,5 +1,7 @@
 package com.pmrs.service;
 
+import java.util.List;
+
 /**
  * @author ash
  * Every method is annotated as @Transactional.
@@ -19,6 +21,7 @@ import com.pmrs.idao.ICourseAdminDAO;
 import com.pmrs.idao.IGenericDAO;
 import com.pmrs.iservice.ICourseAdminService;
 import com.pmrs.pojos.CourseAdmin;
+import com.pmrs.pojos.Student;
 
 @Service
 @Transactional
@@ -33,4 +36,9 @@ public class CourseAdminServiceImpl extends GenericServiceImpl<CourseAdmin, Inte
 		this.courseAdminDAO = (ICourseAdminDAO) genericDAO;
 	}
 
+	@Override
+	public CourseAdmin authenticate(CourseAdmin admin) {
+		return courseAdminDAO.authenticate(admin);
+		
+	}
 }
