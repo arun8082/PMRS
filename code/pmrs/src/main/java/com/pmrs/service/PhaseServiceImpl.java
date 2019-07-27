@@ -9,27 +9,21 @@ package com.pmrs.service;
  * Therefore, we allow sub entity service classes to decide which generic DAO object will be injected by using @Qualifier annotation. 
  */
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-
-import com.pmrs.idao.ICourseAdminDAO;
 import com.pmrs.idao.IGenericDAO;
-import com.pmrs.iservice.ICourseAdminService;
-import com.pmrs.pojos.CourseAdmin;
+import com.pmrs.idao.IPhaseDAO;
+import com.pmrs.iservice.IPhaseService;
+import com.pmrs.pojos.Phase;
 
-@Service
-@Transactional
-public class CourseAdminServiceImpl extends GenericServiceImpl<CourseAdmin, Integer> implements ICourseAdminService {
+public class PhaseServiceImpl extends GenericServiceImpl<Phase, Integer> implements IPhaseService {
 
-	private ICourseAdminDAO courseAdminDAO;
+	private IPhaseDAO phaseDAO;
 
 	@Autowired
-	public CourseAdminServiceImpl(@Qualifier("courseAdminDAOImpl") IGenericDAO<CourseAdmin, Integer> genericDAO) {
+	public PhaseServiceImpl(@Qualifier("phaseServiceImpl") IGenericDAO<Phase, Integer> genericDAO) {
 		super(genericDAO);
-		this.courseAdminDAO = (ICourseAdminDAO) genericDAO;
+		this.phaseDAO = (IPhaseDAO) genericDAO;
 	}
 
 }

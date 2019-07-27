@@ -3,19 +3,22 @@ package com.pmrs.service;
 import java.util.List;
 
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
-import com.pmrs.dao.IGenericDAO;
+
+import com.pmrs.idao.IGenericDAO;
+import com.pmrs.iservice.IGenericService;
 
 @Service
 @Transactional
 public abstract class GenericServiceImpl<E, K> implements IGenericService<E, K> {
 
 	private IGenericDAO<E, K> genericDAO;
-	
+
 	public GenericServiceImpl() {
 		System.out.println("GenericServiceImpl ctor");
 	}
-	
+
 	public GenericServiceImpl(IGenericDAO<E, K> genericDAO) {
 		this.genericDAO = genericDAO;
 	}

@@ -1,4 +1,4 @@
-package com.pmrs.dao;
+package com.pmrs.idao;
 
 import com.pmrs.pojos.CourseAdmin;
 
