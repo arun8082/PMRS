@@ -1,5 +1,18 @@
 <hr>
 <hr>
 <p>test works!</p>
-     {{studentArray.prn}}--{{studentArray.studentContact}}--{{studentArray.studentCourseID}}---{{studentArray.studentEmail}}--{{studentArray.studentFirstName}}--{{studentArray.studentId}}-->
+     {{studentArray[0].prn}}--={{studentArray[0].studentContact}}--{{studentArray.studentCourseID}}---{{studentArray.studentEmail}}--{{studentArray.studentFirstName}}--{{studentArray.studentId}}--
         {{studentArray.studentLastName}}--{{studentArray.studentProjectId}}--{{studentArray.studentStatus}}--{{studentArray.studentpassword}}
+ 
+test
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Choose File</h3>
+                  <input type="file" name="contents" (change)="onSubmit($event)" enctype="multipart/form-data"/>    
+                  <div class="form-group">
+                      <button class="btn btn-primary" (click) ="upload()">Submit</button>
+                  </div>
+          </div>
+      </div>
+  </div>
