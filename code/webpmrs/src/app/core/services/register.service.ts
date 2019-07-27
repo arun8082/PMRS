@@ -4,23 +4,22 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { CourseAdmin } from '../models/CourseAdmin';
-import { Register } from '../models/Register';
+import { Student } from '../models/Student';
 
 @Injectable()
 export class RegisterService {
     
-    //baseurl="../assets/student.json";
-    baseurl="http://localhost:7090/pmrs/login";
+    baseurl="../../assets/data/student.json";
+    //baseurl="http://localhost:7090/pmrs/login";
     constructor(private http:Http){}
 
     getResult(){
         return this.http.get(this.baseurl);
     }
 
-
-    getAllStudents():Observable<Register[]>{
+    getAllStudents():Observable<Student[]>{
         return this.http.get(this.baseurl)
-        .map((response:Response)=><Register[]>response.json());
+        .map((response:Response)=><Student[]>response.json());
     }
     
     /*
