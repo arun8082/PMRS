@@ -1,4 +1,4 @@
-package com.pmrs.controller;
+package com.pmrs.testcontroller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pmrs.idao.ICourseDAO;
 import com.pmrs.iservice.ICourseAdminService;
 import com.pmrs.iservice.ICourseService;
 import com.pmrs.pojos.Course;
