@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { Project } from 'src/app/core/models/Project';
 
 @Component({
   selector: 'app-projectlist',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectlistComponent implements OnInit {
 
-  constructor() { }
+  list:Project;
+  error:string;
+  constructor(private http:Http) { }
 
   ngOnInit() {
+    this.getProjectList();
+  }
+
+  baseurl="http://localhost:7090/pmrs/admin/projectList";
+  getProjectList(){
+    this.http.get(this.baseurl).subscribe(result => {
+      if (result._body != "") {
+        this.list = result.json();        
+      } else {
+        this.error = "There is no result...";
+      }
+    });
   }
 
 }
