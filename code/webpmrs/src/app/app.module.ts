@@ -29,6 +29,7 @@ import { ProjectregisterComponent } from './modules/projectregister/projectregis
 import { LoginService } from './core/services/login.service';
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
 import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
+import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
 
 
 
@@ -50,7 +51,8 @@ import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
     StudentdashboardComponent,
     MentordashboardComponent,
     ContactusComponent,
-    AddmentorComponent
+    AddmentorComponent,
+    ProjectrepositoryComponent
   ],
   imports: [
     BrowserModule,
