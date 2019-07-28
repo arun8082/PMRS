@@ -12,7 +12,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AboutusComponent } from './modules/aboutus/aboutus.component';
-import { ProjectlistComponent } from './modules/Projectlist/projectlist.component';
 import { registerLocaleData } from '@angular/common';
 import { RegisterService } from './core/services/register.service';
 import { TestComponent } from './modules/test/test.component';
@@ -20,11 +19,15 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
-import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
+
 import { StudentListComponent } from './modules/student-list/student-list.component';
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
+import { StudentdashboardComponent } from './modules/StudentDashboard/studentdashboard.component';
+import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
+import { ContactusComponent } from './modules/contactus/contactus.component';
 import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 import { LoginService } from './core/services/login.service';
+import { StudentRegisterComponent } from './modules/student-register/student-register.component';
 
 
 
@@ -35,14 +38,16 @@ import { LoginService } from './core/services/login.service';
     NavComponent,
     FooterComponent,
     AboutusComponent,
-    ProjectlistComponent,
     LoginComponent,
     TestComponent,
     AdmindashboardComponent,
-    MentordashboardComponent,
     StudentListComponent,
     MentorlistComponent,
-    ProjectregisterComponent
+    ProjectregisterComponent,
+    StudentRegisterComponent,
+    StudentdashboardComponent,
+    MentordashboardComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
