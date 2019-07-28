@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { projectlist } from './projectlist';
-import { Students } from '../student-list/Students';
+import { Student } from 'src/app/core/models/Student';
 
 
 @Component({
@@ -23,9 +23,9 @@ export class MentordashboardComponent implements OnInit {
 
 
 
-  studentview:Students[]=[{ FirstName:"abcdef",LastName:"abchdfdfs",Email:"qweety", Contact:"hover",Course:"antlantica"},
-  { FirstName:"abcdef",LastName:"abchdfdfs",Email:"qweety", Contact:"hover",Course:"antlantica"},
-  { FirstName:"abcdef",LastName:"abchdfdfs",Email:"qweety", Contact:"hover",Course:"antlantica"},];
+  studentview=[{ firstName:"abcdef",lastName:"abchdfdfs",email:"qweety", contact:"hover"},
+  { firstName:"abcdef",lastName:"abchdfdfs",email:"qweety", contact:"hover"},
+  { firstName:"abcdef",lastName:"abchdfdfs",email:"qweety", contact:"hover"}];
 
 
 
