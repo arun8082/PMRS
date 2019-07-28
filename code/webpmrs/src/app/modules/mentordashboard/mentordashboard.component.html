@@ -1,8 +1,7 @@
-<html>
-<body>
-    <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
 
-<h1 style="text-align: center; font-size: 32px;padding:40px;font-family:Verdana, Geneva, Tahoma, sans-serif "><u> Project List</u></h1>
+
+
+<h1 style="text-align: center; padding:30px;"><b> Project List </b></h1>
 
  <div *ngIf="flagTable">
     <table id="customers">
@@ -22,14 +21,13 @@
         <td>{{v.ProjectTechnology}}</td>
         <td>{{v.SoftwareRequirements}}</td>
         <td>{{v.HardwareRequirements}}</td>
-        <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
-</tr>
+        <td><a style="color:dodgerblue"><button (click)="onUpdate()">View</button></a></td>
+      </tr>
 
     </table>
     </div>
 
-    </body>
-    </html>
+    <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
 
     <div *ngIf="flagstudentTable">
     
