@@ -10,6 +10,7 @@ import { ProjectlistComponent } from './modules/Projectlist/projectlist.componen
 import { NavComponent } from './shared/nav/nav.component';
 import { StudentListComponent } from './modules/student-list/student-list.component';
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
+import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 
 const routes: Routes = [
   
@@ -21,7 +22,12 @@ const routes: Routes = [
   {path:"mentorlist",component:MentorlistComponent},
   {path:"projectlist", component: ProjectlistComponent},
   {path:"student-list",component:StudentListComponent},
-  {path:"navigation", component: LoginComponent}
+  {path: 'admin', component: AdmindashboardComponent},
+  {path: 'mentor', component: MentordashboardComponent},
+  {path: 'projectlist', component: ProjectlistComponent},
+  {path: 'navigation', component: LoginComponent},
+  {path:"mentorlist",component:MentorlistComponent},
+  {path:"projectregister",component:ProjectregisterComponent}
  
 ];
 
