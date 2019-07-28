@@ -25,7 +25,7 @@ public class Project implements Serializable{
 	@Column(name = "p_id")
 	private Integer projectId;
 
-	@Column(name = "p_title", nullable = false)
+	@Column(name = "p_title", nullable = false,unique = true)
 	private String projectTitle;
 
 	@Column(name = "p_description", nullable = false)
@@ -55,7 +55,7 @@ public class Project implements Serializable{
 	private LocalDate projectDuration;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "student_id")
+	@JoinColumn(name = "s_id")
 	private List<Student> studentId = new ArrayList<>();
 
 	@OneToMany
@@ -171,6 +171,15 @@ public class Project implements Serializable{
 
 	public void setStudentId(List<Student> studentId) {
 		this.studentId = studentId;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", projectTitle=" + projectTitle + ", projectDescription="
+				+ projectDescription + ", projectTechnology=" + projectTechnology + ", projectHWRequire="
+				+ projectHWRequire + ", projectSWRequire=" + projectSWRequire + ", projectPlatform=" + projectPlatform
+				+ ", mentorId=" + mentorId + ", projectCreated=" + projectCreated + ", projectDuration="
+				+ projectDuration + ", studentId=" + studentId + ", projectphaseId=" + projectphaseId + "]";
 	}
 
 }

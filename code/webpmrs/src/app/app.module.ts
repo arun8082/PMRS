@@ -23,6 +23,7 @@ import { AdmindashboardComponent } from './modules/admindashboard/admindashboard
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { StudentListComponent } from './modules/student-list/student-list.component';
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
+import { LoginService } from './core/services/login.service';
 
 
 
@@ -51,7 +52,10 @@ import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [
+    RegisterService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
