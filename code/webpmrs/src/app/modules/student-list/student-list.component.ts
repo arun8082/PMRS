@@ -41,7 +41,7 @@ public hasError = (controlName: string, errorName: string) => {
   return this.StudentForm.controls[controlName].hasError(errorName);
 }
 
-public createRegister = (studentFormValue) => {
+public createStudent = (studentFormValue) => {
   if (this.StudentForm.valid) {
     this.executeFormCreation(studentFormValue);
   }

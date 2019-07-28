@@ -23,6 +23,7 @@ import { AdmindashboardComponent } from './modules/admindashboard/admindashboard
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { StudentListComponent } from './modules/student-list/student-list.component';
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
+import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 
 
 
@@ -39,7 +40,8 @@ import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
     AdmindashboardComponent,
     MentordashboardComponent,
     StudentListComponent,
-    MentorlistComponent
+    MentorlistComponent,
+    ProjectregisterComponent
   ],
   imports: [
     BrowserModule,
