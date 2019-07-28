@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pmrs.iservice.IProjectService;
 import com.pmrs.iservice.IStudentService;
+import com.pmrs.pojos.Project;
 import com.pmrs.pojos.Student;
 /**
  * 
@@ -26,6 +28,9 @@ public class StudentController  {
 	@Autowired
 	public IStudentService studentService;
 	
+	@Autowired
+	public IProjectService projectService;
+	
 	public StudentController()
 	{
 		System.out.println("In student controller");
@@ -34,11 +39,10 @@ public class StudentController  {
 	
 	//method to login student
 	@PostMapping("/login")
-	public Student loginStudent(@RequestBody Student student)
+	public Student authenticateStudent(@RequestBody Student student)
 	{
 		System.out.println("In login student controller");
-		//return studentService.loginStudent(student);
-		return null;
+		return studentService.authenticateStudent(student);
 	}
 	
 
@@ -50,14 +54,31 @@ public class StudentController  {
 		return studentService.add(student);
 	}
 	
-	//method to get list of student
-	@GetMapping("/list")
-	public List<Student> getStudentList()
+	//method to add project
+	@PostMapping("/addProject")
+	public Project addProject(@RequestBody Project project)
 	{
-		System.out.println("In getStudent list controller method");
-		//return studentService.getStudentList();
-		return null;
+		System.out.println("In project add method");
+		project.setProjectCreated(LocalDate.now());
+		return projectService.add(project);
+		
 	}
+	
+	
+	//method to get list of members in a particular project group using projectid
+	@PostMapping("/memberlist")
+	public List<Student> getMemberList(@RequestParam int projectId)
+	{
+		System.out.println("In get project member list controller method");
+		return studentService.getMemberList(projectId);
+	}
+	
+	
+	//method to add document
+	
+	//method to check project details
+	
+	//method to update profile
 	
 
 }
