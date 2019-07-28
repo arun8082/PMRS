@@ -1,9 +1,9 @@
 <html>
 <body>
-    <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
+    <input type="button" value="Student List" style="color:dodgerblue" class="btn" (click)="getStudentList()"/>
 
 <h1 style="text-align: center; font-size: 32px;padding:40px;font-family:Verdana, Geneva, Tahoma, sans-serif "><u> Project List</u></h1>
-
+{{error}}
  <div *ngIf="flagTable">
     <table id="customers">
       <tr>
@@ -15,13 +15,13 @@
         <th>Hardware Requirements</th>
         <th></th>
       </tr>
-      <tr *ngFor="let v of list">
+      <tr *ngFor="let v of projectList">
         <td>{{v.SNo}}</td>
-        <td>{{v.ProjectTitle}}</td>
-        <td>{{v.ProjectDescription}}</td>
-        <td>{{v.ProjectTechnology}}</td>
-        <td>{{v.SoftwareRequirements}}</td>
-        <td>{{v.HardwareRequirements}}</td>
+        <td>{{v.projectTitle}}</td>
+        <td>{{v.projectDescription}}</td>
+        <td>{{v.projectTechnology}}</td>
+        <td>{{v.softwareRequirements}}</td>
+        <td>{{v.hardwareRequirements}}</td>
         <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
 </tr>
 

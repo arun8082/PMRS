@@ -3,11 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginFields } from './LoginInterface';
 import { MatRadioChange, MatRadioButton } from '@angular/material';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/core/services/login.service';
 import { Http,Response } from '@angular/http';
 import { CourseAdmin } from 'src/app/core/models/CourseAdmin';
 import { Student } from 'src/app/core/models/Student';
 import { Mentor } from 'src/app/core/models/Mentor';
+import { CommonService } from 'src/app/core/services/common.service';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class LoginComponent {
   mentor: Mentor;
   error: String;
 
-  constructor(private router: Router, private loginService: LoginService, private http: Http) { }
+  constructor(private router: Router, private commonService: CommonService, private http: Http) { }
 
   ngOnInit() {
     this.LoginForm = new FormGroup(
@@ -69,7 +69,7 @@ export class LoginComponent {
           if (result.text() != "") {
             this.mentor = result.json();
             if (this.mentor.status == "ACTIVE") {
-              this.router.navigateByUrl('admin');
+              this.router.navigateByUrl('mentor');
             } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
             }

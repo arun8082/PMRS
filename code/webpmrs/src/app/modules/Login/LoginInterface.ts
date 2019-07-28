@@ -1,4 +1,4 @@
-import { LoginService } from 'src/app/core/services/login.service';
+import { CommonService } from 'src/app/core/services/common.service';
 
 export interface LoginFields{
     email:string;
