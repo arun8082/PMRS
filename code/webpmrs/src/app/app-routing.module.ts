@@ -14,26 +14,27 @@ import { MentordashboardComponent } from './modules/mentordashboard/mentordashbo
 import { ContactusComponent } from './modules/contactus/contactus.component';
 
 
+import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
+import { ProjectlistComponent } from './modules/Projectlist/projectlist.component';
 
 const routes: Routes = [
   
   {path:"login",component:LoginComponent},
   {path:"test",component:TestComponent},
   {path:"aboutus",component:AboutusComponent},
+  {path:"admin", component: AdmindashboardComponent},
+  {path:"mentor", component: MentordashboardComponent},
+  {path:"mentorlist",component:MentorlistComponent},
+  {path:"projectlist", component: ProjectlistComponent},
   {path:"student-list",component:StudentListComponent},
   {path: 'admin', component: AdmindashboardComponent},
-
   {path: 'navigation', component: LoginComponent},
   {path:"mentorlist",component:MentorlistComponent},
   {path:"student",component:StudentdashboardComponent},
   {path:"mentordash",component:MentordashboardComponent},
   {path:"contactus",component:ContactusComponent},
-  {path:"student",component:StudentdashboardComponent}
-
-
-
-
- 
+  {path:"student",component:StudentdashboardComponent},
+  {path:"projectregister",component:ProjectregisterComponent}
  
 ];
 

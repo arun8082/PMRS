@@ -3,6 +3,9 @@ export class CourseAdmin {
     firstName;
     lastName;
     email;
+    password;
     contact;
-    coursepassword;
+    courseId;
+    status;
+    added;
 }

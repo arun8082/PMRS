@@ -22,6 +22,7 @@ export class TestComponent implements OnInit {
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisterService } from 'src/app/core/services/register.service';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-test',
@@ -33,7 +34,7 @@ export class TestComponent {
   fileData: File = null;
   studentArray=[{}];
 
-  constructor(private http: HttpClient,private pservice:RegisterService) { }
+  constructor(private http: HttpClient,private pservice:RegisterService,private loginService:LoginService) { }
   
   ngOnInit(){
     this.pservice.getAllStudents().subscribe((r)=>this.studentArray=r);
@@ -46,11 +47,11 @@ export class TestComponent {
   }
 
   onSubmit(event) {
-    this.fileData = event.target.files[0];
-    console.log(this.fileData);
+    this.fileData = event.target.files[0]
+    console.log(event.target.files);
   }
 
-  upload() {
+  /*upload() {
     const formData = new FormData();
     formData.append('file', this.fileData);
     this.http.post(this.baseUrl, formData)
@@ -58,5 +59,11 @@ export class TestComponent {
         console.log(res);
         alert('SUCCESS !!');
       })
+  }*/
+  upload() {
+    const formData = new FormData();
+    formData.append('file', this.fileData);
+    console.log(this.fileData);
+    this.loginService.loginCourseAdmin(formData);
   }
 }

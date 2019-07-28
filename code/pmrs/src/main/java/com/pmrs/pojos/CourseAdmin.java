@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Course Administrator is a super user who can access everything
  * Course Administrator can create new course and manage the courses
@@ -37,9 +39,12 @@ public class CourseAdmin implements Serializable{
 	@Column(name = "ca_email")
 	private String email;
 	
+	@Column(name = "ca_password")
+	private String password;
+	
 	@Column(name = "ca_contact")
 	private String contact;
-	
+
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "courseAdmins_courses_map",
 			joinColumns = {@JoinColumn(name="courseId")},
@@ -91,6 +96,14 @@ public class CourseAdmin implements Serializable{
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getContact() {
 		return contact;
 	}
@@ -101,13 +114,6 @@ public class CourseAdmin implements Serializable{
 
 	public List<Course> getCourseId() {
 		return courseId;
-	}
-
-	@Override
-	public String toString() {
-		return "CourseAdmin [courseAdminId=" + courseAdminId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", contact=" + contact + ", courseId=" + courseId + ", status=" + status
-				+ ", added=" + added + "]";
 	}
 
 	public void setCourseId(List<Course> courseId) {
@@ -128,6 +134,16 @@ public class CourseAdmin implements Serializable{
 
 	public void setAdded(LocalDate added) {
 		this.added = added;
+	}
+
+	@Override
+	public String toString() {
+		return "CourseAdmin [courseAdminId=" + courseAdminId
+				+ ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", password="
+				+ password + ", contact=" + contact + ", courseId="
+				+ courseId + ", status=" + status + ", added=" + added
+				+ "]";
 	}
 		
 }

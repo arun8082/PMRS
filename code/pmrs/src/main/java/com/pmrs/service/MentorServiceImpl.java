@@ -1,5 +1,7 @@
 package com.pmrs.service;
 
+import javax.transaction.Transactional;
+
 /**
  * @author ash
  * Every method is annotated as @Transactional.
@@ -11,17 +13,21 @@ package com.pmrs.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
 import com.pmrs.idao.IGenericDAO;
 import com.pmrs.idao.IMentorDAO;
 import com.pmrs.iservice.IMentorService;
 import com.pmrs.pojos.Mentor;
 
+@Service
+@Transactional
 public class MentorServiceImpl extends GenericServiceImpl<Mentor, Integer> implements IMentorService {
 
 	private IMentorDAO mentorDAO;
 
 	@Autowired
-	public MentorServiceImpl(@Qualifier("mentorServiceImpl") IGenericDAO<Mentor, Integer> genericDAO) {
+	public MentorServiceImpl(@Qualifier("mentorDAOImpl") IGenericDAO<Mentor, Integer> genericDAO) {
 		super(genericDAO);
 		this.mentorDAO = (IMentorDAO) genericDAO;
 	}
