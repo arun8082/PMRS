@@ -67,9 +67,9 @@ export class LoginComponent {
         this.http.post(this.baseurlMentor, LoginFormValue).subscribe(result => {
           if (result.text() != "") {
             this.mentor = result.json();
-            if (this.mentor.mentorStatus == "ACTIVE") {
+            if (this.mentor.status == "ACTIVE") {
               this.router.navigateByUrl('admin');
-            } else if (this.mentor.mentorStatus == "INACTIVE") {
+            } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
             }
           } else {
@@ -83,9 +83,9 @@ export class LoginComponent {
         this.http.post(this.baseurlStudent, LoginFormValue).subscribe(result => {
           if (result.text() != "") {
             this.student = result.json();
-            if (this.student.studentStatus == "ACTIVE") {
-              this.router.navigateByUrl('admin');
-            } else if (this.student.studentStatus == "INACTIVE") {
+            if (this.student.status == "ACTIVE") {
+              this.router.navigateByUrl('student');
+            } else if (this.student.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
             }
           } else {
@@ -111,8 +111,6 @@ export class LoginComponent {
   }
 
   onChange(rolechanged: MatRadioChange) {
-
-    console.log(rolechanged.value);
     let rButton: MatRadioButton = rolechanged.source;
     this.role = rButton.value;
   }
