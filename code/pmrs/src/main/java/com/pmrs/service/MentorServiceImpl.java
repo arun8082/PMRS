@@ -21,7 +21,7 @@ public class MentorServiceImpl extends GenericServiceImpl<Mentor, Integer> imple
 	private IMentorDAO mentorDAO;
 
 	@Autowired
-	public MentorServiceImpl(@Qualifier("mentorServiceImpl") IGenericDAO<Mentor, Integer> genericDAO) {
+	public MentorServiceImpl(@Qualifier("mentorDAOImpl") IGenericDAO<Mentor, Integer> genericDAO) {
 		super(genericDAO);
 		this.mentorDAO = (IMentorDAO) genericDAO;
 	}
