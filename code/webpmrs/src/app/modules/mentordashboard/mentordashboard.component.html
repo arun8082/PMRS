@@ -1,54 +1,26 @@
 
+<section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
+    <div class="row d-flex justify-content-center">
 
-<h1 style="text-align: center; padding:30px;"><b> Project List </b></h1>
+      <!--Grid column-->
+        <div class="col-xl-2 col-lg-6 mb-4" routerLink="/mentorprojlist">
+          <a  role="button" >      
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="mt-0 mb-1 mb-2">Project List</h4>
 
- <div *ngIf="flagTable">
-    <table id="customers">
-      <tr>
-        <th>S.No</th>
-        <th>Project Title</th>
-        <th>Project Description</th>
-        <th>Project Technology</th>
-        <th>Software Requirements</th>
-        <th>Hardware Requirements</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let v of projectList">
-        <td>{{v.SNo}}</td>
-        <td>{{v.ProjectTitle}}</td>
-        <td>{{v.ProjectDescription}}</td>
-        <td>{{v.ProjectTechnology}}</td>
-        <td>{{v.SoftwareRequirements}}</td>
-        <td>{{v.HardwareRequirements}}</td>
-        <td><a style="color:dodgerblue"><button (click)="onUpdate()">View</button></a></td>
-      </tr>
-
-    </table>
-    </div>
-
-    <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
-
-    <div *ngIf="flagstudentTable">
+              <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+              <mat-icon>list</mat-icon>
+              <br>
+              <small>View Projects</small>
+            </div>
+          </div>
+          </a>
+        </div>
     
-        <table id="customers">
-            <tr>
-              
-              <th>FirstName</th>
-              <th>LastName </th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Course</th>
-            
-            </tr>
-            <tr *ngFor="let p of studentview">
-              <td>{{p.FirstName}}</td>
-              <td>{{p.LastName}}</td>
-              <td>{{p.Email}}</td>
-              <td>{{p.Contact}}</td>
-              <td>{{p.Course}}</td>
-              
-      </tr>
-    
-  </table>
-</div>
+
+   
+          </div>
+
+  </section>

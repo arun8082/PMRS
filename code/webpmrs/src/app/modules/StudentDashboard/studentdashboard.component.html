@@ -1,23 +1,40 @@
-<html>
-<body>
+<section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
-<h1 style="text-align: center; font-size: 32px;padding:40px;font-family:Verdana, Geneva, Tahoma, sans-serif "><u> Student Dashboard Information</u></h1>
-<td><a style="color:dodgerblue"><button (click)="Addproject()">Add Project</button></a></td> 
-<div *ngIf="flagTable">
-    <table id="customers">
-      <tr>
-        <th>S.No</th>
-        <th>Project Title</th>
-        <th>Project Status</th>
-        <th>Project Upload</th>
+    <div class="row d-flex justify-content-center">
 
-      </tr>
-      <tr *ngFor="let s of slist">
-        <td>{{s.SNo}}</td>
-        <td>{{s.projecttitle}}</td>
-        <td>{{s.projectstatus}}</td>
-        <td><a style="color:dodgerblue"><button (click)="uploaddoc()">ProjectUpload</button></a></td>
-</tr>
+      <!--Grid column-->
+        <div class="col-xl-2 col-lg-6 mb-4" routerLink="/studentprojInfo">
+          <a  role="button" >      
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="mt-0 mb-1 mb-2">Project Details</h4>
 
-    </table>
-    </div>
+              <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+              <mat-icon>list</mat-icon>
+              <br>
+              <small>View Projects</small>
+            </div>
+          </div>
+          </a>
+        </div>
+
+
+           <!--Grid column-->
+           <div class="col-xl-2 col-lg-6 mb-4" routerLink="/projectregister">
+            <a  role="button" >      
+            <div class="card">
+              <div class="card-body text-center">
+                <h4 class="mt-0 mb-1 mb-2">Add Project</h4>
+  
+                <!--<img src="https://mdbootstrap.com/img/logo/jquery.png" class="my-3" alt="">-->
+                <mat-icon>list</mat-icon>
+                <br>
+                <small>Add project</small>
+              </div>
+            </div>
+            </a>
+          </div>
+
+        </div>
+     
+  </section>

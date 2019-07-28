@@ -14,6 +14,7 @@ export class ProjectregisterComponent implements OnInit {
   constructor(private http:Http) { }
   public ProjectForm: FormGroup;
   public project:Project;
+  public error:string;
   public baseurlProjectRegister="http://localhost:7090/pmrs/student/addProject";
 
   ngOnInit() {
@@ -38,9 +39,15 @@ export class ProjectregisterComponent implements OnInit {
 
     if (this.ProjectForm.valid) {
       this.http.post(this.baseurlProjectRegister, projectFormValue).subscribe(result => {
-
+        if(result.text()!="")
+        {
         this.project=result.json();
         console.log(this.project);
+        }
+        else
+        {
+          this.error="Registration failed";
+        }
       });
 
       console.log("in function");
