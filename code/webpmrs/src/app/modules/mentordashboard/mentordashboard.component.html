@@ -14,13 +14,13 @@
         <th>Hardware Requirements</th>
         <th></th>
       </tr>
-      <tr *ngFor="let v of list">
+      <tr *ngFor="let v of projectList">
         <td>{{v.SNo}}</td>
-        <td>{{v.ProjectTitle}}</td>
-        <td>{{v.ProjectDescription}}</td>
-        <td>{{v.ProjectTechnology}}</td>
-        <td>{{v.SoftwareRequirements}}</td>
-        <td>{{v.HardwareRequirements}}</td>
+        <td>{{v.projectTitle}}</td>
+        <td>{{v.projectDescription}}</td>
+        <td>{{v.projectTechnology}}</td>
+        <td>{{v.softwareRequirements}}</td>
+        <td>{{v.hardwareRequirements}}</td>
         <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
 </tr>
 
