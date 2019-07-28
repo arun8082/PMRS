@@ -65,12 +65,12 @@ public class StudentController  {
 	}
 	
 	
-	//method to get list of members in a particular project group using projectid
+	//method to get list of members in a particular project group using projectId
 	@PostMapping("/memberlist")
-	public List<Student> getMemberList(@RequestParam int projectId)
+	public List<Student> getMemberList(@RequestBody Project projectId)
 	{
 		System.out.println("In get project member list controller method");
-		return studentService.getMemberList(projectId);
+		return studentService.getMemberList(projectId.getProjectId());
 	}
 	
 	

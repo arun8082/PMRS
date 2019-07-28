@@ -41,7 +41,7 @@ public class StudentDAOImpl extends AbstractGenericDAOImpl<Student, Integer> imp
 	public List<Student> getMemberList(int projectId) {
 		try {
 			System.out.println("In Student get member list");
-			String jpql = "select s from Student where s.studentProjectId:=projectid";
+			String jpql = "select s from Student where s.studentProjectId=:projectid";
 			List<Student> st = em.createQuery(jpql, Student.class).setParameter("projectid", projectId).getResultList();
 
 			if (st != null) {
