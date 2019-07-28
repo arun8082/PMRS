@@ -35,9 +35,8 @@ const routes: Routes = [
 
   {path:"student",component:StudentdashboardComponent},
   {path:"mentordash",component:MentordashboardComponent},
-  {path:"contactus",component:ContactusComponent},
+  {path:"contactus",component:ContactusComponent}
 
-  {path:"projectregister",component:ProjectregisterComponent}
  
 ];
 

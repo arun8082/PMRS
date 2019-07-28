@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StudentFields } from './studentInterface';
+import { Http,Response } from '@angular/http';
+import { Student } from 'src/app/core/models/Student';
 
 @Component({
   selector: 'app-student-register',
@@ -11,13 +13,16 @@ export class StudentRegisterComponent implements OnInit {
 
   public StudentForm:FormGroup;
   baseurlStudentregister = "http://localhost:7090/pmrs/student/register";
-  constructor() { }
+  constructor(private http:Http) { }
+
+  public student:Student;
+
 
   ngOnInit() {
     this.StudentForm = new FormGroup(
       {
-        firstname: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-        lastname: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+        firstName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+        lastName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
         email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
         contact: new FormControl('', [Validators.required]),
         course: new FormControl('', [Validators.required])
@@ -31,8 +36,14 @@ export class StudentRegisterComponent implements OnInit {
   }
 
   public createStudent = (StudentFormValue) => {
+    this.executeFormCreation(StudentFormValue);
     if (this.StudentForm.valid) {
-      this.executeFormCreation(StudentFormValue);
+      this.http.post(this.baseurlStudentregister, StudentFormValue).subscribe(result => {
+
+        this.student=result.json();
+        console.log(this.student);
+      });
+
       console.log("in function");
       console.log(StudentFormValue);
       
@@ -44,8 +55,8 @@ export class StudentRegisterComponent implements OnInit {
   private executeFormCreation = (StudentFormValue) => {
 
     let fields: StudentFields = {
-      firstName: StudentFormValue.firstname,
-      lastName: StudentFormValue.lastname,
+      firstName: StudentFormValue.firstName,
+      lastName: StudentFormValue.lastName,
       email: StudentFormValue.email,
       contact: StudentFormValue.contact,
       course: StudentFormValue.course
