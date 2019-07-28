@@ -20,7 +20,7 @@ export class ProjectlistComponent implements OnInit {
   baseurl="http://localhost:7090/pmrs/admin/projectList";
   getProjectList(){
     this.http.get(this.baseurl).subscribe(result => {
-      if (result._body != "") {
+      if (result.text() != "") {
         this.list = result.json();        
       } else {
         this.error = "There is no result...";

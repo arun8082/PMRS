@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StudentFields } from './studentInterface';
 import { Student } from 'src/app/core/models/Student';
@@ -35,7 +34,7 @@ export class StudentListComponent implements OnInit {
   baseurl="http://localhost:7090/pmrs/admin/studentList";
   getStudentList(){
     this.http.get(this.baseurl).subscribe(result => {
-      if (result._body != "") {
+      if (result.text() != "") {
         this.list = result.json();        
       } else {
         this.error = "There is no result...";

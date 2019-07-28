@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mentor } from './Mentor';
 import { Http } from '@angular/http';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-mentorlist',
@@ -22,7 +23,7 @@ export class MentorlistComponent implements OnInit {
   baseurl="http://localhost:7090/pmrs/admin/projectList";
   getMentorList(){
     this.http.get(this.baseurl).subscribe(result => {
-      if (result._body != "") {
+      if (result.text() != "") {
         this.list = result.json();        
       } else {
         this.error = "There is no result...";

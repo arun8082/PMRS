@@ -4,7 +4,7 @@ import { LoginFields } from './LoginInterface';
 import { MatRadioChange, MatRadioButton } from '@angular/material';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/core/services/login.service';
-import { Http } from '@angular/http';
+import { Http,Response } from '@angular/http';
 import { CourseAdmin } from 'src/app/core/models/CourseAdmin';
 import { Student } from 'src/app/core/models/Student';
 import { Mentor } from 'src/app/core/models/Mentor';
@@ -48,7 +48,7 @@ export class LoginComponent {
       if (this.role == "courseAdmin") {
         this.executeFormCreation(LoginFormValue);
         this.http.post(this.baseurlAdmin, LoginFormValue).subscribe(result => {
-          if (result._body != "") {
+          if (result.text() != "") {
             this.courseAdmin = result.json();
             if (this.courseAdmin.status == "ACTIVE") {
               this.router.navigateByUrl('admin');
@@ -65,7 +65,7 @@ export class LoginComponent {
       else if (this.role == "mentor") {
         this.executeFormCreation(LoginFormValue);
         this.http.post(this.baseurlMentor, LoginFormValue).subscribe(result => {
-          if (result._body != "") {
+          if (result.text() != "") {
             this.mentor = result.json();
             if (this.mentor.mentorStatus == "ACTIVE") {
               this.router.navigateByUrl('admin');
@@ -81,7 +81,7 @@ export class LoginComponent {
       else if (this.role == "student") {
         this.executeFormCreation(LoginFormValue);
         this.http.post(this.baseurlStudent, LoginFormValue).subscribe(result => {
-          if (result._body != "") {
+          if (result.text() != "") {
             this.student = result.json();
             if (this.student.studentStatus == "ACTIVE") {
               this.router.navigateByUrl('admin');
