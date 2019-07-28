@@ -26,6 +26,8 @@ import { ProjectregisterComponent } from './modules/projectregister/projectregis
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
 import { MentordashboardComponent } from './modules/mentordashboard/mentordashboard.component';
 import { CommonService } from './core/services/common.service';
+import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
+
 
 
 
@@ -45,7 +47,8 @@ import { CommonService } from './core/services/common.service';
     StudentRegisterComponent,
     StudentdashboardComponent,
     MentordashboardComponent,
-    ContactusComponent
+    ContactusComponent,
+    AddmentorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
+import { Project } from 'src/app/core/models/Project';
+import { ProjectFields } from './projectregister';
 
 @Component({
   selector: 'app-projectregister',
@@ -8,34 +11,60 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ProjectregisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:Http) { }
   public ProjectForm: FormGroup;
+  public project:Project;
+  public baseurlProjectRegister="http://localhost:7090/pmrs/student/addProject";
 
   ngOnInit() {
     this.ProjectForm = new FormGroup(
       {
         projectTitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-        projectdesc: new FormControl('', [Validators.required, Validators.maxLength(500)]),
-        ptechnology: new FormControl('', [Validators.required,Validators.maxLength(200)]),
-        hw: new FormControl(''),
-        sw:new FormControl('')
-       
-     
-  
-      });
+        projectDescription: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+        projectTechnology: new FormControl('', [Validators.required,Validators.maxLength(200)]),
+        projectHWRequire: new FormControl('',[]),
+        projectSWRequire:new FormControl('',[]),
+        projectPlatform:new FormControl('',[])
+        });
   }
   
   public hasError = (controlName: string, errorName: string) => {
     return this.ProjectForm.controls[controlName].hasError(errorName);
   }
 
+
+  //adding project data in database.
+  public createProject = (projectFormValue) => {
+
+    if (this.ProjectForm.valid) {
+      this.http.post(this.baseurlProjectRegister, projectFormValue).subscribe(result => {
+
+        this.project=result.json();
+        console.log(this.project);
+      });
+
+      console.log("in function");
+      console.log(projectFormValue);
+      
+     
+    }
+  }
+
+  private executeFormCreation = (projectFormValue) => {
+
+    let fields: ProjectFields = 
+    {
+      projectTitle: projectFormValue.firstName,
+      projectDescription: projectFormValue.lastName,
+      projectTechnology: projectFormValue.email,
+      projectHWRequire: projectFormValue.contact,
+      projectSWRequire: projectFormValue.course,
+      projectPlatform: projectFormValue.course
+    }
+  }
   
   
  
-    OnSubmit()
-    {
-      console.log("submit clicked");
-    }
   
 
 }

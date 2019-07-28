@@ -16,6 +16,7 @@ import { ContactusComponent } from './modules/contactus/contactus.component';
 
 import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
+import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 
 const routes: Routes = [
   
@@ -29,15 +30,15 @@ const routes: Routes = [
   {path:"student-list",component:StudentListComponent},
   {path: 'admin', component: AdmindashboardComponent},
   {path: 'navigation', component: LoginComponent},
-  {path:"mentorlist",component:MentorlistComponent},
+ 
   {path:"projectregister",component:ProjectregisterComponent},
   {path:"studentRegister",component:StudentRegisterComponent},
-
-  {path:"student",component:StudentdashboardComponent},
+   {path:"student",component:StudentdashboardComponent},
   {path:"mentordash",component:MentordashboardComponent},
   {path:"contactus",component:ContactusComponent},
+  {path:"mentor-register",component:AddmentorComponent}
+  
 
-  {path:"projectregister",component:ProjectregisterComponent}
  
 ];
 

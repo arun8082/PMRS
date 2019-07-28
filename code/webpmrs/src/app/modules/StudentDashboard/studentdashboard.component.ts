@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { studentdash } from './studentdash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studentdashboard',
@@ -8,7 +9,8 @@ import { studentdash } from './studentdash';
 })
 export class StudentdashboardComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private router: Router) { }
   flagTable=true;
   flagstudentTable=false;
   public slist:studentdash[]=[{SNo:"1", projecttitle:"abcdef",projectstatus:"qweety"},
@@ -18,4 +20,10 @@ export class StudentdashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  Addproject()
+  {
+    
+    this.router.navigateByUrl('projectregister');
+  }
 }
