@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
+import { Mentor } from '../mentorlist/Mentor';
+import { MentorFields } from './mentorRegister';
 
 @Component({
   selector: 'app-addmentor',
@@ -9,18 +12,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AddmentorComponent implements OnInit {
   MentorForm: any;
 
-  constructor() { }
+  baseUrlMentorRegister = "http://localhost:7090/pmrs/admin/registerMentor";
+  public mentordata: Mentor;
+  public error: string;
+
+  constructor(private http: Http) { }
 
   ngOnInit() {
 
     this.MentorForm = new FormGroup(
       {
-        firstname: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-        lastname: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+        firstName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+        lastName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
         email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-        password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]),
         contact: new FormControl('', [Validators.required])
-       
+
       });
 
   }
@@ -29,4 +35,36 @@ export class AddmentorComponent implements OnInit {
     return this.MentorForm.controls[controlName].hasError(errorName);
   }
 
+  public createMentor = (mentorFormValue) => {
+    this.executeFormCreation(mentorFormValue);
+    if (this.MentorForm.valid) {
+      this.http.post(this.baseUrlMentorRegister, mentorFormValue).subscribe(result => {
+        if (result.text() != "") {
+          this.mentordata = result.json();
+          //console.log(this.mentordata);
+        }
+        else {
+          this.error = "Resgistration failed";
+        }
+      });
+
+      //console.log("in function");
+      // console.log(mentorFormValue);
+
+
+    }
+  }
+
+
+  private executeFormCreation = (mentorFormValue) => {
+
+    let field: MentorFields = {
+      firstName: mentorFormValue.firstName,
+      lastName: mentorFormValue.lastName,
+      email: mentorFormValue.email,
+      contact: mentorFormValue.contact,
+
+
+    }
+  }
 }

@@ -25,7 +25,7 @@ public class Mentor implements Serializable {
 	private String firstName;
 
 	@Column(name = "m_last_name")
-	private String lLastName;
+	private String lastName;
 
 	// Many mentors are related to one course
 	// @Column(name = "c_id")
@@ -73,7 +73,7 @@ public class Mentor implements Serializable {
 	}
 
 	public String getlLastName() {
-		return lLastName;
+		return lastName;
 	}
 
 	public String getEmail() {
@@ -100,8 +100,8 @@ public class Mentor implements Serializable {
 		this.firstName = firstName;
 	}
 
-	public void setlLastName(String lLastName) {
-		this.lLastName = lLastName;
+	public void setlLastName(String LastName) {
+		this.lastName = LastName;
 	}
 
 	public void setEmail(String email) {
@@ -127,7 +127,7 @@ public class Mentor implements Serializable {
 	@Override
 	public String toString() {
 		return "Mentor [mentorId=" + mentorId + ", firstName=" + firstName
-				+ ", lLastName=" + lLastName + ", courseId=" + courseId
+				+ ", lLastName=" + lastName + ", courseId=" + courseId
 				+ ", email=" + email + ", contact=" + contact + ", password="
 				+ password + ", status=" + status + ", added=" + added + "]";
 	}
