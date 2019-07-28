@@ -16,6 +16,7 @@ import { ContactusComponent } from './modules/contactus/contactus.component';
 
 import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
+import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 
 const routes: Routes = [
   
@@ -36,8 +37,10 @@ const routes: Routes = [
   {path:"student",component:StudentdashboardComponent},
   {path:"mentordash",component:MentordashboardComponent},
   {path:"contactus",component:ContactusComponent},
+  {path:"projectregister",component:ProjectregisterComponent},
+  {path:"mentor-register",component:AddmentorComponent}
+  
 
-  {path:"projectregister",component:ProjectregisterComponent}
  
 ];
 

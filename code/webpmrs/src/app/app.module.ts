@@ -28,6 +28,8 @@ import { ContactusComponent } from './modules/contactus/contactus.component';
 import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 import { LoginService } from './core/services/login.service';
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
+import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
+
 
 
 
@@ -47,7 +49,8 @@ import { StudentRegisterComponent } from './modules/student-register/student-reg
     StudentRegisterComponent,
     StudentdashboardComponent,
     MentordashboardComponent,
-    ContactusComponent
+    ContactusComponent,
+    AddmentorComponent
   ],
   imports: [
     BrowserModule,
