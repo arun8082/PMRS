@@ -61,10 +61,11 @@ export class LoginComponent {
 
     if(this.role==null)
     {
+       //console.log("hello");
       this.role ="admin";
     }
     if (this.role == "admin") {
-      console.log("hi");
+      //console.log("hi");
       this.router.navigateByUrl("/admin");
     }
     if (this.role == "mentor") {
