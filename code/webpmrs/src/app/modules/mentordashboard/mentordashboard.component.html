@@ -1,4 +1,56 @@
-<ul class="list-group">
-  <li class="list-group-item"><a mat-button routerLink="/" class="list-group-item">List of projects</a></li>
+<html>
+<body>
+    <a routerLink="/student-list" style="color:dodgerblue">View Student List</a>
 
-</ul>
+<h1 style="text-align: center; font-size: 32px;padding:40px;font-family:Verdana, Geneva, Tahoma, sans-serif "><u> Project List</u></h1>
+
+ <div *ngIf="flagTable">
+    <table id="customers">
+      <tr>
+        <th>S.No</th>
+        <th>Project Title</th>
+        <th>Project Description</th>
+        <th>Project Technology</th>
+        <th>Software Requirements</th>
+        <th>Hardware Requirements</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let v of list">
+        <td>{{v.SNo}}</td>
+        <td>{{v.ProjectTitle}}</td>
+        <td>{{v.ProjectDescription}}</td>
+        <td>{{v.ProjectTechnology}}</td>
+        <td>{{v.SoftwareRequirements}}</td>
+        <td>{{v.HardwareRequirements}}</td>
+        <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
+</tr>
+
+    </table>
+    </div>
+
+    </body>
+    </html>
+
+    <div *ngIf="flagstudentTable">
+    
+        <table id="customers">
+            <tr>
+              
+              <th>FirstName</th>
+              <th>LastName </th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Course</th>
+            
+            </tr>
+            <tr *ngFor="let p of studentview">
+              <td>{{p.FirstName}}</td>
+              <td>{{p.LastName}}</td>
+              <td>{{p.Email}}</td>
+              <td>{{p.Contact}}</td>
+              <td>{{p.Course}}</td>
+              
+      </tr>
+    
+  </table>
+</div>
