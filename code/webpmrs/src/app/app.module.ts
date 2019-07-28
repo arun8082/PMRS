@@ -25,6 +25,7 @@ import { StudentListComponent } from './modules/student-list/student-list.compon
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
 import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
 import { LoginService } from './core/services/login.service';
+import { StudentRegisterComponent } from './modules/student-register/student-register.component';
 
 
 
@@ -42,7 +43,8 @@ import { LoginService } from './core/services/login.service';
     MentordashboardComponent,
     StudentListComponent,
     MentorlistComponent,
-    ProjectregisterComponent
+    ProjectregisterComponent,
+    StudentRegisterComponent
   ],
   imports: [
     BrowserModule,
