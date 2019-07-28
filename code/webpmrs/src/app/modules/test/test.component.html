@@ -9,7 +9,8 @@ test
       <div class="row">
           <div class="col-md-6 offset-md-3">
               <h3>Choose File</h3>
-                  <input type="file" name="contents" (change)="onSubmit($event)" enctype="multipart/form-data"/>    
+              <input type="text" name="" id="">
+                  <input type="file" name="contents" (change)="onSubmit($event)" enctype="multipart/form-data" multiple/>    
                   <div class="form-group">
                       <button class="btn btn-primary" (click) ="upload()">Submit</button>
                   </div>

@@ -24,8 +24,8 @@ import { MentordashboardComponent } from './modules/mentordashboard/mentordashbo
 import { StudentListComponent } from './modules/student-list/student-list.component';
 import { MentorlistComponent } from './modules/mentorlist/mentorlist.component';
 import { ContactusComponent } from './modules/contactus/contactus.component';
-
-
+import { ProjectregisterComponent } from './modules/projectregister/projectregister.component';
+import { LoginService } from './core/services/login.service';
 
 
 
@@ -43,8 +43,8 @@ import { ContactusComponent } from './modules/contactus/contactus.component';
     MentordashboardComponent,
     StudentListComponent,
     MentorlistComponent,
-    ContactusComponent
- 
+    ContactusComponent,
+    ProjectregisterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +56,10 @@ import { ContactusComponent } from './modules/contactus/contactus.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [
+    RegisterService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

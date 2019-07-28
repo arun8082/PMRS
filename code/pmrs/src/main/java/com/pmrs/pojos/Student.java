@@ -34,7 +34,7 @@ public class Student implements Serializable {
 	@Column(name = "s_email", nullable = false, length = 100, unique = true)
 	private String studentEmail;
 
-	@Column(name = "s_contact", nullable = false, length = 12, unique = true)
+	@Column(name = "s_contact", nullable = false, length = 12)
 	private String studentContact;
 
 	@Column(name = "s_password")
@@ -60,6 +60,10 @@ public class Student implements Serializable {
 	public Student() {
 		super();
 		System.out.println("Default constr of Student");
+	}
+
+	public Student(int studentId) {
+		this.studentId=studentId;
 	}
 
 	// Getters and Setters
@@ -151,4 +155,37 @@ public class Student implements Serializable {
 		this.studentCourseID = studentCourseID;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Student))
+			return false;
+		Student other = (Student) obj;
+		if (studentId == null) {
+			if (other.studentId != null)
+				return false;
+		} else if (!studentId.equals(other.studentId))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", prn=" + prn + ", studentFirstName=" + studentFirstName
+				+ ", studentLastName=" + studentLastName + ", studentEmail=" + studentEmail + ", studentContact="
+				+ studentContact + ", studentpassword=" + studentpassword + ", studentStatus=" + studentStatus
+				+ ", studentProjectId=" + studentProjectId + ", studentCourseID=" + studentCourseID + ", added=" + added
+				+ "]";
+	}
+
+	
 }
