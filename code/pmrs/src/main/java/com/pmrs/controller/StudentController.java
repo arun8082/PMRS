@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import com.pmrs.pojos.Student;
 
 @RestController
 @RequestMapping("/pmrs/student")
+@CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*")
 public class StudentController  {
 	
 	@Autowired
@@ -41,7 +43,7 @@ public class StudentController  {
 	@PostMapping("/login")
 	public Student authenticateStudent(@RequestBody Student student)
 	{
-		System.out.println("In login student controller");
+		//System.out.println("In login student controller"+studentService.authenticateStudent(student));
 		return studentService.authenticateStudent(student);
 	}
 	
@@ -49,7 +51,7 @@ public class StudentController  {
 	//method to register student 
 	@PostMapping("/register")
 	public Student registerStudent(@RequestBody Student student) {
-		System.out.println("In register student controller");
+		//System.out.println("In register student controller");
 		student.setAdded(LocalDate.now());
 		return studentService.add(student);
 	}
@@ -58,7 +60,7 @@ public class StudentController  {
 	@PostMapping("/addProject")
 	public Project addProject(@RequestBody Project project)
 	{
-		System.out.println("In project add method");
+		//System.out.println("In project add method");
 		project.setProjectCreated(LocalDate.now());
 		return projectService.add(project);
 		

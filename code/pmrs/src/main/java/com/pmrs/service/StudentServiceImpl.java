@@ -33,8 +33,7 @@ public class StudentServiceImpl extends GenericServiceImpl<Student, Integer> imp
 	}
 
 	@Override
-	public Student authenticateStudent(Student student) {
-		
+	public Student authenticateStudent(Student student) {		
 		return studentDAO.authenticateStudent(student);
 	}
 

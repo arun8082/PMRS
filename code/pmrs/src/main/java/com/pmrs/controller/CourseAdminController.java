@@ -55,7 +55,7 @@ public class CourseAdminController {
 
 	@PostMapping("/registerMentor")
 	public Mentor registerMentor(@RequestBody Mentor mentor) {
-		mentor.setMentorAdded(LocalDate.now());
+		mentor.setAdded(LocalDate.now());
 		return mentorService.add(mentor);
 	}
 

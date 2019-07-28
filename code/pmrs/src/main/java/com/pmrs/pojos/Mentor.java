@@ -22,10 +22,10 @@ public class Mentor implements Serializable {
 	private Integer mentorId;
 
 	@Column(name = "m_first_name")
-	private String mentorFirstName;
+	private String firstName;
 
 	@Column(name = "m_last_name")
-	private String mentorLastName;
+	private String lLastName;
 
 	// Many mentors are related to one course
 	// @Column(name = "c_id")
@@ -33,20 +33,20 @@ public class Mentor implements Serializable {
 	private Course courseId;
 
 	@Column(name = "m_email")
-	private String mentorEmail;
+	private String email;
 
 	@Column(name = "m_contact")
-	private String mentorContact;
+	private String contact;
 
 	@Column(name = "m_password")
-	private String mentorpassword;
+	private String password;
 
 	@Column(name = "m_status")
 	@Enumerated(EnumType.STRING)
-	private EEntityStatus mentorStatus;
+	private EEntityStatus status;
 
 	@Column(name = "m_added")
-	private LocalDate mentorAdded;
+	private LocalDate added;
 
 	public Mentor() {
 		System.out.println("This is mentor's constructor");
@@ -58,23 +58,7 @@ public class Mentor implements Serializable {
 
 	public void setMentorId(Integer mentorId) {
 		this.mentorId = mentorId;
-	}
-
-	public String getMentorFirstName() {
-		return mentorFirstName;
-	}
-
-	public void setMentorFirstName(String mentorFirstName) {
-		this.mentorFirstName = mentorFirstName;
-	}
-
-	public String getMentorLastName() {
-		return mentorLastName;
-	}
-
-	public void setMentorLastName(String mentorLastName) {
-		this.mentorLastName = mentorLastName;
-	}
+	}	
 
 	public Course getCourseId() {
 		return courseId;
@@ -84,44 +68,68 @@ public class Mentor implements Serializable {
 		this.courseId = courseId;
 	}
 
-	public String getMentorEmail() {
-		return mentorEmail;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setMentorEmail(String mentorEmail) {
-		this.mentorEmail = mentorEmail;
+	public String getlLastName() {
+		return lLastName;
 	}
 
-	public String getMentorContact() {
-		return mentorContact;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMentorContact(String mentorContact) {
-		this.mentorContact = mentorContact;
+	public String getContact() {
+		return contact;
 	}
 
-	public String getMentorpassword() {
-		return mentorpassword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setMentorpassword(String mentorpassword) {
-		this.mentorpassword = mentorpassword;
+	public EEntityStatus getStatus() {
+		return status;
 	}
 
-	public EEntityStatus getMentorStatus() {
-		return mentorStatus;
+	public LocalDate getAdded() {
+		return added;
 	}
 
-	public void setMentorStatus(EEntityStatus mentorStatus) {
-		this.mentorStatus = mentorStatus;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public LocalDate getMentorAdded() {
-		return mentorAdded;
+	public void setlLastName(String lLastName) {
+		this.lLastName = lLastName;
 	}
 
-	public void setMentorAdded(LocalDate mentorAdded) {
-		this.mentorAdded = mentorAdded;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setStatus(EEntityStatus status) {
+		this.status = status;
+	}
+
+	public void setAdded(LocalDate added) {
+		this.added = added;
+	}
+
+	@Override
+	public String toString() {
+		return "Mentor [mentorId=" + mentorId + ", firstName=" + firstName
+				+ ", lLastName=" + lLastName + ", courseId=" + courseId
+				+ ", email=" + email + ", contact=" + contact + ", password="
+				+ password + ", status=" + status + ", added=" + added + "]";
+	}
+	
 }

@@ -26,23 +26,23 @@ public class Student implements Serializable {
 	private String prn;
 
 	@Column(name = "s_first_name", nullable = false, length = 150)
-	private String studentFirstName;
+	private String firstName;
 
 	@Column(name = "s_last_name", nullable = false, length = 150)
-	private String studentLastName;
+	private String lastName;
 
 	@Column(name = "s_email", nullable = false, length = 100, unique = true)
-	private String studentEmail;
+	private String email;
 
 	@Column(name = "s_contact", nullable = false, length = 12)
-	private String studentContact;
+	private String contact;
 
 	@Column(name = "s_password")
-	private String studentpassword;
+	private String password;
 
 	@Column(name = "s_status", nullable = false)
 	@Enumerated(EnumType.STRING)
-	private EEntityStatus studentStatus;
+	private EEntityStatus status;
 
 	@ManyToOne
 	@JoinColumn(name = "s_projectid")
@@ -81,54 +81,54 @@ public class Student implements Serializable {
 
 	public void setPrn(String prn) {
 		this.prn = prn;
+	}	
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getStudentFirstName() {
-		return studentFirstName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setStudentFirstName(String studentFirstName) {
-		this.studentFirstName = studentFirstName;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getStudentLastName() {
-		return studentLastName;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setStudentLastName(String studentLastName) {
-		this.studentLastName = studentLastName;
+	public String getPassword() {
+		return password;
 	}
 
-	public String getStudentEmail() {
-		return studentEmail;
+	public EEntityStatus getStatus() {
+		return status;
 	}
 
-	public void setStudentEmail(String studentEmail) {
-		this.studentEmail = studentEmail;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getStudentContact() {
-		return studentContact;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public void setStudentContact(String studentContact) {
-		this.studentContact = studentContact;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getStudentpassword() {
-		return studentpassword;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
-	public void setStudentpassword(String studentpassword) {
-		this.studentpassword = studentpassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public EEntityStatus getStudentStatus() {
-		return studentStatus;
-	}
-
-	public void setStudentStatus(EEntityStatus studentStatus) {
-		this.studentStatus = studentStatus;
+	public void setStatus(EEntityStatus status) {
+		this.status = status;
 	}
 
 	public Project getStudentProjectId() {
@@ -180,12 +180,12 @@ public class Student implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", prn=" + prn + ", studentFirstName=" + studentFirstName
-				+ ", studentLastName=" + studentLastName + ", studentEmail=" + studentEmail + ", studentContact="
-				+ studentContact + ", studentpassword=" + studentpassword + ", studentStatus=" + studentStatus
-				+ ", studentProjectId=" + studentProjectId + ", studentCourseID=" + studentCourseID + ", added=" + added
-				+ "]";
+		return "Student [studentId=" + studentId + ", prn=" + prn
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", contact=" + contact + ", password="
+				+ password + ", status=" + status + ", studentProjectId="
+				+ studentProjectId + ", studentCourseID=" + studentCourseID
+				+ ", added=" + added + "]";
 	}
-
 	
 }

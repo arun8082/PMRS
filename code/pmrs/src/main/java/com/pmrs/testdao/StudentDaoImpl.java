@@ -61,8 +61,8 @@ public class StudentDaoImpl implements IStudentDao{
 		String jpql = "Select s from Student s where s.prn=:prn and s.studentEmail=:studentEmail";
 		try {
 		Student stud = sf.createQuery(jpql, Student.class).setParameter("prn", student.getPrn())
-				.setParameter("studentEmail", student.getStudentEmail()).getSingleResult();
-			if(stud.getStudentEmail().equals(student.getStudentEmail())
+				.setParameter("studentEmail", student.getEmail()).getSingleResult();
+			if(stud.getEmail().equals(student.getEmail())
 					&& stud.getPrn().equals(student.getPrn())) {
 				return stud;
 			}

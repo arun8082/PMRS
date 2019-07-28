@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.pmrs.idao.IStudentDAO;
+import com.pmrs.pojos.EEntityStatus;
 import com.pmrs.pojos.Student;
 
 @Repository
@@ -20,19 +21,18 @@ public class StudentDAOImpl extends AbstractGenericDAOImpl<Student, Integer> imp
 	@Override
 	public Student authenticateStudent(Student student) {
 		try {
-			System.out.println("In student login DAO");
-			String jpql = "select s from Student s where s.studentEmail=:email and s.studentpassword=:pwd";
-			Student st = em.createQuery(jpql, Student.class).setParameter("email", student.getStudentEmail())
-					.setParameter("pwd", student.getStudentpassword()).getSingleResult();
-
-			if (st != null) {
+			String jpql = "select s from Student s where s.email=:email and s.password=:pwd";
+			Student st = em.createQuery(jpql, Student.class).setParameter("email", student.getEmail())
+					.setParameter("pwd", student.getPassword()).getSingleResult();
+			if (st.getStatus() == EEntityStatus.ACTIVE) {
 				return st;
 			} else {
-				return null;
+				Student s = new Student();
+				s.setStatus(EEntityStatus.INACTIVE);
+				return s;
 			}
 
 		} catch (NoResultException ex) {
-			System.out.println("Exception");
 			return null;
 		}
 	}
@@ -40,7 +40,6 @@ public class StudentDAOImpl extends AbstractGenericDAOImpl<Student, Integer> imp
 	@Override
 	public List<Student> getMemberList(int projectId) {
 		try {
-			System.out.println("In Student get member list");
 			String jpql = "select s from Student where s.studentProjectId=:projectid";
 			List<Student> st = em.createQuery(jpql, Student.class).setParameter("projectid", projectId).getResultList();
 
