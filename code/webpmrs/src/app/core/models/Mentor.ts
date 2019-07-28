@@ -1,11 +1,11 @@
 export class Mentor{
     mentorId;
-    mentorFirstName;
-    mentorLastName;
+    firstName;
+    lastName;
     courseId;
-    mentorEmail;
-    mentorContact;
-    mentorpassword;
-    mentorStatus;
-    mentorAdded;
+    email;
+    contact;
+    password;
+    status;
+    added;
 }

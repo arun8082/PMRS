@@ -14,11 +14,11 @@
                         </th>
                 </tr>
                 <tr *ngFor="let s of list">
-                        <td>{{s.FirstName}}</td>
-                        <td>{{s.LastName}}</td>
-                        <td>{{s.Contact}}</td>
-                        <td>{{s.Email}}</td>
-                        <td>{{s.Course}}</td>
+                        <td>{{s.studentFirstName}}</td>
+                        <td>{{s.studentLastName}}</td>
+                        <td>{{s.studentContact}}</td>
+                        <td>{{s.studentEmail}}</td>
+                        <td>{{s.studentCourseID}}</td>
                         <td><a style="color:dodgerblue"><span (click)="onUpdate(s)">Edit</span></a></td>
                 </tr>
 
@@ -29,78 +29,6 @@
 
 <!--link to add new student-->
 
-<a (click)="AddStudent()" style="color:dodgerblue">Register Student</a>
+<a routerLink="/studentRegister" style="color:dodgerblue">Register Student</a>
 
-<!--**************************************************************************************************-->
-<!--Student Registration form-->
-<div *ngIf="flagvar">
-        <form [formGroup]="StudentForm" autocomplete="off" novalidate (ngSubmit)="createStudent(studentForm.value)"
-                layout-align="center">
 
-                <mat-card class="student">
-                        <mat-card-header style="justify-content: center; padding:2%">
-                                <mat-card-title><b>Student Details</b></mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content>
-                                <mat-form-field>
-                                        <input matInput placeholder="First name" formControlName="firstname">
-                                        <mat-error *ngIf="hasError('firstname', 'required')">First name is required
-                                        </mat-error>
-                                        <mat-error *ngIf="hasError('firstname', 'maxlength')">You have more than 100
-                                                characters
-                                        </mat-error>
-                                </mat-form-field>
-                        </mat-card-content>
-                        <mat-card-content>
-                                <mat-form-field>
-                                        <input matInput placeholder="Last name" formControlName="lastname">
-                                        <mat-error *ngIf="hasError('lastname', 'required')">Last name is required
-                                        </mat-error>
-                                        <mat-error *ngIf="hasError('lastname', 'maxlength')">You have more than 100
-                                                characters
-                                        </mat-error>
-                                </mat-form-field>
-                        </mat-card-content>
-
-                        <mat-card-content>
-                                <mat-form-field>
-                                        <input matInput placeholder="Phone No" formControlName="contact">
-                                        <mat-error *ngIf="hasError('contact', 'required')">Phone no is required
-                                        </mat-error>
-                                </mat-form-field>
-                        </mat-card-content>
-                        <mat-card-content>
-                                <mat-form-field>
-                                        <input matInput placeholder="Email" formControlName="email">
-                                        <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
-                                        <mat-error *ngIf="hasError('email', 'pattern')">Enter a valid EmailId
-                                        </mat-error>
-
-                                </mat-form-field>
-                        </mat-card-content>
-
-                        <mat-card-content>
-
-                                <mat-form-field>
-                                        <select matNativeControl formControlName="course"
-                                                (change)=onDropDownSelection(selectedItem) ng-model="selectedItem">
-                                                <option label="--Select Course--"></option>
-                                                <option value="PG-DAC">PG-DAC</option>
-                                                <option value="DITISS">DITISS</option>
-                                                <option value="IOT">IOT</option>
-                                                <option value="DBDA">DBDA</option>
-
-                                        </select>
-                                        <mat-error *ngIf="hasError('course','required')">Please choose an option
-                                        </mat-error>
-
-                                </mat-form-field>
-                        </mat-card-content>
-                        <mat-card-actions>
-                                <button mat-raised-button (click)="register()" color="primary">Register</button>
-                                <button mat-raised-button (click)="Cancel()" color="warn">Cancel</button>
-                        </mat-card-actions>
-                </mat-card>
-
-        </form>
-</div>

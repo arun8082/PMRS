@@ -1,12 +1,12 @@
 export class Student{
     studentId;
     prn;
-    studentFirstName;
-    studentLastName;
-    studentEmail;
-    studentContact;
-    studentpassword;
-    studentStatus;
+    firstName;
+    lastName;
+    email;
+    contact;
+    password;
+    status;
     studentProjectId;
     studentCourseID;
     added;

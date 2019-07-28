@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mentor } from './Mentor';
+import { Http } from '@angular/http';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-mentorlist',
@@ -7,16 +9,25 @@ import { Mentor } from './Mentor';
   styleUrls: ['./mentorlist.component.css']
 })
 export class MentorlistComponent implements OnInit {
+  error: string;
 
-  constructor() { }
-
+  constructor(private http:Http) { }
  
   flagTable=true;
-  public list:Mentor[]=[{FirstName:"mnhs",LastName:"Rajan",Email:"abc@gfs",Contact:"111111",Status:"Active"},
- {FirstName:"djsd",LastName:"Rajan",Email:"abc@gfs",Contact:"111111",Status:"active"},
- {FirstName:"dnskn",LastName:"Rajan",Email:"abc@gfs",Contact:"111111",Status:"Inactive"}];
+  public list:Mentor;
 
   ngOnInit() {
+    this.getMentorList();
   }
 
+  baseurl="http://localhost:7090/pmrs/admin/projectList";
+  getMentorList(){
+    this.http.get(this.baseurl).subscribe(result => {
+      if (result.text() != "") {
+        this.list = result.json();        
+      } else {
+        this.error = "There is no result...";
+      }
+    });
+  }
 }

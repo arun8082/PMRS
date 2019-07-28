@@ -1,43 +1,38 @@
 <form class="loginform" [formGroup]="LoginForm" autocomplete="off" novalidate (ngSubmit)="createLogin(LoginForm.value)"
         fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
-
-        <mat-card >
+        <mat-card>
                 <mat-card-header style="justify-content: center; padding:2%">
-                  <mat-card-title><b>Login</b></mat-card-title>
+                        <mat-card-title><b>Login</b></mat-card-title>
                 </mat-card-header>
-
+                <mat-error style="justify-content: center; padding:2%">{{error}}</mat-error>
                 <mat-card-content>
-
-                        <mat-radio-group (change)="onChange($event)" name="role">
-                                <mat-radio-button style=padding-right:10px; checked value="admin">Admin</mat-radio-button>
+                        <mat-radio-group (change)="onChange($event)" name="role" formControlName="role">
+                                <mat-radio-button style=padding-right:10px; checked value="courseAdmin">Admin
+                                </mat-radio-button>
                                 <mat-radio-button style=padding-right:10px; value="mentor">Mentor</mat-radio-button>
                                 <mat-radio-button value="student">Student</mat-radio-button>
                         </mat-radio-group>
-
                 </mat-card-content>
                 <mat-card-content>
                         <mat-form-field>
-                                <input matInput placeholder="Username" formControlName="username">
+                                <input matInput placeholder="Username" formControlName="email">
 
-                                <mat-error *ngIf="hasError('username', 'required')">User name is required</mat-error>
-                                <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 100 characters
+                                <mat-error *ngIf="hasError('email', 'required')">User name is required</mat-error>
+                                <mat-error *ngIf="hasError('email', 'maxlength')">You have more than 100 characters
                                 </mat-error>
                         </mat-form-field>
-
                 </mat-card-content>
-
                 <mat-card-content>
                         <mat-form-field>
                                 <input matInput type="password" placeholder="password" formControlName="password">
-                                <mat-error *ngIf="hasError('password', 'required')">Password required must be 6 characters long</mat-error>
-                                <mat-error *ngIf="hasError('password', 'pattern')">must contain atleast one uppercase,one lowercase and one number</mat-error>
+                                <mat-error *ngIf="hasError('password', 'required')">Password required must be 6
+                                        characters long</mat-error>
+                                <mat-error *ngIf="hasError('password', 'pattern')">must contain atleast one
+                                        uppercase,one lowercase and one number</mat-error>
                         </mat-form-field>
                 </mat-card-content>
-
                 <mat-card-actions>
                         <button mat-raised-button (click)="login()" color="primary">Login</button>
                 </mat-card-actions>
-
-
         </mat-card>
 </form>
