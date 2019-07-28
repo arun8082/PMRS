@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pmrs.iservice.IMentorService;
 import com.pmrs.iservice.IProjectService;
 import com.pmrs.iservice.IStudentService;
 import com.pmrs.pojos.Mentor;
@@ -30,17 +31,26 @@ public class MentorController {
 
 	@Autowired
 	private IStudentService studentService;
-
 	@Autowired
 	private IProjectService projectService;
+	@Autowired
+	private IMentorService mentorService;
 
-	@PostMapping("/student/list")
+	@PostMapping("/login")
+	public Mentor authenticateMentor(@RequestBody Mentor mentor)
+	{
+		//System.out.println("In login student controller"+studentService.authenticateStudent(student));
+		return mentorService.authenticateMentor(mentor);
+	}
+	
+	@PostMapping("/studentList")
 	public List<Student> getStudentList() {
 		return studentService.listAll();
 	}
 
-	@PostMapping("/project/list")
+	@PostMapping("/projectList")
 	public List<Project> getprojectList(@RequestBody Mentor mentor) {
-		return projectService.listAll("mentorId",mentor);
+		//System.out.println(mentor);
+		return null;//projectService.listAll();
 	}
 }

@@ -22,7 +22,7 @@ export class TestComponent implements OnInit {
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisterService } from 'src/app/core/services/register.service';
-import { LoginService } from 'src/app/core/services/login.service';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-test',
@@ -34,7 +34,7 @@ export class TestComponent {
   fileData: File = null;
   studentArray=[{}];
 
-  constructor(private http: HttpClient,private pservice:RegisterService,private loginService:LoginService) { }
+  constructor(private http: HttpClient,private pservice:RegisterService,private loginService:CommonService) { }
   
   ngOnInit(){
     this.pservice.getAllStudents().subscribe((r)=>this.studentArray=r);

@@ -19,6 +19,7 @@ import com.pmrs.idao.IGenericDAO;
 import com.pmrs.idao.IMentorDAO;
 import com.pmrs.iservice.IMentorService;
 import com.pmrs.pojos.Mentor;
+import com.pmrs.pojos.Student;
 
 @Service
 @Transactional
@@ -30,6 +31,11 @@ public class MentorServiceImpl extends GenericServiceImpl<Mentor, Integer> imple
 	public MentorServiceImpl(@Qualifier("mentorDAOImpl") IGenericDAO<Mentor, Integer> genericDAO) {
 		super(genericDAO);
 		this.mentorDAO = (IMentorDAO) genericDAO;
+	}
+
+	@Override
+	public Mentor authenticateMentor(Mentor mentor) {
+		return mentorDAO.authenticateMentor(mentor);
 	}
 
 }
