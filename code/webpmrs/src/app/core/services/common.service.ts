@@ -47,4 +47,5 @@ export class CommonService {
             return this.http.post(this.baseurl + "/admin/projectList", data, { headers: headers });
         }
     }
+    
 }

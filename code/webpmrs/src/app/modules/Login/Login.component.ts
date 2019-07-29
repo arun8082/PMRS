@@ -69,7 +69,7 @@ export class LoginComponent {
           if (result.text() != "") {
             this.mentor = result.json();
             if (this.mentor.status == "ACTIVE") {
-              this.router.navigateByUrl('mentor');
+              this.router.navigateByUrl('mentordash');
             } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
             }
@@ -85,7 +85,7 @@ export class LoginComponent {
           if (result.text() != "") {
             this.student = result.json();
             if (this.student.status == "ACTIVE") {
-              this.router.navigateByUrl('student');
+              this.router.navigateByUrl('studentdash');
             } else if (this.student.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
             }
