@@ -16,7 +16,7 @@ export class StudentRegisterComponent implements OnInit {
   constructor(private http:Http) { }
 
   public student:Student;
-
+  successMessage:string;
 
   ngOnInit() {
     this.StudentForm = new FormGroup(
@@ -38,9 +38,10 @@ export class StudentRegisterComponent implements OnInit {
   public createStudent = (StudentFormValue) => {
     this.executeFormCreation(StudentFormValue);
     if (this.StudentForm.valid) {
-      this.http.post(this.baseurlStudentregister, StudentFormValue).subscribe(result => {
-
+        this.http.post(this.baseurlStudentregister, StudentFormValue).subscribe(result => {
         this.student=result.json();
+        this.successMessage="Student Added Successfully";
+        this.StudentForm.reset();
         console.log(this.student);
       });
 
@@ -50,8 +51,10 @@ export class StudentRegisterComponent implements OnInit {
      
     }
   }
+  public resetStudent = (StudentFormValue) => {
+    this.StudentForm.reset();
 
-  
+  }
   private executeFormCreation = (StudentFormValue) => {
 
     let fields: StudentFields = {

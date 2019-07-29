@@ -1,33 +1,34 @@
 <h2 style="text-align: center">Mentor List</h2>
 <!-----Creating Mentor list table----->
 <div *ngIf="flagTable">
-    <table class="table">
-            <tr>
-                    <th>FirstName
-                    </th>
-                    <th>LastName
-                    </th>
-                    <th>Email
-                    </th>
-                    <th>Contact
-                    </th>
-                    <th>MentorStatus
-                    </th>
-            </tr>
-            <tr>
-                <td colspan="5" style="text-align: center">{{error}}</td>
+        <table class="table">
+                <tr>
+                        <th>S.NO</th>
+                        <th>FirstName
+                        </th>
+                        <th>LastName
+                        </th>
+                        <th>Email
+                        </th>
+                        <th>Contact
+                        </th>
+                        <th>MentorStatus
+                        </th>
                 </tr>
-            <tr *ngFor="let s of list;let i=index">
-                    <td>{{i+1}}</td>
-                    <td>{{s.FirstName}}</td>
-                    <td>{{s.LastName}}</td>
-                    <td>{{s.Email}}</td>
-                    <td>{{s.Contact}}</td>
-                    <td>{{s.Status}}</td>
-                    <td><a style="color:dodgerblue"><span (click)="onUpdate(s)">Edit</span></a></td>
-            </tr>
+                <tr>
+                        <td *ngIf="flagerror" colspan="5" style="text-align: center">{{error}}</td>
+                </tr>
+                <tr *ngFor="let s of list;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{s.firstName}}</td>
+                        <td>{{s.lastName}}</td>
+                        <td>{{s.email}}</td>
+                        <td>{{s.contact}}</td>
+                        <td>{{s.status}}</td>
+                        <td><a style="color:dodgerblue"><span (click)="onUpdate(s)">Edit</span></a></td>
+                </tr>
 
-    </table>
+        </table>
 </div>
 
 
