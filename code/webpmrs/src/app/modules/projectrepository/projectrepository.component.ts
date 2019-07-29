@@ -9,8 +9,7 @@ import { Project } from 'src/app/core/models/Project';
   styleUrls: ['./projectrepository.component.css']
 })
 export class ProjectrepositoryComponent implements OnInit {
-
-  listrepository:Project;
+  
   index=1; 
   error:string;
   projectList: any;

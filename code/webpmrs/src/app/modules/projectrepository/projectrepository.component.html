@@ -4,22 +4,22 @@
 <div>
     <table id="project">
       <tr>
-       <th>S.No</th>
+          <th>S.No</th>
           <th>Project Title</th>
           <th>Project Description</th>
           <th>Project Technology</th>
           <th>Software Requirements</th>
           <th>Hardware Requirements</th>
-          <th></th>
+          <th>Action</th>
 
       </tr>
-      <tr *ngFor="let i of listrepository;let i=index">
+      <tr *ngFor="let i of projectList;let i=index">
           <td>{{i+1}}</td>
           <td>{{i.projectTitle}}</td>
           <td>{{i.projectDescription}}</td>
           <td>{{i.projectTechnology}}</td>
-          <td>{{i.softwareRequirements}}</td>
-          <td>{{i.hardwareRequirements}}</td>
+          <td>{{i.projectSWRequire}}</td>
+          <td>{{i.projectHWRequire}}</td>
           <td><a style="color:dodgerblue"><button (click)="onUpload()">DocumentUpload</button></a></td>
 </tr>
 
