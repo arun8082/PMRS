@@ -16,6 +16,7 @@ export class ProjectregisterComponent implements OnInit {
   public project:Project;
   public error:string;
   public baseurlProjectRegister="http://localhost:7090/pmrs/student/addProject";
+  public successMsg;
 
   ngOnInit() {
     this.ProjectForm = new FormGroup(
@@ -43,6 +44,8 @@ export class ProjectregisterComponent implements OnInit {
         {
         this.project=result.json();
         console.log(this.project);
+        this.successMsg = "Project added successfully.";
+        this.ProjectForm.reset();
         }
         else
         {
@@ -52,9 +55,12 @@ export class ProjectregisterComponent implements OnInit {
 
       console.log("in function");
       console.log(projectFormValue);
-      
      
     }
+  }
+
+  public resetProject = (projectFormValue) => {
+    this.ProjectForm.reset();
   }
 
   private executeFormCreation = (projectFormValue) => {
@@ -69,9 +75,4 @@ export class ProjectregisterComponent implements OnInit {
       projectPlatform: projectFormValue.course
     }
   }
-  
-  
- 
-  
-
 }

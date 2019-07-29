@@ -1,0 +1,18 @@
+<h2 style="text-align: center">{{contentTitle}}</h2>
+<div>
+  <table id="project">
+    <tr>
+      <th>S.No</th>
+      <th>Project Id</th>
+      <th>Project Title</th>
+      <th>Action</th>
+    </tr>
+    <tr><td colspan="3" *ngIf="errorFlag">{{error}}</td></tr>
+    <tr *ngFor="let v of projectList;let i=index">
+      <td>{{i+1}}</td>
+      <td>{{v.projectId}}</td>
+      <td>{{v.projectTitle}}</td>
+      <td><a style="color:dodgerblue"><button (click)="download()">Download Document</button></a></td>
+    </tr>
+  </table>
+</div>

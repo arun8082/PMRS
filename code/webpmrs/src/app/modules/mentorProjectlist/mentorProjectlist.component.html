@@ -1,54 +1,36 @@
-<html>
-<body>
-    <h2 style="text-align: center">Project List</h2>
-<div>
-    <table id="project">
-      <tr>
-       <th>S.No</th>
-          <th>Project Title</th>
-          <th>Project Description</th>
-          <th>Project Technology</th>
-          <th>Software Requirements</th>
-          <th>Hardware Requirements</th>
-          <th></th>
+<h2 style="text-align: center">{{contentTitle}}</h2>
+<div *ngIf="flagprojectable">
+  <table id="project">
+    <tr>
+      <th>S.No</th>
+      <th>Project Title</th>
+      <th>Project Description</th>
+      <th>Project Technology</th>
+      <th>Software Requirements</th>
+      <th>Hardware Requirements</th>
+      <th>Action</th>
 
-      </tr>
-      <tr *ngFor="let v of list">
-         <td>{{v.SNo}}</td>
-          <td>{{v.projectTitle}}</td>
-          <td>{{v.projectDescription}}</td>
-          <td>{{v.projectTechnology}}</td>
-          <td>{{v.softwareRequirements}}</td>
-          <td>{{v.hardwareRequirements}}</td>
-          <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
-</tr>
+    </tr>
+    <tr *ngFor="let v of list">
+      <td>{{v.SNo}}</td>
+      <td>{{v.projectTitle}}</td>
+      <td>{{v.projectDescription}}</td>
+      <td>{{v.projectTechnology}}</td>
+      <td>{{v.softwareRequirements}}</td>
+      <td>{{v.hardwareRequirements}}</td>
+      <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
+    </tr>
 
-    </table>
-    </div>
+    </tr>
+    <tr *ngFor="let p of studentview; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{p.FirstName}}</td>
+      <td>{{p.LastName}}</td>
+      <td>{{p.Email}}</td>
+      <td>{{p.Contact}}</td>
+      <td>{{p.Course}}</td>
 
-    </body>
-    </html>
+    </tr>
 
-    <div *ngIf="flagstudentTable">
-    
-        <table id="customers">
-            <tr>
-              
-              <th>FirstName</th>
-              <th>LastName </th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Course</th>
-            
-            </tr>
-            <tr *ngFor="let p of studentview">
-              <td>{{p.FirstName}}</td>
-              <td>{{p.LastName}}</td>
-              <td>{{p.Email}}</td>
-              <td>{{p.Contact}}</td>
-              <td>{{p.Course}}</td>
-              
-      </tr>
-    
   </table>
 </div>

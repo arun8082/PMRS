@@ -4,30 +4,30 @@ import { Project } from 'src/app/core/models/Project';
 import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
-  selector: 'app-mentorprojectlist',
-  templateUrl: './mentorProjectlist.component.html',
-  styleUrls: ['./mentorProjectlist.component.css']
+  selector: 'app-MentorStudentList',
+  templateUrl: './MentorStudentList.component.html',
+  styleUrls: ['./MentorStudentList.component.css']
 })
-export class MentorProjectListComponent implements OnInit {
+export class MentorStudentListComponent implements OnInit {
  
   private id;
   private type;
   list:Project;
   error:string;
   index=1; 
-  flagstudentTable=false;
-  flagprojectable=true;
-  projectList: any;
-  contentTitle;
+  flagstudentTable=true;
+  projectList: any;  
+  contentTitle="Student List";
+
   constructor(private http:Http ,private commonService: CommonService) { }
 
+  public studentview = [{ firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
+  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
+  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" }];
+  
   ngOnInit() {
-    this.getProjectList();
-  }
-
-  baseurl="http://localhost:7090/pmrs/admin/projectList";
-  getProjectList(){
-    this.http.get(this.baseurl).subscribe(result => {
+    
+    this.commonService.getStudentsList(1,"mentor").subscribe(result => {
       if (result.text() != "") {
         this.contentTitle="Project List";
         this.projectList = result.json();        
@@ -38,9 +38,7 @@ export class MentorProjectListComponent implements OnInit {
   }
 
   onUpdate(){
-    this.flagprojectable=false;
     this.flagstudentTable=true;
-    this.contentTitle="Project Student List";
     this.commonService.getStudentsList(1,"mentor").subscribe(result=>{
       if(result.text()!=""){
         this.studentview=result.json();

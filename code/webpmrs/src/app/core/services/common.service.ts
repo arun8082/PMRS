@@ -14,15 +14,8 @@ export class CommonService {
 
     constructor(private http: Http) { }
 
-    getAllStudents(): Observable<Student[]> {
-        return this.http.get(this.baseurl)
-            .map((response: Response) => <Student[]>response.json());
-    }
-
-    courseAdmin: any;
-
     loginCourseAdmin(courseAdminData) {
-        return this.http.post(this.baseurl, courseAdminData).subscribe(result => { this.courseAdmin = result.json() });
+        return this.http.post(this.baseurl, courseAdminData);
     }
 
     getStudentsList(id, type) {
@@ -32,9 +25,27 @@ export class CommonService {
         });
 
         if (type == "mentor") {
-            return this.http.post(this.baseurl + "/mentor/projectList", JSON.stringify(id), { headers: headers });
+            var data: any = { "mentorId": id };
+            return this.http.post(this.baseurl + "/mentor/studentList", JSON.stringify(data), { headers: headers });
         } else if (type == "admin") {
-            return this.http.post(this.baseurl + "/admin/", id);
+            data = { "courseAdminId": id };
+            return this.http.post(this.baseurl + "/admin/studentList", JSON.stringify(data), { headers: headers });
         }
     }
+
+    getProjectList(id, type) {
+        var headers = new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        });
+
+        if (type == "mentor") {
+            var data: any = { "mentorId": id };
+            return this.http.post(this.baseurl + "/mentor/projectList", data, { headers: headers });
+        } else if (type == "admin") {
+            data = { "courseAdminId": id };
+            return this.http.post(this.baseurl + "/admin/projectList", data, { headers: headers });
+        }
+    }
+    
 }

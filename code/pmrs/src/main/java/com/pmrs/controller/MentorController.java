@@ -51,6 +51,6 @@ public class MentorController {
 	@PostMapping("/projectList")
 	public List<Project> getprojectList(@RequestBody Mentor mentor) {
 		//System.out.println(mentor);
-		return null;//projectService.listAll();
+		return projectService.listAll();
 	}
 }
