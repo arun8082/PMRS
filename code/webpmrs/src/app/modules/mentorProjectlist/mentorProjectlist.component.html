@@ -9,28 +9,37 @@
       <th>Software Requirements</th>
       <th>Hardware Requirements</th>
       <th>Action</th>
-
     </tr>
-    <tr *ngFor="let v of list">
-      <td>{{v.SNo}}</td>
-      <td>{{v.projectTitle}}</td>
-      <td>{{v.projectDescription}}</td>
-      <td>{{v.projectTechnology}}</td>
-      <td>{{v.softwareRequirements}}</td>
-      <td>{{v.hardwareRequirements}}</td>
+    <tr *ngFor="let p of projectList">
+      <td>{{p.SNo}}</td>
+      <td>{{p.projectTitle}}</td>
+      <td>{{p.projectDescription}}</td>
+      <td>{{p.projectTechnology}}</td>
+      <td>{{p.softwareRequirements}}</td>
+      <td>{{p.hardwareRequirements}}</td>
       <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
     </tr>
-
+  </table>
+</div>
+<div *ngIf="flagstudentTable">
+  <table id="student">
+    <tr>
+      <th>S.No</th>
+      <th>PRN</th>
+      <th>First Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Course</th>
+      <th>Action</th>
     </tr>
-    <tr *ngFor="let p of studentview; let i=index">
+    <tr *ngFor="let s of studentList; let i=index">
       <td>{{i+1}}</td>
-      <td>{{p.FirstName}}</td>
-      <td>{{p.LastName}}</td>
-      <td>{{p.Email}}</td>
-      <td>{{p.Contact}}</td>
-      <td>{{p.Course}}</td>
-
+      <td>{{s.firstName}}</td>
+      <td>{{s.lastName}}</td>
+      <td>{{s.email}}</td>
+      <td>{{s.contact}}</td>
+      <td>{{s.course}}</td>
+      <td></td>
     </tr>
-
   </table>
 </div>

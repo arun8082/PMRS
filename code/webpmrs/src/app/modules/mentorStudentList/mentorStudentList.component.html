@@ -1,4 +1,5 @@
-<div *ngIf="flagstudentTable">
+<h2 style="text-align: center">{{contentTitle}}</h2>
+<div>
   <table id="student">
     <tr>
       <th>Sr. No.</th>
@@ -8,7 +9,7 @@
       <th>Contact</th>
       <th>Course</th>
     </tr>
-    <tr *ngFor="let p of studentview; let i=index">
+    <tr *ngFor="let p of studentList; let i=index">
       <td>{{i+1}}</td>
       <td>{{p.firstName}}</td>
       <td>{{p.lastName}}</td>

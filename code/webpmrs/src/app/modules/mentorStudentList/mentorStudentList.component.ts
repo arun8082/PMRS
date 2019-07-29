@@ -21,16 +21,13 @@ export class MentorStudentListComponent implements OnInit {
 
   constructor(private http:Http ,private commonService: CommonService) { }
 
-  public studentview = [{ firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
-  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
-  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" }];
+  public studentList;
   
   ngOnInit() {
     
     this.commonService.getStudentsList(1,"mentor").subscribe(result => {
       if (result.text() != "") {
-        this.contentTitle="Project List";
-        this.projectList = result.json();        
+        this.studentList = result.json();        
       } else {
         this.error = "There is no result...";
       }
@@ -41,7 +38,7 @@ export class MentorStudentListComponent implements OnInit {
     this.flagstudentTable=true;
     this.commonService.getStudentsList(1,"mentor").subscribe(result=>{
       if(result.text()!=""){
-        this.studentview=result.json();
+        this.studentList=result.json();
       }else{
         this.error="There is no result......";
       }

@@ -12,12 +12,12 @@ export class MentorProjectListComponent implements OnInit {
  
   private id;
   private type;
-  list:Project;
   error:string;
   index=1; 
   flagstudentTable=false;
   flagprojectable=true;
   projectList: any;
+  studentList:any;
   contentTitle;
   constructor(private http:Http ,private commonService: CommonService) { }
 
@@ -43,7 +43,7 @@ export class MentorProjectListComponent implements OnInit {
     this.contentTitle="Project Student List";
     this.commonService.getStudentsList(1,"mentor").subscribe(result=>{
       if(result.text()!=""){
-        this.studentview=result.json();
+        this.studentList=result.json();
       }else{
         this.error="There is no result......";
       }
