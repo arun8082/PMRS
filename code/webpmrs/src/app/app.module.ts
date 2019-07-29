@@ -75,7 +75,9 @@ import { HomeComponent } from './modules/home/home.component';
   ],
   providers: [
     RegisterService,
-    CommonService
+    CommonService,
+    HeaderComponent,
+    NavComponent
   ],
   bootstrap: [AppComponent]
 })

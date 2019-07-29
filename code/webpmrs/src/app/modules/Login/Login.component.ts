@@ -32,7 +32,7 @@ export class LoginComponent {
   mentor: Mentor;
   error: String;
 
-  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent,private header:HeaderComponent) { }
+  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent,private headerCom:HeaderComponent) { }
 
   ngOnInit() {
     this.LoginForm = new FormGroup(
@@ -56,6 +56,7 @@ export class LoginComponent {
             if (this.courseAdmin.status == "ACTIVE") {
               this.commonService.dashboardLink="admin";
               this.commonService.dashboardName="Admin Dashboard";
+              this.afterLogin();
               this.nav.ngOnInit();
               this.router.navigateByUrl('admin');
             } else if (this.courseAdmin.status == "INACTIVE") {
@@ -75,10 +76,8 @@ export class LoginComponent {
             this.mentor = result.json();
             if (this.mentor.status == "ACTIVE") {
               this.commonService.dashboardLink="admin";
-              this.commonService.dashboardName="DashBoard";
-              this.commonService.loginMsg="Logout";
-              this.commonService.loginLink="logout";
-              this.header.ngOnInit();
+              this.commonService.dashboardName="Mentor DashBoard";
+              this.afterLogin();
               this.nav.ngOnInit();
               this.router.navigateByUrl('mentordash');
             } else if (this.mentor.status == "INACTIVE") {
@@ -98,6 +97,7 @@ export class LoginComponent {
             if (this.student.status == "ACTIVE") {
               this.commonService.dashboardLink="studentdash";
               this.commonService.dashboardName="Student Dashboard";
+              this.afterLogin();
               this.nav.ngOnInit();
               this.router.navigateByUrl('studentdash');
             } else if (this.student.status == "INACTIVE") {
@@ -111,6 +111,11 @@ export class LoginComponent {
     }
   }
 
+  afterLogin(){    
+    this.commonService.loginMsg="Logout";
+    this.commonService.loginLink="logout";
+    this.headerCom.ngOnInit();
+  }
 
   public hasError = (controlName: string, errorName: string) => {
     return this.LoginForm.controls[controlName].hasError(errorName);

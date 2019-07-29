@@ -7,8 +7,6 @@ import { CommonService } from 'src/app/core/services/common.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-
-
 export class NavComponent {
   title = 'webpmrs';
   opened = false;

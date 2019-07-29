@@ -13,6 +13,8 @@ export class CommonService {
     baseurl = "http://localhost:7090/pmrs";
     public dashboardLink:string;
     public dashboardName:string;
+    public loginMsg:string;
+    public loginLink:string;
     constructor(private http: Http) { }
 
     loginCourseAdmin(courseAdminData) {
