@@ -9,6 +9,7 @@ import { Student } from 'src/app/core/models/Student';
 import { Mentor } from 'src/app/core/models/Mentor';
 import { CommonService } from 'src/app/core/services/common.service';
 import { NavComponent } from 'src/app/shared/nav/nav.component';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class LoginComponent {
   mentor: Mentor;
   error: String;
 
-  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent) { }
+  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent,private header:HeaderComponent) { }
 
   ngOnInit() {
     this.LoginForm = new FormGroup(
@@ -55,6 +56,9 @@ export class LoginComponent {
             if (this.courseAdmin.status == "ACTIVE") {
               this.commonService.dashboardLink="admin";
               this.commonService.dashboardName="DashBoard";
+              this.commonService.loginMsg="Logout";
+              this.commonService.loginLink="logout";
+              this.header.ngOnInit();
               this.nav.ngOnInit();
               this.router.navigateByUrl('admin');
             } else if (this.courseAdmin.status == "INACTIVE") {
@@ -73,6 +77,12 @@ export class LoginComponent {
           if (result.text() != "") {
             this.mentor = result.json();
             if (this.mentor.status == "ACTIVE") {
+              this.commonService.dashboardLink="admin";
+              this.commonService.dashboardName="DashBoard";
+              this.commonService.loginMsg="Logout";
+              this.commonService.loginLink="logout";
+              this.header.ngOnInit();
+              this.nav.ngOnInit();
               this.router.navigateByUrl('mentordash');
             } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
