@@ -29,13 +29,11 @@ export class StudentListComponent implements OnInit {
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
         this.list = result.json();
+
       } else {
         this.error = "There is no result...";
       }
     });
   }
-
-
-
 
 }

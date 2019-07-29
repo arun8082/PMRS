@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavComponent } from 'src/app/shared/nav/nav.component';
 
 @Component({
   selector: 'app-admindashboard',

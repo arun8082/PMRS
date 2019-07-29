@@ -14,7 +14,9 @@ export class MentorlistComponent implements OnInit {
   constructor(private http:Http) { }
  
   flagTable=true;
+  flagerror=false;
   public list:Mentor;
+  index=1;
 
   ngOnInit() {
     this.getMentorList();
@@ -24,8 +26,11 @@ export class MentorlistComponent implements OnInit {
   getMentorList(){
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
-        this.list = result.json();        
+        this.flagerror=false;
+        this.list = result.json(); 
+        console.log(this.list);  
       } else {
+        this.flagerror=true;
         this.error = "There is no result...";
       }
     });

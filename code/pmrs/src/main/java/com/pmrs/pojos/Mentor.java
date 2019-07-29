@@ -72,7 +72,7 @@ public class Mentor implements Serializable {
 		return firstName;
 	}
 
-	public String getlLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
@@ -100,7 +100,7 @@ public class Mentor implements Serializable {
 		this.firstName = firstName;
 	}
 
-	public void setlLastName(String LastName) {
+	public void setLastName(String LastName) {
 		this.lastName = LastName;
 	}
 
@@ -126,10 +126,11 @@ public class Mentor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Mentor [mentorId=" + mentorId + ", firstName=" + firstName
-				+ ", LastName=" + lastName + ", courseId=" + courseId
-				+ ", email=" + email + ", contact=" + contact + ", password="
-				+ password + ", status=" + status + ", added=" + added + "]";
+		return "Mentor [mentorId=" + mentorId + ", firstName=" + firstName + ", lastName=" + lastName + ", courseId="
+				+ courseId + ", email=" + email + ", contact=" + contact + ", password=" + password + ", status="
+				+ status + ", added=" + added + "]";
 	}
+
+	
 	
 }

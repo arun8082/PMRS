@@ -15,7 +15,7 @@ export class AddmentorComponent implements OnInit {
   baseUrlMentorRegister = "http://localhost:7090/pmrs/admin/registerMentor";
   public mentordata: Mentor;
   public error: string;
-
+  public successMsg: string;
   constructor(private http: Http) { }
 
   ngOnInit() {
@@ -30,6 +30,9 @@ export class AddmentorComponent implements OnInit {
       });
 
   }
+  public resetMentor = (mentorFormValue) => {
+        this.MentorForm.reset();
+   }
 
   public hasError = (controlName: string, errorName: string) => {
     return this.MentorForm.controls[controlName].hasError(errorName);
@@ -41,8 +44,9 @@ export class AddmentorComponent implements OnInit {
       this.http.post(this.baseUrlMentorRegister, mentorFormValue).subscribe(result => {
         if (result.text() != "") {
           this.mentordata = result.json();
-          //console.log(this.mentordata);
-        }
+          this.successMsg = "Mentor Added Successfully";
+          this.MentorForm.reset();
+      }
         else {
           this.error = "Resgistration failed";
         }
@@ -57,9 +61,10 @@ export class AddmentorComponent implements OnInit {
       firstName: mentorFormValue.firstName,
       lastName: mentorFormValue.lastName,
       email: mentorFormValue.email,
-      contact: mentorFormValue.contact,
+      contact: mentorFormValue.contact
 
 
     }
   }
+ 
 }

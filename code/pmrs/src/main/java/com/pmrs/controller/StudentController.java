@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pmrs.iservice.IProjectService;
 import com.pmrs.iservice.IStudentService;
+import com.pmrs.pojos.EEntityStatus;
 import com.pmrs.pojos.Project;
 import com.pmrs.pojos.Student;
 /**
@@ -53,6 +54,7 @@ public class StudentController  {
 	public Student registerStudent(@RequestBody Student student) {
 		//System.out.println("In register student controller");
 		student.setAdded(LocalDate.now());
+		student.setStatus(EEntityStatus.INACTIVE);
 		return studentService.add(student);
 	}
 	

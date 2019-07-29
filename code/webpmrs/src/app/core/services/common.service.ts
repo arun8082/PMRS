@@ -11,7 +11,8 @@ export class CommonService {
 
     //baseurl="../../assets/data/student.json";
     baseurl = "http://localhost:7090/pmrs";
-
+    public dashboardLink:string;
+    public dashboardName:string;
     constructor(private http: Http) { }
 
     loginCourseAdmin(courseAdminData) {
@@ -47,5 +48,5 @@ export class CommonService {
             return this.http.post(this.baseurl + "/admin/projectList", data, { headers: headers });
         }
     }
-    
+
 }
