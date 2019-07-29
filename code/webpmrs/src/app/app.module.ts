@@ -30,6 +30,8 @@ import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
 import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
 import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
+import { MentorStudentListComponent } from './modules/mentorStudentList/mentorStudentList.component';
+import { VerifyDocumentsComponent } from './modules/verify-documents/verify-documents.component';
 
 
 
@@ -54,7 +56,10 @@ import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorPr
     AddmentorComponent,
     ProjectrepositoryComponent,
     StudentprojinfoComponent,
-    MentorProjectListComponent
+    MentorProjectListComponent,
+    MentorStudentListComponent,
+    VerifyDocumentsComponent,
+    VerifyDocumentsComponent
   ],
   imports: [
     BrowserModule,

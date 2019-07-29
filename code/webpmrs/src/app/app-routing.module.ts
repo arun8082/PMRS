@@ -17,6 +17,8 @@ import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
 import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
 import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
+import { MentorStudentListComponent } from './modules/mentorStudentList/mentorStudentList.component';
+import { VerifyDocumentsComponent } from './modules/verify-documents/verify-documents.component';
 
 const routes: Routes = [
   
@@ -37,8 +39,9 @@ const routes: Routes = [
   {path:"contactus",component:ContactusComponent},
   {path:"mentor-register",component:AddmentorComponent},
   {path:"studentprojInfo",component:StudentprojinfoComponent},
-  {path:"mentorprojlist",component:MentorProjectListComponent}
-
+  {path:"mentorprojlist",component:MentorProjectListComponent},
+  {path:"mentorStudentList",component:MentorStudentListComponent},
+  {path:"verifyDocuments",component:VerifyDocumentsComponent},
   
   ];
 
