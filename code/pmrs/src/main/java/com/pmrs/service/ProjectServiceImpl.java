@@ -1,5 +1,7 @@
 package com.pmrs.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 /**
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 import com.pmrs.idao.IGenericDAO;
 import com.pmrs.idao.IProjectDAO;
 import com.pmrs.iservice.IProjectService;
+import com.pmrs.pojos.Mentor;
 import com.pmrs.pojos.Project;
 
 @Service
@@ -30,6 +33,11 @@ public class ProjectServiceImpl extends GenericServiceImpl<Project, Integer> imp
 	public ProjectServiceImpl(@Qualifier("projectDAOImpl") IGenericDAO<Project, Integer> genericDAO) {
 		super(genericDAO);
 		this.projectDAO = (IProjectDAO) genericDAO;
+	}
+
+	@Override
+	public List<Project> listAll(Mentor mentor) {
+		return projectDAO.listAll(mentor);
 	}
 
 }

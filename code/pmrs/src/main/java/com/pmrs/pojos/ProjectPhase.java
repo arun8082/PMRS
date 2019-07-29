@@ -23,11 +23,11 @@ public class ProjectPhase implements Serializable {
 	@Column(name = "pph_id", nullable = false)
 	private Integer projectPhaseId;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "projectId")
 	private Project projectId;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "phaseId")
 	private Phase phaseId;
 

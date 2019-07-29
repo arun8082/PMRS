@@ -25,7 +25,7 @@ import com.pmrs.idao.IGenericDAO;
 public abstract class AbstractGenericDAOImpl<E, K extends Serializable> implements IGenericDAO<E, K> {
 
 	@PersistenceContext
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	protected Class<? extends E> daoType;
 
