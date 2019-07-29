@@ -20,7 +20,7 @@ export class MentorlistComponent implements OnInit {
     this.getMentorList();
   }
 
-  baseurl="http://localhost:7090/pmrs/admin/projectList";
+  baseurl="http://localhost:7090/pmrs/admin/mentorList";
   getMentorList(){
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {

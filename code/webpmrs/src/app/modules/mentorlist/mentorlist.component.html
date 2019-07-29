@@ -14,7 +14,11 @@
                     <th>MentorStatus
                     </th>
             </tr>
-            <tr *ngFor="let s of list">
+            <tr>
+                <td colspan="5" style="text-align: center">{{error}}</td>
+                </tr>
+            <tr *ngFor="let s of list;let i=index">
+                    <td>{{i+1}}</td>
                     <td>{{s.FirstName}}</td>
                     <td>{{s.LastName}}</td>
                     <td>{{s.Email}}</td>
