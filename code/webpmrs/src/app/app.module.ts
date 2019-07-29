@@ -30,6 +30,7 @@ import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
 import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
 import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
+import { HomeComponent } from './modules/home/home.component';
 
 
 
@@ -54,7 +55,8 @@ import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorPr
     AddmentorComponent,
     ProjectrepositoryComponent,
     StudentprojinfoComponent,
-    MentorProjectListComponent
+    MentorProjectListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,10 @@ import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
 import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
 import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
+import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
-  
+  {path:"",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"test",component:TestComponent},
   {path:"aboutus",component:AboutusComponent},
