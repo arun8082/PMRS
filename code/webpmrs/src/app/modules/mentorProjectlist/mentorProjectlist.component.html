@@ -8,6 +8,7 @@
       <th>Project Technology</th>
       <th>Software Requirements</th>
       <th>Hardware Requirements</th>
+      <th>Platform</th>
       <th>Action</th>
     </tr>
     <tr *ngFor="let p of projectList">
@@ -15,8 +16,9 @@
       <td>{{p.projectTitle}}</td>
       <td>{{p.projectDescription}}</td>
       <td>{{p.projectTechnology}}</td>
-      <td>{{p.softwareRequirements}}</td>
-      <td>{{p.hardwareRequirements}}</td>
+      <td>{{p.projectSWRequire}}</td>
+      <td>{{p.projectHWRequire}}</td>
+      <td>{{p.projectPlatform}}</td>
       <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
     </tr>
   </table>

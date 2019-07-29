@@ -8,6 +8,7 @@ import { CourseAdmin } from 'src/app/core/models/CourseAdmin';
 import { Student } from 'src/app/core/models/Student';
 import { Mentor } from 'src/app/core/models/Mentor';
 import { CommonService } from 'src/app/core/services/common.service';
+import { NavComponent } from 'src/app/shared/nav/nav.component';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class LoginComponent {
   mentor: Mentor;
   error: String;
 
-  constructor(private router: Router, private commonService: CommonService, private http: Http) { }
+  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent) { }
 
   ngOnInit() {
     this.LoginForm = new FormGroup(
@@ -52,6 +53,9 @@ export class LoginComponent {
           if (result.text() != "") {
             this.courseAdmin = result.json();
             if (this.courseAdmin.status == "ACTIVE") {
+              this.commonService.dashboardLink="admin";
+              this.commonService.dashboardName="DashBoard";
+              this.nav.ngOnInit();
               this.router.navigateByUrl('admin');
             } else if (this.courseAdmin.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
