@@ -3,6 +3,7 @@
 <div *ngIf="flagTable">
     <table class="table">
             <tr>
+                    <th>S.No</th>
                     <th>FirstName
                     </th>
                     <th>LastName
@@ -13,6 +14,7 @@
                     </th>
                     <th>MentorStatus
                     </th>
+                    <th>Edit</th>
             </tr>
             <tr>
                 <td colspan="5" style="text-align: center">{{error}}</td>
@@ -24,7 +26,7 @@
                     <td>{{s.Email}}</td>
                     <td>{{s.Contact}}</td>
                     <td>{{s.Status}}</td>
-                    <td><a style="color:dodgerblue"><span (click)="onUpdate(s)">Edit</span></a></td>
+                    <td><a routerLink="/updatementor">Edit</a></td>
             </tr>
 
     </table>
