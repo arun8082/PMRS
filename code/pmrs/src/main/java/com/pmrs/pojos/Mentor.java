@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * 
  * @author ash This is Mentor POJO Class. It's properties are ID, First Name,
@@ -29,7 +31,8 @@ public class Mentor implements Serializable {
 
 	// Many mentors are related to one course
 	// @Column(name = "c_id")
-	@ManyToOne
+	@JsonBackReference
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Course courseId;
 
 	@Column(name = "m_email")

@@ -37,20 +37,17 @@ public class MentorController {
 	private IMentorService mentorService;
 
 	@PostMapping("/login")
-	public Mentor authenticateMentor(@RequestBody Mentor mentor)
-	{
-		//System.out.println("In login student controller"+studentService.authenticateStudent(student));
+	public Mentor authenticateMentor(@RequestBody Mentor mentor) {
 		return mentorService.authenticateMentor(mentor);
 	}
-	
+
 	@PostMapping("/studentList")
-	public List<Student> getStudentList() {
-		return studentService.listAll();
+	public List<Student> getStudentList(@RequestBody Project projectId) {
+		return studentService.listAll(projectId);
 	}
 
 	@PostMapping("/projectList")
-	public List<Project> getprojectList(@RequestBody Mentor mentor) {
-		//System.out.println(mentor);
-		return projectService.listAll();
+	public List<Project> getprojectList(@RequestBody Mentor mentorId) {
+		return projectService.listAll(mentorId);
 	}
 }

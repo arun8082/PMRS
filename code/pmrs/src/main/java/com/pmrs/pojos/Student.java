@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "students")
@@ -44,12 +47,14 @@ public class Student implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus status;
 
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "s_projectid")
 	private Project studentProjectId;
 
+	@JsonBackReference
 	// @JoinColumn(name = "s_courseid")
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "courses_students_map", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = {
 			@JoinColumn(name = "studentId") })
 	private List<Course> studentCourseID = new ArrayList<Course>();

@@ -1,13 +1,22 @@
 package com.pmrs.pojos;
 
-import java.time.LocalDate;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * Course Administrator is a super user who can access everything
@@ -45,7 +54,7 @@ public class CourseAdmin implements Serializable{
 	@Column(name = "ca_contact")
 	private String contact;
 
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinTable(name = "courseAdmins_courses_map",
 			joinColumns = {@JoinColumn(name="courseId")},
 			inverseJoinColumns = {@JoinColumn(name="courseAdminId")}

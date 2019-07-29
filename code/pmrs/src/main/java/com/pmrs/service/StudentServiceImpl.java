@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pmrs.idao.IGenericDAO;
 import com.pmrs.idao.IStudentDAO;
 import com.pmrs.iservice.IStudentService;
-import com.pmrs.pojos.Mentor;
+import com.pmrs.pojos.Project;
 import com.pmrs.pojos.Student;
 
 @Service
@@ -39,7 +39,7 @@ public class StudentServiceImpl extends GenericServiceImpl<Student, Integer> imp
 	}
 
 	@Override
-	public List<Student> getMemberList(int projectId) {		
-		return studentDAO.getMemberList(projectId);
+	public List<Student> listAll(Project projectId) {		
+		return studentDAO.listAll(projectId);
 	}
 }

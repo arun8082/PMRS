@@ -6,9 +6,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import com.pmrs.pojos.Student;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -44,7 +55,9 @@ public class Project implements Serializable{
 	private String projectPlatform;
 
 	// owning -- Foreign Key
-	@ManyToOne
+	
+	@JsonBackReference // added this annotation to prevent recursive de-serialization of properties 
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "p_mentor")
 	private Mentor mentorId;
 
@@ -53,12 +66,14 @@ public class Project implements Serializable{
 
 	@Column(name = "p_duration")
 	private LocalDate projectDuration;
-
-	@OneToMany(cascade = CascadeType.ALL)
+	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "s_id")
 	private List<Student> studentId = new ArrayList<>();
 
-	@OneToMany
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "project_projectphaseId")
 	private List<ProjectPhase> projectphaseId = new ArrayList<ProjectPhase>();
 

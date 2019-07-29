@@ -4,8 +4,18 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * 
@@ -34,13 +44,14 @@ public class Course implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus courseStatus;
 
+	
 	// @JoinColumn(name = "student_id")
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "courses_students_map", joinColumns = { @JoinColumn(name = "studentId") }, inverseJoinColumns = {
 			@JoinColumn(name = "courseId") })
 	private List<Student> studentId = new ArrayList<Student>();
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "courseAdmins_courses_map", joinColumns = {
 			@JoinColumn(name = "courseAdminId") }, inverseJoinColumns = { @JoinColumn(name = "courseId") })
 	private List<CourseAdmin> courseAdminId = new ArrayList<CourseAdmin>();

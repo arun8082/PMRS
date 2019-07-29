@@ -1,8 +1,5 @@
 package com.pmrs.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -10,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.pmrs.idao.ICourseAdminDAO;
 import com.pmrs.pojos.CourseAdmin;
 import com.pmrs.pojos.EEntityStatus;
-import com.pmrs.pojos.Student;
 
 @Repository
 public class CourseAdminDAOImpl
