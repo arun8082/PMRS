@@ -31,10 +31,6 @@ public class ProjectPhase implements Serializable {
 	@JoinColumn(name = "phaseId")
 	private Phase phaseId;
 
-	@Column(name = "pph_status", nullable = false)
-	@Enumerated(EnumType.STRING)
-	private EEntityStatus status;
-
 	@Column(name = "pph_start")
 	private LocalDateTime startDate;
 
@@ -65,13 +61,7 @@ public class ProjectPhase implements Serializable {
 		this.projectId = projectId;
 	}
 
-	public EEntityStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(EEntityStatus status) {
-		this.status = status;
-	}
+	
 
 	public LocalDateTime getStartDate() {
 		return startDate;
