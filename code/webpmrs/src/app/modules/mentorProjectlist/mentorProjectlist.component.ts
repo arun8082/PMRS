@@ -47,7 +47,7 @@ export class MentorProjectListComponent implements OnInit {
     this.flagprojectable=false;
     this.flagstudentTable=true;
     this.contentTitle="Project Student List";
-    this.commonService.getStudentsList({"mentorId":1},"mentor").subscribe(result=>{
+    this.commonService.getStudentsList(1,"mentor").subscribe(result=>{
       if(result.text()!=""){
         this.studentview=result.json();
       }else{

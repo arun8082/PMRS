@@ -27,7 +27,7 @@ export class MentorStudentListComponent implements OnInit {
   
   ngOnInit() {
     
-    this.commonService.getStudentsList({"mentorId":1},"mentor").subscribe(result => {
+    this.commonService.getStudentsList(1,"mentor").subscribe(result => {
       if (result.text() != "") {
         this.contentTitle="Project List";
         this.projectList = result.json();        
@@ -39,7 +39,7 @@ export class MentorStudentListComponent implements OnInit {
 
   onUpdate(){
     this.flagstudentTable=true;
-    this.commonService.getStudentsList({"mentorId":1},"mentor").subscribe(result=>{
+    this.commonService.getStudentsList(1,"mentor").subscribe(result=>{
       if(result.text()!=""){
         this.studentview=result.json();
       }else{

@@ -47,11 +47,6 @@ export class AddmentorComponent implements OnInit {
           this.error = "Resgistration failed";
         }
       });
-
-      //console.log("in function");
-      // console.log(mentorFormValue);
-
-
     }
   }
 

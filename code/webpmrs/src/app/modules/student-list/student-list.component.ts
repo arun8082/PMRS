@@ -11,26 +11,24 @@ import { Http } from '@angular/http';
 })
 export class StudentListComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
   flagvar = false;
   flagTable = true;
   public StudentForm: FormGroup;
   error;
-  index=1;
-  
+  index = 1;
+
   public list: Student;
-  
+
   ngOnInit() {
-   
-  
-      this.getStudentList();
-    }
-    
-  baseurl="http://localhost:7090/pmrs/admin/studentList";
-  getStudentList(){
+    this.getStudentList();
+  }
+
+  baseurl = "http://localhost:7090/pmrs/admin/studentList";
+  getStudentList() {
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
-        this.list = result.json();        
+        this.list = result.json();
       } else {
         this.error = "There is no result...";
       }
@@ -38,6 +36,6 @@ export class StudentListComponent implements OnInit {
   }
 
 
-  
+
 
 }
