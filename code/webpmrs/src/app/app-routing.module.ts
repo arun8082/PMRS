@@ -15,6 +15,8 @@ import { ProjectregisterComponent } from './modules/projectregister/projectregis
 import { StudentRegisterComponent } from './modules/student-register/student-register.component';
 import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
+import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
+import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
 
 const routes: Routes = [
   
@@ -30,10 +32,14 @@ const routes: Routes = [
   {path: 'navigation', component: LoginComponent},
   {path:"projectregister",component:ProjectregisterComponent},
   {path:"studentRegister",component:StudentRegisterComponent},
-   {path:"student",component:StudentdashboardComponent},
+  {path:"studentdash",component:StudentdashboardComponent},
   {path:"mentordash",component:MentordashboardComponent},
   {path:"contactus",component:ContactusComponent},
-  {path:"mentor-register",component:AddmentorComponent}
+  {path:"mentor-register",component:AddmentorComponent},
+  {path:"studentprojInfo",component:StudentprojinfoComponent},
+  {path:"mentorprojlist",component:MentorProjectListComponent}
+
+  
   ];
 
 @NgModule({

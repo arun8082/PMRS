@@ -28,6 +28,8 @@ import { MentordashboardComponent } from './modules/mentordashboard/mentordashbo
 import { CommonService } from './core/services/common.service';
 import { AddmentorComponent } from './modules/AddMentor/addmentor.component';
 import { ProjectrepositoryComponent } from './modules/projectrepository/projectrepository.component';
+import { StudentprojinfoComponent } from './modules/studentprojinfo/studentprojinfo.component';
+import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
 
 
 
@@ -50,7 +52,9 @@ import { ProjectrepositoryComponent } from './modules/projectrepository/projectr
     MentordashboardComponent,
     ContactusComponent,
     AddmentorComponent,
-    ProjectrepositoryComponent
+    ProjectrepositoryComponent,
+    StudentprojinfoComponent,
+    MentorProjectListComponent
   ],
   imports: [
     BrowserModule,

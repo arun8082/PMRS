@@ -1,0 +1,21 @@
+<html>
+<body>
+    <h2 style="text-align: center">Student Project Information</h2>
+<div *ngIf="flagTable">
+    <table id="student">
+      <tr>
+        <th>S.No</th>
+        <th>Project Title</th>
+        <th>Project Status</th>
+        <th>Project Upload</th>
+
+      </tr>
+      <tr *ngFor="let s of slist">
+        <td>{{s.SNo}}</td>
+        <td>{{s.projecttitle}}</td>
+        <td>{{s.projectstatus}}</td>
+        <td><a style="color:dodgerblue"><button (click)="uploaddoc()">ProjectUpload</button></a></td>
+</tr>
+
+    </table>
+    </div>

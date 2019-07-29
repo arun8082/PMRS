@@ -10,20 +10,9 @@ import { Router } from '@angular/router';
 export class StudentdashboardComponent implements OnInit {
 
 
-  constructor(private router: Router) { }
-  flagTable=true;
-  flagstudentTable=false;
-  public slist:studentdash[]=[{SNo:"1", projecttitle:"abcdef",projectstatus:"qweety"},
-  {SNo:"1", projecttitle:"abcdef",projectstatus:"qweety"},
-  {SNo:"1", projecttitle:"abcdef",projectstatus:"qweety"}];
 
   ngOnInit() {
   }
 
 
-  Addproject()
-  {
-    
-    this.router.navigateByUrl('projectregister');
-  }
 }
