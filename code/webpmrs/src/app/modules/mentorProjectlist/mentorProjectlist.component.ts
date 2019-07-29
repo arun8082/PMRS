@@ -18,16 +18,6 @@ export class MentorProjectListComponent implements OnInit {
   flagstudentTable:false;
   constructor(private http:Http ,private commonService: CommonService) { }
 
-  public projectList= [{ SNo: "1", ProjectTitle: "abcdef", ProjectDescription: "abchdfdfs", ProjectTechnology: "qweety", SoftwareRequirements: "hover", HardwareRequirements: "antlantica" },
-  { SNo: "1", ProjectTitle: "abcdef", ProjectDescription: "abchdfdfs", ProjectTechnology: "qweety", SoftwareRequirements: "hover", HardwareRequirements: "antlantica" },
-  { SNo: "1", ProjectTitle: "abcdef", ProjectDescription: "abchdfdfs", ProjectTechnology: "qweety", SoftwareRequirements: "hover", HardwareRequirements: "antlantica" }];
-
-  public studentview = [{ firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
-  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" },
-  { firstName: "abcdef", lastName: "abchdfdfs", email: "qweety", contact: "hover" }];
-
-
-  
   ngOnInit() {
     this.getProjectList();
   }

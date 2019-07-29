@@ -21,21 +21,21 @@ export class StudentListComponent implements OnInit {
   public list: Student;
   
   ngOnInit() {
-   
-  
-      this.getStudentList();
+    this.getStudentList();
     }
     
   baseurl="http://localhost:7090/pmrs/admin/studentList";
   getStudentList(){
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
-        this.list = result.json();        
+        this.list = result.json(); 
+        
       } else {
         this.error = "There is no result...";
       }
     });
   }
+
 
 
   
