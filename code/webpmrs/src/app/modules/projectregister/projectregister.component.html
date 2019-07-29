@@ -67,6 +67,8 @@
                         </mat-card-content>
                         <mat-card-actions>
                                 <button type="button" mat-raised-button (click)="createProject(ProjectForm.value)" color="primary">Submit</button>
+                                <button type="button" mat-raised-button (click)="resetProject(ProjectForm.value)" style="background-color: red; color: snow">Cancel</button>
+                                <p style="color: green">{{successMsg}}</p>
                         </mat-card-actions>
                 </mat-card>
 
