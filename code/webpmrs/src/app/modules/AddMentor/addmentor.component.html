@@ -44,8 +44,10 @@
             </mat-card-content>
             <mat-card-actions>
                     <button type="button" mat-raised-button (click)="createMentor(MentorForm.value)" color="primary">Register</button>
-                    <button mat-raised-button (click)="Cancel()" color="warn">Cancel</button>
+                    <button mat-raised-button (click)="resetMentor(MentorForm.value)" color="warn">Cancel</button>
             </mat-card-actions>
+            <p style="color:green">{{successMsg}}</p>
     </mat-card>
+    
 
 </form>
