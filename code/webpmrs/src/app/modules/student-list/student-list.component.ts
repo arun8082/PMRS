@@ -16,6 +16,7 @@ export class StudentListComponent implements OnInit {
   flagTable = true;
   public StudentForm: FormGroup;
   error;
+  index=1;
   
   public list: Student;
   

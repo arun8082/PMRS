@@ -127,7 +127,7 @@ public class Mentor implements Serializable {
 	@Override
 	public String toString() {
 		return "Mentor [mentorId=" + mentorId + ", firstName=" + firstName
-				+ ", lLastName=" + lastName + ", courseId=" + courseId
+				+ ", LastName=" + lastName + ", courseId=" + courseId
 				+ ", email=" + email + ", contact=" + contact + ", password="
 				+ password + ", status=" + status + ", added=" + added + "]";
 	}

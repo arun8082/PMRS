@@ -32,6 +32,7 @@ import { StudentprojinfoComponent } from './modules/studentprojinfo/studentproji
 import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorProjectlist.component';
 import { MentorStudentListComponent } from './modules/mentorStudentList/mentorStudentList.component';
 import { VerifyDocumentsComponent } from './modules/verify-documents/verify-documents.component';
+import { HomeComponent } from './modules/home/home.component';
 
 
 
@@ -59,7 +60,8 @@ import { VerifyDocumentsComponent } from './modules/verify-documents/verify-docu
     MentorProjectListComponent,
     MentorStudentListComponent,
     VerifyDocumentsComponent,
-    VerifyDocumentsComponent
+    VerifyDocumentsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

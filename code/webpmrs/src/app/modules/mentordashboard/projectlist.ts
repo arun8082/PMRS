@@ -1,5 +1,4 @@
-export class projectlist
-{
+export class projectlist{
  
     SNo;
     ProjectTitle;
