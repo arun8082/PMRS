@@ -54,7 +54,7 @@ export class LoginComponent {
             this.courseAdmin = result.json();
             if (this.courseAdmin.status == "ACTIVE") {
               this.commonService.dashboardLink="admin";
-              this.commonService.dashboardName="DashBoard";
+              this.commonService.dashboardName="Admin Dashboard";
               this.nav.ngOnInit();
               this.router.navigateByUrl('admin');
             } else if (this.courseAdmin.status == "INACTIVE") {
@@ -73,6 +73,9 @@ export class LoginComponent {
           if (result.text() != "") {
             this.mentor = result.json();
             if (this.mentor.status == "ACTIVE") {
+              this.commonService.dashboardLink="mentordash";
+              this.commonService.dashboardName="Mentor Dashboard";
+              this.nav.ngOnInit();
               this.router.navigateByUrl('mentordash');
             } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
@@ -89,6 +92,9 @@ export class LoginComponent {
           if (result.text() != "") {
             this.student = result.json();
             if (this.student.status == "ACTIVE") {
+              this.commonService.dashboardLink="studentdash";
+              this.commonService.dashboardName="Student Dashboard";
+              this.nav.ngOnInit();
               this.router.navigateByUrl('studentdash');
             } else if (this.student.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
