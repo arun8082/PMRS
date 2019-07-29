@@ -1,54 +1,53 @@
 <html>
+
 <body>
-    <h2 style="text-align: center">Project List</h2>
-<div>
+  <h2 style="text-align: center">{{contentTitle}}</h2>
+  <div *ngIf="flagprojectable">
     <table id="project">
       <tr>
-       <th>S.No</th>
-          <th>Project Title</th>
-          <th>Project Description</th>
-          <th>Project Technology</th>
-          <th>Software Requirements</th>
-          <th>Hardware Requirements</th>
-          <th></th>
+        <th>S.No</th>
+        <th>Project Title</th>
+        <th>Project Description</th>
+        <th>Project Technology</th>
+        <th>Software Requirements</th>
+        <th>Hardware Requirements</th>
+        <th></th>
 
       </tr>
-      <tr *ngFor="let v of projectList">
-         <td>{{v.SNo}}</td>
-          <td>{{v.projectTitle}}</td>
-          <td>{{v.projectDescription}}</td>
-          <td>{{v.projectTechnology}}</td>
-          <td>{{v.softwareRequirements}}</td>
-          <td>{{v.hardwareRequirements}}</td>
-          <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
-</tr>
+      <tr *ngFor="let v of projectList;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{v.projectTitle}}</td>
+        <td>{{v.projectDescription}}</td>
+        <td>{{v.projectTechnology}}</td>
+        <td>{{v.projectSWRequire}}</td>
+        <td>{{v.projectHWRequire}}</td>
+        <td><a style="color:dodgerblue"><button (click)="onUpdate()">ViewProjectStudent</button></a></td>
+      </tr>
 
     </table>
-    </div>
+  </div>
 
-    </body>
-    </html>
+  <div *ngIf="flagstudentTable">
 
-    <div *ngIf="flagstudentTable">
-    
-        <table id="customers">
-            <tr>
-              
-              <th>FirstName</th>
-              <th>LastName </th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Course</th>
-            
-            </tr>
-            <tr *ngFor="let p of studentview">
-              <td>{{p.FirstName}}</td>
-              <td>{{p.LastName}}</td>
-              <td>{{p.Email}}</td>
-              <td>{{p.Contact}}</td>
-              <td>{{p.Course}}</td>
-              
+    <table id="student">
+      <tr>
+        <th>Sr. No.</th>
+        <th>FirstName</th>
+        <th>LastName </th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Course</th>
+
       </tr>
-    
-  </table>
-</div>
+      <tr *ngFor="let p of studentview; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{p.FirstName}}</td>
+        <td>{{p.LastName}}</td>
+        <td>{{p.Email}}</td>
+        <td>{{p.Contact}}</td>
+        <td>{{p.Course}}</td>
+
+      </tr>
+
+    </table>
+  </div>

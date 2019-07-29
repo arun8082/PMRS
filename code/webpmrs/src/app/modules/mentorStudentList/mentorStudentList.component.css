@@ -1,4 +1,4 @@
-#project {
+#student {
     border-collapse: collapse;
     width: 100%;
   }
@@ -18,9 +18,5 @@
     text-align: left;
     background-color:gray;
     color:snow;
-  }
-  #student {
-    border-collapse: collapse;
-    width: 100%;
   }
   

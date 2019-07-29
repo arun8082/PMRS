@@ -22,7 +22,7 @@ export class CommonService {
     courseAdmin: any;
 
     loginCourseAdmin(courseAdminData) {
-        return this.http.post(this.baseurl, courseAdminData).subscribe(result => { this.courseAdmin = result.json() });
+        return this.http.post(this.baseurl, courseAdminData);
     }
 
     getStudentsList(id, type) {
@@ -34,7 +34,7 @@ export class CommonService {
         if (type == "mentor") {
             return this.http.post(this.baseurl + "/mentor/projectList", JSON.stringify(id), { headers: headers });
         } else if (type == "admin") {
-            return this.http.post(this.baseurl + "/admin/", id);
+            return this.http.post(this.baseurl + "/admin/projectList", JSON.stringify(id),{ headers: headers });
         }
     }
 }
