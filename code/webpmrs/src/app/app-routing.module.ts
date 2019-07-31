@@ -20,6 +20,7 @@ import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorPr
 import { MentorStudentListComponent } from './modules/mentorStudentList/mentorStudentList.component';
 import { VerifyDocumentsComponent } from './modules/verify-documents/verify-documents.component';
 import { HomeComponent } from './modules/home/home.component';
+import { LogoutComponent } from './shared/logout/logout.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:"mentorprojlist",component:MentorProjectListComponent},
   {path:"mentorStudentList",component:MentorStudentListComponent},
   {path:"verifyDocuments",component:VerifyDocumentsComponent},
+  {path:"logout",component:LogoutComponent},
   
   ];
 

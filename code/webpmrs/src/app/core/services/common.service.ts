@@ -11,10 +11,8 @@ export class CommonService {
 
     //baseurl="../../assets/data/student.json";
     baseurl = "http://localhost:7090/pmrs";
-    public dashboardLink:string;
-    public dashboardName:string;
-    public loginMsg:string;
-    public loginLink:string;
+    public dashboardLink: string;
+    public dashboardName: string;
     constructor(private http: Http) { }
 
     loginCourseAdmin(courseAdminData) {

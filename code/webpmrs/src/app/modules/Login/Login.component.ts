@@ -54,10 +54,9 @@ export class LoginComponent {
           if (result.text() != "") {
             this.courseAdmin = result.json();
             if (this.courseAdmin.status == "ACTIVE") {
-              this.commonService.dashboardLink="admin";
-              this.commonService.dashboardName="Admin Dashboard";
-              this.afterLogin();
+              sessionStorage.setItem("loginDetails",JSON.stringify(this.courseAdmin));
               this.nav.ngOnInit();
+              this.headerCom.ngOnInit();
               this.router.navigateByUrl('admin');
             } else if (this.courseAdmin.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
@@ -74,11 +73,10 @@ export class LoginComponent {
         this.http.post(this.baseurlMentor, LoginFormValue).subscribe(result => {
           if (result.text() != "") {
             this.mentor = result.json();
-            if (this.mentor.status == "ACTIVE") {
-              this.commonService.dashboardLink="admin";
-              this.commonService.dashboardName="Mentor DashBoard";
-              this.afterLogin();
+            if (this.mentor.status == "ACTIVE") {             
+              sessionStorage.setItem("loginDetails",JSON.stringify(this.mentor));
               this.nav.ngOnInit();
+              this.headerCom.ngOnInit();
               this.router.navigateByUrl('mentordash');
             } else if (this.mentor.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
@@ -95,10 +93,9 @@ export class LoginComponent {
           if (result.text() != "") {
             this.student = result.json();
             if (this.student.status == "ACTIVE") {
-              this.commonService.dashboardLink="studentdash";
-              this.commonService.dashboardName="Student Dashboard";
-              this.afterLogin();
+              sessionStorage.setItem("loginDetails",JSON.stringify(this.student));  
               this.nav.ngOnInit();
+              this.headerCom.ngOnInit();
               this.router.navigateByUrl('studentdash');
             } else if (this.student.status == "INACTIVE") {
               this.error = "This account is Inactive. Please contact to Admin";
@@ -109,12 +106,6 @@ export class LoginComponent {
         });/** Student login end */
       }
     }
-  }
-
-  afterLogin(){    
-    this.commonService.loginMsg="Logout";
-    this.commonService.loginLink="logout";
-    this.headerCom.ngOnInit();
   }
 
   public hasError = (controlName: string, errorName: string) => {

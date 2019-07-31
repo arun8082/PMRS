@@ -14,7 +14,6 @@ import { AboutusComponent } from './modules/aboutus/aboutus.component';
 import { registerLocaleData } from '@angular/common';
 import { RegisterService } from './core/services/register.service';
 import { TestComponent } from './modules/test/test.component';
-import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './modules/Login/Login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmindashboardComponent } from './modules/admindashboard/admindashboard.component';
@@ -33,6 +32,8 @@ import { MentorProjectListComponent } from './modules/mentorProjectlist/mentorPr
 import { MentorStudentListComponent } from './modules/mentorStudentList/mentorStudentList.component';
 import { VerifyDocumentsComponent } from './modules/verify-documents/verify-documents.component';
 import { HomeComponent } from './modules/home/home.component';
+import { LogoutComponent } from './shared/logout/logout.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 
 
@@ -40,7 +41,6 @@ import { HomeComponent } from './modules/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     NavComponent,
     FooterComponent,
     AboutusComponent,
@@ -61,7 +61,9 @@ import { HomeComponent } from './modules/home/home.component';
     MentorStudentListComponent,
     VerifyDocumentsComponent,
     VerifyDocumentsComponent,
-    HomeComponent
+    HomeComponent,
+    LogoutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -76,8 +78,8 @@ import { HomeComponent } from './modules/home/home.component';
   providers: [
     RegisterService,
     CommonService,
-    HeaderComponent,
-    NavComponent
+    NavComponent,
+    HeaderComponent
   ],
   bootstrap: [AppComponent]
 })

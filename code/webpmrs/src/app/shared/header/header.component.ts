@@ -6,18 +6,20 @@ import { CommonService } from 'src/app/core/services/common.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent{
   loginMsg;
   loginLink;
   constructor(private commonService:CommonService){}
   ngOnInit(){
-    this.loginMsg=(this.commonService.loginMsg==null)?"Login":this.commonService.loginMsg;
-    this.loginLink=(this.commonService.loginLink==null)?"login":this.commonService.loginLink;
-    console.log(this.loginMsg+" "+this.loginLink);
-
-    if(this.commonService.loginMsg=="logout"){
+    let loginDetails;
+    //console.log(JSON.parse(sessionStorage.getItem("loginDetails")));
+    if(JSON.parse(sessionStorage.getItem("loginDetails"))!=null){
+      loginDetails=JSON.parse(sessionStorage.getItem("loginDetails"));
+      this.loginLink="logout";
       this.loginMsg="Logout";
-      this.loginLink="/logout";
+    }else{
+      this.loginLink="login";
+      this.loginMsg="Login";
     }
   }
 }

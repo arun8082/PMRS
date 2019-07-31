@@ -13,9 +13,24 @@ export class NavComponent {
 
   dashboardLink;
   dashboardName;
-  constructor(private commonService:CommonService){}
+  constructor(private commonService: CommonService) { }
   ngOnInit() {
-    this.dashboardLink=this.commonService.dashboardLink;
-    this.dashboardName=this.commonService.dashboardName;
+    let loginDetails;
+    if (JSON.parse(sessionStorage.getItem("loginDetails")) != null) {
+      loginDetails = JSON.parse(sessionStorage.getItem("loginDetails"));
+      if (loginDetails.courseAdminId != null) {
+        this.dashboardLink = "/admin";
+        this.dashboardName = "Admin Dashboard";
+      }else if (loginDetails.mentorId != null) {
+        this.dashboardLink = "/mentor";
+        this.dashboardName = "Mentor Dashboard";
+      }else if (loginDetails.studentId != null) {
+        this.dashboardLink = "/studentdash";
+        this.dashboardName = "Student Dashboard";
+      }
+    } else {
+      this.dashboardLink = null;
+      this.dashboardName = null;
+    }
   }
 }
