@@ -21,18 +21,18 @@ import { HeaderComponent } from 'src/app/shared/header/header.component';
 export class LoginComponent {
   public LoginForm: FormGroup;
   public role: string;
-
+  
+  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent,private headerCom:HeaderComponent) { }
   public change: EventEmitter<MatRadioChange>;
-  baseurlAdmin = "http://localhost:7090/pmrs/admin/login";
-  baseurlMentor = "http://localhost:7090/pmrs/mentor/login";
-  baseurlStudent = "http://localhost:7090/pmrs/student/login";
+  baseurlAdmin = this.commonService.baseurl+"/admin/login";
+  baseurlMentor = this.commonService.baseurl+"/mentor/login";
+  baseurlStudent = this.commonService.baseurl+"/student/login";
 
   courseAdmin: CourseAdmin;
   student: Student;
   mentor: Mentor;
   error: String;
 
-  constructor(private router: Router, private commonService: CommonService, private http: Http,private nav:NavComponent,private headerCom:HeaderComponent) { }
 
   ngOnInit() {
     this.LoginForm = new FormGroup(

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Mentor } from '../mentorlist/Mentor';
 import { MentorFields } from './mentorRegister';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-addmentor',
@@ -12,11 +13,12 @@ import { MentorFields } from './mentorRegister';
 export class AddmentorComponent implements OnInit {
   MentorForm: any;
 
-  baseUrlMentorRegister = "http://localhost:7090/pmrs/admin/registerMentor";
+  constructor(private commonService:CommonService,private http: Http){}
+
+  baseUrlMentorRegister = this.commonService.baseurl+"/admin/registerMentor";
   public mentordata: Mentor;
   public error: string;
   public successMsg: string;
-  constructor(private http: Http) { }
 
   ngOnInit() {
 

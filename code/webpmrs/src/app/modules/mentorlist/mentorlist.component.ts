@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mentor } from './Mentor';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-mentorlist',
@@ -11,7 +12,7 @@ import 'rxjs/Rx';
 export class MentorlistComponent implements OnInit {
   error: string;
 
-  constructor(private http:Http) { }
+  constructor(private http:Http,private commonService:CommonService) { }
  
   flagTable=true;
   flagerror=false;
@@ -22,7 +23,7 @@ export class MentorlistComponent implements OnInit {
     this.getMentorList();
   }
 
-  baseurl="http://localhost:7090/pmrs/admin/mentorList";
+  baseurl=this.commonService.baseurl+"/admin/mentorList";
   getMentorList(){
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
