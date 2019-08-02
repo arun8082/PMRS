@@ -52,7 +52,6 @@ public class Mentor implements Serializable {
 	private LocalDate added;
 
 	public Mentor() {
-		System.out.println("This is mentor's constructor");
 	}
 
 	public Integer getMentorId() {

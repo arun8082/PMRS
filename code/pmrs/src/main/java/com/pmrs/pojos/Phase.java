@@ -35,7 +35,6 @@ public class Phase implements Serializable {
 
 	public Phase() {
 		super();
-		System.out.println("Def constr of Pahse pojo");
 	}
 
 	public Integer getPhaseId() {

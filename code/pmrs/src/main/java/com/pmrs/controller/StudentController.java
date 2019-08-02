@@ -75,7 +75,6 @@ public class StudentController {
 	 */
 	@PostMapping("/memberlist")
 	public List<Student> getMemberList(@RequestBody Project projectId) {
-		System.out.println("In get project member list controller method");
 		return studentService.listAll(projectId);
 	}
 

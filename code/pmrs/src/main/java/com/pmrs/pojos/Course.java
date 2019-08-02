@@ -44,7 +44,6 @@ public class Course implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EEntityStatus courseStatus;
 
-	
 	// @JoinColumn(name = "student_id")
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "courses_students_map", joinColumns = { @JoinColumn(name = "studentId") }, inverseJoinColumns = {
@@ -58,7 +57,6 @@ public class Course implements Serializable {
 
 	public Course() {
 
-		System.out.println("Course Default Constuctor");
 	}
 
 	public Integer getCourseId() {

@@ -20,9 +20,12 @@ import com.pmrs.pojos.CourseAdmin;
 import com.pmrs.pojos.Mentor;
 import com.pmrs.pojos.Project;
 import com.pmrs.pojos.Student;
+
 /**
  * 
- * This controller is responsible for admin related services like insert update delete
+ * This controller is responsible for admin related services like insert update
+ * delete
+ * 
  * @author Arun
  *
  */
@@ -50,12 +53,12 @@ public class CourseAdminController {
 	 * 
 	 * It is login authentication of course administrator.
 	 */
- 	@PostMapping("/login")         
+	@PostMapping("/login")
 	public CourseAdmin authenticateCourseAdmin(@RequestBody CourseAdmin admin) {
 		return courseAdminService.authenticate(admin);
 	}
 
- 	/**
+	/**
 	 * 
 	 * Method to register Mentor
 	 */
@@ -64,6 +67,7 @@ public class CourseAdminController {
 		mentor.setAdded(LocalDate.now());
 		return mentorService.add(mentor);
 	}
+
 	/**
 	 * 
 	 * Method to register Student
@@ -73,6 +77,7 @@ public class CourseAdminController {
 		student.setAdded(LocalDate.now());
 		return studentService.add(student);
 	}
+
 	/**
 	 * 
 	 * Method to register Course
@@ -82,6 +87,7 @@ public class CourseAdminController {
 		course.setAdded(LocalDate.now());
 		return courseService.add(course);
 	}
+
 	/**
 	 * 
 	 * Method to get Course Admin Details
@@ -100,8 +106,7 @@ public class CourseAdminController {
 	}
 
 	/**
-	 * Retrieve all students list with conditions
-	 * mentorId
+	 * Retrieve all students list with conditions mentorId
 	 */
 	public List<Student> getAllStudentList(int men) {
 		return studentService.listAll();

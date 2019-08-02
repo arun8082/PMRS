@@ -70,7 +70,6 @@ public class CourseAdmin implements Serializable{
 
 	public CourseAdmin() {
 		super();
-		System.out.println("Def constr of Course Admin");
 	}
 
 	public Integer getCourseAdminId() {

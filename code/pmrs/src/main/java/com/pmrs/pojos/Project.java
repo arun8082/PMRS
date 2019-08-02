@@ -96,7 +96,6 @@ public class Project implements Serializable{
 	// Default CTOR
 	public Project() {
 		super();
-		System.out.println("Default CTOR of Projects POJO");
 	}
 
 	// Getters and Setters

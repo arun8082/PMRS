@@ -42,7 +42,6 @@ public class ProjectPhase implements Serializable {
 
 	public ProjectPhase() {
 		super();
-		System.out.println("def contr of Project phase");
 	}
 
 	public Integer getProjectPhaseId() {
