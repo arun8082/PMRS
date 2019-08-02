@@ -44,33 +44,48 @@ public class CourseAdminController {
 	private IProjectService projectService;
 
 	public CourseAdminController() {
-		System.out.println("Admin controller ");
 	}
 
-	@PostMapping("/login")
+	/**
+	 * 
+	 * It is login authentication of course administrator.
+	 */
+ 	@PostMapping("/login")         
 	public CourseAdmin authenticateCourseAdmin(@RequestBody CourseAdmin admin) {
-		//System.out.println("controller "+admin);
 		return courseAdminService.authenticate(admin);
 	}
 
+ 	/**
+	 * 
+	 * Method to register Mentor
+	 */
 	@PostMapping("/registerMentor")
 	public Mentor registerMentor(@RequestBody Mentor mentor) {
 		mentor.setAdded(LocalDate.now());
 		return mentorService.add(mentor);
 	}
-
+	/**
+	 * 
+	 * Method to register Student
+	 */
 	@PostMapping("/registerStudent")
 	public Student registerStudent(@RequestBody Student student) {
 		student.setAdded(LocalDate.now());
 		return studentService.add(student);
 	}
-
+	/**
+	 * 
+	 * Method to register Course
+	 */
 	@PostMapping("/registerCourse")
 	public Course registerCourseAdmin(@RequestBody Course course) {
 		course.setAdded(LocalDate.now());
 		return courseService.add(course);
 	}
-
+	/**
+	 * 
+	 * Method to get Course Admin Details
+	 */
 	@PostMapping("/get")
 	public CourseAdmin getCourseAdminDetails(@RequestBody CourseAdmin admin) {
 		return courseAdminService.get(admin.getCourseAdminId());

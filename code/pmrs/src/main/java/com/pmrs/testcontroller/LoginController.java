@@ -30,12 +30,11 @@ public class LoginController {
 	@Autowired
 	private ICourseAdminService courseAdminService;
 
-	//@Autowired
-	//private ICourseDAO courseDAO;
+	// @Autowired
+	// private ICourseDAO courseDAO;
 	@Autowired
-	//private IStudentDAO studentDao;
-	
-	
+	// private IStudentDAO studentDao;
+
 	private ICourseService courseService;
 
 	@GetMapping("/home")
@@ -45,20 +44,16 @@ public class LoginController {
 
 	@PostMapping("/CourseAdmin/get")
 	public CourseAdmin getCourseAdmin(@RequestBody CourseAdmin courseAdmin) {
-		//courseAdmin.setCourseId(courseAdmin.getCourseId());
-		System.out.println(courseAdmin);
 		return courseAdminService.get(courseAdmin.getCourseAdminId());
 	}
 
 	@PostMapping("/CourseAdmin/add")
 	public CourseAdmin addCourseAdmin(@RequestBody CourseAdmin courseAdmin) {
-		System.out.println(courseAdmin);
 		return courseAdminService.add(courseAdmin);
 	}
 
 	@PostMapping("/CourseAdmin/update")
 	public boolean updateCourseAdmin(@RequestBody CourseAdmin courseAdmin) {
-		System.out.println(courseAdmin);
 		courseAdminService.update(courseAdmin);
 		return true;
 	}
@@ -89,30 +84,20 @@ public class LoginController {
 	 * e.printStackTrace(); } catch (IOException e) { // TODO Auto-generated catch
 	 * block e.printStackTrace(); } return 1; }
 	 */
-	/*@PostMapping("/upload")
-	public int uploadDocument(@RequestParam MultipartFile file, Student student) {
-		System.out.println("register student" + student);
-		String uploadLocation = "F:\\b1_project\\PMRS\\code\\pmrs\\target\\documents";
-		System.out.println(file.getOriginalFilename());
-		File dest = new File(uploadLocation, file.getOriginalFilename());
-		// file transferred to server side folder
-		try {
-			file.transferTo(dest);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 1;
-	}
-	*/
+	/*
+	 * @PostMapping("/upload") public int uploadDocument(@RequestParam MultipartFile
+	 * file, Student student) { System.out.println("register student" + student);
+	 * String uploadLocation =
+	 * "F:\\b1_project\\PMRS\\code\\pmrs\\target\\documents";
+	 * System.out.println(file.getOriginalFilename()); File dest = new
+	 * File(uploadLocation, file.getOriginalFilename()); // file transferred to
+	 * server side folder try { file.transferTo(dest); } catch
+	 * (IllegalStateException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } catch (IOException e) { // TODO Auto-generated catch
+	 * block e.printStackTrace(); } return 1; }
+	 */
 	@PostMapping("/register/student")
 	public Student registerStudent(@RequestParam Student student) {
-		System.out.println("register student " + student);
-		// Student s=studentDao.add(student);
-		// System.out.println(s);
 		return null;
 	}
 
