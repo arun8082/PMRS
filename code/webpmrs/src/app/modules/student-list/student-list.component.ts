@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StudentFields } from '../student-register/studentInterface';
 import { Student } from 'src/app/core/models/Student';
 import { Http } from '@angular/http';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'student-list',
@@ -11,9 +12,9 @@ import { Http } from '@angular/http';
 })
 export class StudentListComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,private commonService:CommonService) { }
   flagvar = false;
-  flagTable = true;
+  flagTable = false;
   public StudentForm: FormGroup;
   error;
   index = 1;
@@ -24,7 +25,7 @@ export class StudentListComponent implements OnInit {
     this.getStudentList();
   }
 
-  baseurl = "http://localhost:7090/pmrs/admin/studentList";
+  baseurl = this.commonService.baseurl+"/admin/studentList";
   getStudentList() {
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {
@@ -32,8 +33,12 @@ export class StudentListComponent implements OnInit {
 
       } else {
         this.error = "There is no result...";
+        this.flagTable=true;
       }
     });
+  }
+  onUpdate(){
+
   }
 
 }

@@ -24,7 +24,6 @@ public class CourseAdminDAOImpl
 					.setParameter("email", admin.getEmail())
 					.setParameter("password", admin.getPassword())
 					.getSingleResult();
-			System.out.println(ca);
 			if (ca.getStatus() == EEntityStatus.ACTIVE) {
 				return ca;
 			} else {

@@ -10,19 +10,19 @@ import { Project } from 'src/app/core/models/Project';
 })
 export class ProjectrepositoryComponent implements OnInit {
   
-  index=1; 
   error:string;
   projectList: any;
   contentTitle;
-
+  
   constructor(private http:Http ,private commonService: CommonService) { }
+  index=1; 
 
   ngOnInit() {
 
     this.getProjectList();
   }
 
-    baseurl="http://localhost:7090/pmrs/admin/projectList";
+    baseurl=this.commonService.baseurl+"/admin/projectList";
      getProjectList() {
       this.http.get(this.baseurl).subscribe(result => {
         if (result.text() != "") {
@@ -33,5 +33,8 @@ export class ProjectrepositoryComponent implements OnInit {
         }
       });
 
+    }
+    onUpload(){
+      
     }
 }

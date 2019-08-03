@@ -36,16 +36,28 @@ public class MentorController {
 	@Autowired
 	private IMentorService mentorService;
 
+	/**
+	 * 
+	 * It is login authentication of mentor.
+	 */
 	@PostMapping("/login")
 	public Mentor authenticateMentor(@RequestBody Mentor mentor) {
 		return mentorService.authenticateMentor(mentor);
 	}
 
+	/**
+	 * 
+	 * Method to get student list
+	 */
 	@PostMapping("/studentList")
 	public List<Student> getStudentList(@RequestBody Project projectId) {
 		return studentService.listAll(projectId);
 	}
 
+	/**
+	 * 
+	 * Method to get project list.
+	 */
 	@PostMapping("/projectList")
 	public List<Project> getprojectList(@RequestBody Mentor mentorId) {
 		return projectService.listAll(mentorId);

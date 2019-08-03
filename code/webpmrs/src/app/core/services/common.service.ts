@@ -10,7 +10,7 @@ import { Headers } from '@angular/http';
 export class CommonService {
 
     //baseurl="../../assets/data/student.json";
-    baseurl = "http://localhost:7090/pmrs";
+    public baseurl = "http://localhost:7090/pmrs";
     public dashboardLink: string;
     public dashboardName: string;
     constructor(private http: Http) { }

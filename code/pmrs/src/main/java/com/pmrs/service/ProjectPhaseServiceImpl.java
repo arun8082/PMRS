@@ -27,7 +27,6 @@ public class ProjectPhaseServiceImpl extends GenericServiceImpl<ProjectPhase, In
 	private IProjectPhaseDAO projectPhaseDAO;
 	
 	public ProjectPhaseServiceImpl() {
-		System.out.println("ProjectPhaseService ctor");
 	}
 	
 	@Autowired

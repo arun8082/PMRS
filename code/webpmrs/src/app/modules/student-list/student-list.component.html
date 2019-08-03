@@ -1,8 +1,9 @@
 <!-----Creating student list table----->
 <h2 style="text-align: center">Student List</h2>
-<div *ngIf="flagTable">
+<div >
         <table class="table">
                 <tr>
+                        <th>Sr.</th>
                         <th>FirstName
                         </th>
                         <th>LastName
@@ -13,8 +14,9 @@
                         </th>
                         <th>Course
                         </th>
+                        <th>Action</th>
                 </tr>
-                <tr>
+                <tr *ngIf="flagTable">
                         <td colspan="5" style="text-align: center">{{error}}</td>
                 </tr>
                 <tr *ngFor="let s of list;let i=index">

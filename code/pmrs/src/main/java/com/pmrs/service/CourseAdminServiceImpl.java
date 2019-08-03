@@ -32,7 +32,6 @@ public class CourseAdminServiceImpl extends GenericServiceImpl<CourseAdmin, Inte
 	@Autowired
 	public CourseAdminServiceImpl(@Qualifier("courseAdminDAOImpl") IGenericDAO<CourseAdmin, Integer> genericDAO) {
 		super(genericDAO);
-		System.out.println("In courseAdminServiceImpl "+genericDAO);
 		this.courseAdminDAO = (ICourseAdminDAO) genericDAO;
 	}
 

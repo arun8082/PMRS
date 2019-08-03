@@ -25,7 +25,7 @@ export class MentorProjectListComponent implements OnInit {
     this.getProjectList();
   }
 
-  baseurl="http://localhost:7090/pmrs/admin/projectList";
+  baseurl=this.commonService.baseurl+"/admin/projectList";
   getProjectList(){
     this.http.get(this.baseurl).subscribe(result => {
       if (result.text() != "") {

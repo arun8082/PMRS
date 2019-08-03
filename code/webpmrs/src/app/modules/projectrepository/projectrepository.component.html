@@ -13,8 +13,8 @@
           <th>Action</th>
 
       </tr>
-      <tr *ngFor="let i of projectList;let i=index">
-          <td>{{i+1}}</td>
+      <tr *ngFor="let i of projectList; let in=index">
+          <td>{{in+1}}</td>
           <td>{{i.projectTitle}}</td>
           <td>{{i.projectDescription}}</td>
           <td>{{i.projectTechnology}}</td>

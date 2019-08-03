@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Project } from 'src/app/core/models/Project';
 import { ProjectFields } from './projectregister';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-projectregister',
@@ -11,11 +12,11 @@ import { ProjectFields } from './projectregister';
 })
 export class ProjectregisterComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private http:Http,private commonService:CommonService) { }
   public ProjectForm: FormGroup;
   public project:Project;
   public error:string;
-  public baseurlProjectRegister="http://localhost:7090/pmrs/student/addProject";
+  public baseurlProjectRegister=this.commonService.baseurl+"/student/addProject";
   public successMsg;
 
   ngOnInit() {

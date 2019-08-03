@@ -20,9 +20,12 @@ import com.pmrs.pojos.CourseAdmin;
 import com.pmrs.pojos.Mentor;
 import com.pmrs.pojos.Project;
 import com.pmrs.pojos.Student;
+
 /**
  * 
- * This controller is responsible for admin related services like insert update delete
+ * This controller is responsible for admin related services like insert update
+ * delete
+ * 
  * @author Arun
  *
  */
@@ -44,33 +47,51 @@ public class CourseAdminController {
 	private IProjectService projectService;
 
 	public CourseAdminController() {
-		System.out.println("Admin controller ");
 	}
 
+	/**
+	 * 
+	 * It is login authentication of course administrator.
+	 */
 	@PostMapping("/login")
 	public CourseAdmin authenticateCourseAdmin(@RequestBody CourseAdmin admin) {
-		//System.out.println("controller "+admin);
 		return courseAdminService.authenticate(admin);
 	}
 
+	/**
+	 * 
+	 * Method to register Mentor
+	 */
 	@PostMapping("/registerMentor")
 	public Mentor registerMentor(@RequestBody Mentor mentor) {
 		mentor.setAdded(LocalDate.now());
 		return mentorService.add(mentor);
 	}
 
+	/**
+	 * 
+	 * Method to register Student
+	 */
 	@PostMapping("/registerStudent")
 	public Student registerStudent(@RequestBody Student student) {
 		student.setAdded(LocalDate.now());
 		return studentService.add(student);
 	}
 
+	/**
+	 * 
+	 * Method to register Course
+	 */
 	@PostMapping("/registerCourse")
 	public Course registerCourseAdmin(@RequestBody Course course) {
 		course.setAdded(LocalDate.now());
 		return courseService.add(course);
 	}
 
+	/**
+	 * 
+	 * Method to get Course Admin Details
+	 */
 	@PostMapping("/get")
 	public CourseAdmin getCourseAdminDetails(@RequestBody CourseAdmin admin) {
 		return courseAdminService.get(admin.getCourseAdminId());
@@ -85,8 +106,7 @@ public class CourseAdminController {
 	}
 
 	/**
-	 * Retrieve all students list with conditions
-	 * mentorId
+	 * Retrieve all students list with conditions mentorId
 	 */
 	public List<Student> getAllStudentList(int men) {
 		return studentService.listAll();

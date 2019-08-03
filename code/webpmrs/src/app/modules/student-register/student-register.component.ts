@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StudentFields } from './studentInterface';
 import { Http,Response } from '@angular/http';
 import { Student } from 'src/app/core/models/Student';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-student-register',
@@ -11,9 +12,9 @@ import { Student } from 'src/app/core/models/Student';
 })
 export class StudentRegisterComponent implements OnInit {
 
+  constructor(private http:Http,private commonService:CommonService) { }
   public StudentForm:FormGroup;
-  baseurlStudentregister = "http://localhost:7090/pmrs/student/register";
-  constructor(private http:Http) { }
+  baseurlStudentregister = this.commonService.baseurl+"/student/register";
 
   public student:Student;
   successMessage:string;

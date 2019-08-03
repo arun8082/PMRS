@@ -64,7 +64,6 @@ public class Student implements Serializable {
 
 	public Student() {
 		super();
-		System.out.println("Default constr of Student");
 	}
 
 	public Student(int studentId) {

@@ -16,16 +16,16 @@
                     </th>
                     <th>Edit</th>
             </tr>
-            <tr>
+            <tr *ngIf="flagerror">
                 <td colspan="5" style="text-align: center">{{error}}</td>
                 </tr>
             <tr *ngFor="let s of list;let i=index">
                     <td>{{i+1}}</td>
-                    <td>{{s.FirstName}}</td>
-                    <td>{{s.LastName}}</td>
-                    <td>{{s.Email}}</td>
-                    <td>{{s.Contact}}</td>
-                    <td>{{s.Status}}</td>
+                    <td>{{s.firstName}}</td>
+                    <td>{{s.lastName}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.contact}}</td>
+                    <td>{{s.status}}</td>
                     <td><a routerLink="/updatementor">Edit</a></td>
             </tr>
 

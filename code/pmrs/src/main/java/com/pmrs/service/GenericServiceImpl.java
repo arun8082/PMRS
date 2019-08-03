@@ -16,7 +16,6 @@ public abstract class GenericServiceImpl<E, K> implements IGenericService<E, K> 
 	private IGenericDAO<E, K> genericDAO;
 
 	public GenericServiceImpl() {
-		System.out.println("GenericServiceImpl ctor");
 	}
 
 	public GenericServiceImpl(IGenericDAO<E, K> genericDAO) {
